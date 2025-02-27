@@ -14,6 +14,7 @@ import User from "./models/Usermodel.js";
 import Notification from "./models/Notification.js";
 import Transaction from "./models/Transaction.js";
 import Event from "./models/CalenderEvents.js";
+import placeRouter from './routes/places.js';
 
 dotenv.config();
 
@@ -31,6 +32,7 @@ app.use(morgan("dev")); // Logs requests
 // Mount authentication routes
 app.use('/auth', authRoutes);
 app.use('/', TransactionRoutes);
+app.use('/api/places', placeRouter);
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })

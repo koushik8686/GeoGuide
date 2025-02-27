@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './user/components/Layout';
 import AdminLAyout from './admin/components/Layout.js'
-import Dashboard from './user/pages/Dashboard';
+import Dashboard from './user/pages/Dashboard.jsx';
 import ExplorePage from './user/pages/ExplorePage';
 import CalendarPage from './user/pages/CalendarPage';
 import PackagesPage from './user/pages/PackagesPage';
@@ -28,7 +28,8 @@ import Tours from './admin/pages/Tours.js';
 import Revenue from './admin/pages/Revenue.js';
 import Bookings from './admin/pages/Bookings.js';
 import AdminLogin from './user/pages/Login.js';
-function ManagerLayout({ children }) {
+import UserLocationARView from './Ar.jsx';
+function ManagerLayout({ children }) {  
   return (
     <div className="min-h-screen bg-gray-50">
       <Sidebar />
@@ -43,6 +44,8 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route path='/ar' element={<UserLocationARView />} />
+
         <Route path="/" element={<LandingPage />} />
         <Route path="/user" element={<Layout><Dashboard /></Layout>} />
         <Route path="/user/explore" element={<Layout><ExplorePage /></Layout>} />

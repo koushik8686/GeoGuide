@@ -23,8 +23,10 @@ import {
   AlertCircle
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { API_BASE_URL } from '../../constants/urls';
 import { api } from '../services/api';
 import NewTripForm from '../components/NewTripForm';
+import { Link } from 'react-router-dom';
 
 function WeatherCard({ city, temp, condition, icon: Icon }) {
   return (
@@ -254,13 +256,92 @@ function CurrentTripCard({ trip }) {
   );
 }
 
+function SearchResultCard({ place }) {
+  return (
+    <motion.div
+      initial={{ x: -20, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300"
+    >
+      <div className="relative">
+        {place.photos && place.photos[0] && (
+          <img
+            src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${place.photos[0].photo_reference}&key=AIzaSyBvB2LJE5tjlh4scJ3flCjWfBNzfAVSre0`}
+            alt={place.name}
+            className="w-full h-48 object-cover"
+          />
+        )}
+        <div className="absolute top-4 right-4">
+          <button className="bg-white/90 p-2 rounded-full hover:bg-white transition-colors">
+            <Heart className="w-4 h-4 text-gray-600" />
+          </button>
+        </div>
+        {place.distance && (
+          <div className="absolute bottom-4 left-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
+            {place.distance.formatted} away
+          </div>
+        )}
+      </div>
+      <div className="p-4">
+        <h3 className="font-semibold text-lg text-gray-800 mb-2">{place.name}</h3>
+        <div className="flex items-center mb-2">
+          <span className="text-yellow-400">{'★'.repeat(Math.round(place.rating || 0))}</span>
+          <span className="text-gray-600 ml-2">({place.user_ratings_total || 0} reviews)</span>
+        </div>
+        <div className="flex items-center text-gray-600 text-sm mb-3">
+          <MapPin className="w-4 h-4 mr-1" />
+          {place.vicinity}
+        </div>
+        <div className="flex justify-between items-center">
+          <Link
+            to={`/ar?placeId=${place.place_id}`}
+            className="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors flex items-center gap-2"
+          >
+            <Map className="w-4 h-4" />
+            Explore in AR
+          </Link>
+          {place.opening_hours && (
+            <span className={`text-sm ${place.opening_hours.open_now ? 'text-green-600' : 'text-red-600'}`}>
+              {place.opening_hours.open_now ? 'Open Now' : 'Closed'}
+            </span>
+          )}
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
 export default function Dashboard() {
+  const [userLocation, setUserLocation] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
   const [location, setLocation] = useState("");
   const [isListening, setIsListening] = useState(false);
+  const [voiceError, setVoiceError] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
   const [showNewTripForm, setShowNewTripForm] = useState(false);
   const [currentTrip, setCurrentTrip] = useState(null);
+  const [searchRadius, setSearchRadius] = useState(5); // in kilometers
+
+  useEffect(() => {
+    // Get user's current location when component mounts
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setUserLocation({
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          });
+        },
+        (error) => {
+          console.error('Error getting location:', error);
+          setVoiceError('Unable to get your location. Please enable location services.');
+        }
+      );
+    } else {
+      setVoiceError('Geolocation is not supported by your browser');
+    }
+  }, []);
 
   useEffect(() => {
     const fetchCurrentTrip = async () => {
@@ -275,25 +356,105 @@ export default function Dashboard() {
   }, []);
 
   const handleLocationSearch = async () => {
+    if (!searchQuery.trim() || !userLocation) return;
+    
     setIsSearching(true);
-    const results = await api.searchLocations(location);
-    setSearchResults(results);
-    setIsSearching(false);
+    setVoiceError("");
+    try {
+      const response = await fetch(
+        `${API_BASE_URL}/api/places/nearby?lat=${userLocation.lat}&lng=${userLocation.lng}&query=${encodeURIComponent(searchQuery)}&radius=${searchRadius * 1000}`
+      );
+      const data = await response.json();
+      
+      if (!response.ok) {
+        console.error('API Error:', data);
+        setVoiceError(data.error || 'Failed to search locations');
+        setSearchResults([]);
+        return;
+      }
+      
+      if (data.results.length === 0) {
+        setVoiceError(`No ${searchQuery} found within ${searchRadius}km of your location`);
+        setSearchResults([]);
+      } else {
+        setSearchResults(data.results || []);
+        setVoiceError("");
+      }
+
+      // Log the response for debugging
+      console.log('Places API Response:', {
+        query: data.metadata.query,
+        types: data.metadata.searchTypes,
+        totalResults: data.metadata.totalResults,
+        apiStatus: data.metadata.apiStatus
+      });
+    } catch (error) {
+      console.error('Error searching locations:', error);
+      setVoiceError("Failed to search locations. Please try again.");
+      setSearchResults([]);
+    } finally {
+      setIsSearching(false);
+    }
   };
 
   const startVoiceInput = () => {
-    setIsListening(true);
-    setTimeout(() => {
+    setVoiceError("");
+    
+    if (!userLocation) {
+      setVoiceError("Please enable location services to search nearby places");
+      return;
+    }
+    
+    // Check if browser supports speech recognition
+    if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+      setVoiceError("Voice recognition is not supported in your browser");
+      return;
+    }
+
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognition();
+
+    recognition.lang = 'en-US';
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
+    recognition.onstart = () => {
+      setIsListening(true);
+      setVoiceError("");
+    };
+
+    recognition.onend = () => {
       setIsListening(false);
-      setLocation("Paris, France");
-    }, 2000);
+    };
+
+    recognition.onresult = (event) => {
+      const transcript = event.results[0][0].transcript;
+      console.log(transcript);
+      setSearchQuery(transcript);
+      // Automatically trigger search after voice input
+      handleLocationSearch();
+    };
+
+    recognition.onerror = (event) => {
+      setIsListening(false);
+      setVoiceError(`Error: ${event.error}`);
+      console.error('Speech recognition error:', event.error);
+    };
+
+    try {
+      recognition.start();
+    } catch (error) {
+      setVoiceError("Error starting voice recognition");
+      console.error('Error starting recognition:', error);
+    }
   };
 
   const handleTripCreated = async () => {
     const trip = await api.getCurrentTrip();
     setCurrentTrip(trip);
   };
-
+ 
+  
   return (
     <div>
       {/* Enhanced Search Section */}
@@ -306,34 +467,77 @@ export default function Dashboard() {
           <div className="flex-1 relative">
             <input
               type="text"
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-              placeholder="Enter location (e.g., Paris, Tokyo)"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="What are you looking for? (e.g., restaurants, beaches)"
               className="w-full px-4 py-3 pl-12 bg-gray-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
             />
-            <MapPin className="w-6 h-6 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
+            <Search className="w-6 h-6 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
           </div>
           <div className="flex gap-2">
             <button
               onClick={startVoiceInput}
+              disabled={isListening}
               className={`p-3 rounded-lg transition-colors ${
                 isListening 
                   ? 'bg-red-50 text-red-600 animate-pulse'
                   : 'bg-gray-50 text-gray-600 hover:bg-gray-100'
               }`}
+              title={voiceError || "Click to start voice input"}
             >
               <Mic className="w-6 h-6" />
             </button>
             <button
               onClick={handleLocationSearch}
-              className="px-6 py-3 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors flex items-center gap-2"
+              disabled={isSearching || !searchQuery.trim()}
+              className={`px-6 py-3 bg-emerald-600 text-white rounded-lg transition-colors flex items-center gap-2 ${
+                isSearching || !searchQuery.trim() ? 'opacity-50 cursor-not-allowed' : 'hover:bg-emerald-700'
+              }`}
             >
-              <Search className="w-5 h-5" />
-              Find Places
+              {isSearching ? (
+                <span className="flex items-center gap-2">
+                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  Searching...
+                </span>
+              ) : (
+                <>
+                  <Search className="w-5 h-5" />
+                  Find Places
+                </>
+              )}
             </button>
           </div>
         </div>
 
+        {/* Distance Slider */}
+        <div className="mt-4">
+          <div className="flex items-center justify-between mb-2">
+            <label htmlFor="distance" className="text-sm font-medium text-gray-700">
+              Search Radius: {searchRadius} km
+            </label>
+            <span className="text-xs text-gray-500">
+              {searchRadius === 1 ? '1 kilometer' : `${searchRadius} kilometers`}
+            </span>
+          </div>
+          <input
+            type="range"
+            id="distance"
+            min="1"
+            max="50"
+            value={searchRadius}
+            onChange={(e) => setSearchRadius(Number(e.target.value))}
+            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-emerald-600"
+          />
+          <div className="flex justify-between text-xs text-gray-500 mt-1">
+            <span>1 km</span>
+            <span>25 km</span>
+            <span>50 km</span>
+          </div>
+        </div>
+
+        {voiceError && (
+          <p className="mt-2 text-sm text-red-600">{voiceError}</p>
+        )}
         {/* Search Results */}
         <AnimatePresence>
           {searchResults.length > 0 && (
@@ -341,29 +545,14 @@ export default function Dashboard() {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              className="mt-4 space-y-2"
+              className="mt-8"
             >
-              {searchResults.map(place => (
-                <motion.div
-                  key={place.id}
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  className="p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
-                >
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <h3 className="font-medium text-gray-800">{place.name}</h3>
-                      <div className="flex items-center text-sm text-gray-600 mt-1">
-                        <MapPin className="w-4 h-4 mr-1" />
-                        {place.address}
-                      </div>
-                    </div>
-                    <button className="text-emerald-600 hover:text-emerald-700">
-                      View Details
-                    </button>
-                  </div>
-                </motion.div>
-              ))}
+              <h2 className="text-xl font-semibold text-gray-800 mb-4">Search Results</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {searchResults.map(place => (
+                  <SearchResultCard key={place.place_id} place={place} />
+                ))}
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
@@ -416,7 +605,7 @@ export default function Dashboard() {
         <h2 className="text-xl font-semibold text-gray-800 mb-4">Upcoming Trips</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <TripCard
-            image="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?q=80&w=2070&auto=format&fit=crop"
+            image="https://images.unsplash.com/photo-1499856871958-91e8fad9978e?q=80&w=2070&auto=format&fit=crop"
             title="Paris Adventure"
             date="May 15 - May 22, 2024"
             location="Paris, France"

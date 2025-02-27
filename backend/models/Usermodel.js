@@ -11,6 +11,7 @@ const UserSchema = new mongoose.Schema({
   deviceToken: String, // For push notifications
   otp: { type: String },
   otpExpiry: { type: Date },
+  followers:[String],
   verified: { type: Boolean, default: false },
   events:[],
   history:[],
