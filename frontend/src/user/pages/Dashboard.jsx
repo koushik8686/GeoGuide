@@ -20,32 +20,66 @@ import {
   DollarSign,
   Timer,
   CheckCircle,
-  AlertCircle
+  AlertCircle,
+  Cloud
 } from 'lucide-react';
+import axios from 'axios';
 import { motion, AnimatePresence } from 'framer-motion';
 import { API_BASE_URL } from '../../constants/urls';
 import { api } from '../services/api';
 import NewTripForm from '../components/NewTripForm';
 import { Link } from 'react-router-dom';
 
-function WeatherCard({ city, temp, condition, icon: Icon }) {
+function WeatherCard({ city, weather }) {
+  if (!weather) return null;
+
+  // Map weather conditions to icons
+  const getWeatherIcon = (condition) => {
+    switch (condition) {
+      case 'Clear':
+        return Sun;
+      case 'Rain':
+        return CloudRain;
+      case 'Clouds':
+        return Cloud;
+      case 'Wind':
+        return Wind;
+      default:
+        return Sun;
+    }
+  };
+
+  const WeatherIcon = getWeatherIcon(weather.weather[0].main);
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="bg-white/90 p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-    >
-      <div className="flex items-center justify-between">
-        <div>
-          <h3 className="text-lg font-semibold text-gray-800">{city}</h3>
-          <p className="text-sm text-gray-500">{condition}</p>
-        </div>
-        <div className="flex items-center">
-          <Icon className="w-8 h-8 text-emerald-500 mr-2" />
-          <span className="text-2xl font-bold text-gray-800">{temp}°C</span>
+    <div className="bg-white rounded-lg p-6 shadow-lg">
+      <div className="flex items-center justify-between mb-4">
+        <h3 className="text-lg font-semibold">{city}</h3>
+        <WeatherIcon className="w-8 h-8 text-emerald-500" />
+      </div>
+      <div className="space-y-2">
+        <p className="text-3xl font-bold">{Math.round(weather.main.temp)}°C</p>
+        <p className="text-gray-600 capitalize">{weather.weather[0].description}</p>
+        <div className="grid grid-cols-2 gap-2 mt-4 text-sm text-gray-600">
+          <div>
+            <p>Humidity</p>
+            <p className="font-medium">{weather.main.humidity}%</p>
+          </div>
+          <div>
+            <p>Wind</p>
+            <p className="font-medium">{weather.wind.speed} m/s</p>
+          </div>
+          <div>
+            <p>Feels Like</p>
+            <p className="font-medium">{Math.round(weather.main.feels_like)}°C</p>
+          </div>
+          <div>
+            <p>Visibility</p>
+            <p className="font-medium">{(weather.visibility / 1000).toFixed(1)} km</p>
+          </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
@@ -294,7 +328,8 @@ function SearchResultCard({ place }) {
         </div>
         <div className="flex justify-between items-center">
           <Link
-            to={`/ar?placeId=${place.place_id}`}
+            target="_blank"
+            to={`/ar/${place.geometry.location.lat}/${place.geometry.location.lng}`}
             className="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors flex items-center gap-2"
           >
             <Map className="w-4 h-4" />
@@ -317,6 +352,7 @@ export default function Dashboard() {
   const [location, setLocation] = useState("");
   const [isListening, setIsListening] = useState(false);
   const [voiceError, setVoiceError] = useState("");
+  const [weather, setWeather] = useState(null);
   const [searchResults, setSearchResults] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
   const [showNewTripForm, setShowNewTripForm] = useState(false);
@@ -324,6 +360,34 @@ export default function Dashboard() {
   const [searchRadius, setSearchRadius] = useState(5); // in kilometers
 
   useEffect(() => {
+    const getPlaceName = async (lat, lng) => {
+      const apiKey = import.meta.env.VITE_GOOGLE_PLACES_API_KEY;
+      console.log("api" ,apiKey)
+      const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${apiKey}`;
+    
+      try {
+        const response = await axios.get(url);
+        const placeName = response.data.results[5]?.formatted_address;
+        setLocation(placeName);
+      } catch (error) {
+        console.error('Error fetching place name:', error);
+      }
+    };
+    const fetchWeather = async (lat , lon) => {
+      try {
+        const response = await axios.get(
+          `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=28412fb167c07b40f03f1e004d82ef15&units=metric`
+        );
+        console.log(response.data)
+        setWeather(response.data);
+      } catch (error) {
+        console.error('Error fetching weather:', error);
+        setWeather(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+  
     // Get user's current location when component mounts
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -332,6 +396,8 @@ export default function Dashboard() {
             lat: position.coords.latitude,
             lng: position.coords.longitude
           });
+          getPlaceName(position.coords.latitude, position.coords.longitude);
+          fetchWeather(position.coords.latitude, position.coords.longitude);
         },
         (error) => {
           console.error('Error getting location:', error);
@@ -578,9 +644,7 @@ export default function Dashboard() {
 
       {/* Weather Updates */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-        <WeatherCard city="Paris" temp={22} condition="Sunny" icon={Sun} />
-        <WeatherCard city="Tokyo" temp={19} condition="Rainy" icon={CloudRain} />
-        <WeatherCard city="New York" temp={18} condition="Windy" icon={Wind} />
+        <WeatherCard city={location} weather={weather} />
       </div>
 
       {/* Current Trip Section */}

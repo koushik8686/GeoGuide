@@ -120,16 +120,12 @@ router.get('/nearby', async (req, res) => {
                     key: process.env.GOOGLE_PLACES_API_KEY,
                     rankby: 'prominence', // Changed from 'rating' to 'prominence' for better results
                 },
-            }).then((response) => {
-                console.log('Final URL:', response.config.url);
-                return response;
             })
         );
-
+       console.log('url : ' , `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${coordinates.lat},${coordinates.lng}&radius=${searchRadius}&type=${searchTypes.join('|')}&keyword=${query}&key=${process.env.GOOGLE_PLACES_API_KEY}&rankby=prominence`)
         const responses = await Promise.all(placePromises);
 
         // Log the responses from Google Places API
-        console.log('Google Places API responses:', responses.map((r) => r.data));
 
         // Combine and deduplicate results
         const allPlaces = responses.reduce((acc, response) => {
@@ -167,10 +163,9 @@ router.get('/nearby', async (req, res) => {
         });
 
         // Log the final results
-        console.log('Final results:', places.slice(0, 20));
 
         res.json({
-            results: places.slice(0, 20),
+            results: places,
             metadata: {
                 query: query,
                 searchTypes: searchTypes,
@@ -188,44 +183,7 @@ router.get('/nearby', async (req, res) => {
     }
 });
 
-router.get('/details/:placeId', async (req, res) => {
-    try {
-        const { placeId } = req.params;
-        
-        if (!placeId) {
-            return res.status(400).json({
-                error: 'Place ID is required'
-            });
-        }
 
-        const response = await axios.get(
-            'https://maps.googleapis.com/maps/api/place/details/json',
-            {
-                params: {
-                    place_id: placeId,
-                    key: process.env.GOOGLE_PLACES_API_KEY,
-                    fields: 'name,formatted_address,geometry,photos,rating,reviews,opening_hours,website,formatted_phone_number'
-                }
-            }
-        );
-
-        if (response.data.status !== 'OK') {
-            console.error('Place Details API error:', response.data);
-            return res.status(400).json({
-                error: 'Failed to fetch place details',
-                details: response.data.error_message
-            });
-        }
-
-        res.json(response.data.result);
-    } catch (error) {
-        console.error('Error fetching place details:', error);
-        res.status(500).json({
-            error: 'Failed to fetch place details',
-            details: error.message
-        });
-    }
-});
 
 // Calculate distance between two points using Haversine formula
 function calculateDistance(lat1, lon1, lat2, lon2) {

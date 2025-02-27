@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './user/components/Layout';
 import AdminLAyout from './admin/components/Layout.js'
+import StreetView from './user/pages/ArView.jsx';
 import Dashboard from './user/pages/Dashboard.jsx';
 import ExplorePage from './user/pages/ExplorePage';
 import CalendarPage from './user/pages/CalendarPage';
@@ -44,8 +45,8 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route path='/ar/:lat/:lng' element={<StreetView />} />
         <Route path='/ar' element={<UserLocationARView />} />
-
         <Route path="/" element={<LandingPage />} />
         <Route path="/user" element={<Layout><Dashboard /></Layout>} />
         <Route path="/user/explore" element={<Layout><ExplorePage /></Layout>} />
