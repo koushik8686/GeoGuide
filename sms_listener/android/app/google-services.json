@@ -1,0 +1,39 @@
+{
+    "project_info": {
+      "project_number": "992973897759",
+      "project_id": "globemate-877c9",
+      "storage_bucket": "globemate-877c9.firebasestorage.app"
+    },
+    "client": [
+      {
+        "client_info": {
+          "mobilesdk_app_id": "1:992973897759:android:5c56b30db0d754e03b552a",
+          "android_client_info": {
+            "package_name": "com.example.sms_listener"
+          }
+        },
+        "oauth_client": [
+          {
+            "client_id": "992973897759-2kbtivrhfdio3u3kl0nv82vstbr0l455.apps.googleusercontent.com",
+            "client_type": 3
+          }
+        ],
+        "api_key": [
+          {
+            "current_key": "AIzaSyAbTwQODCoMABgK2L2hxof1nzsu5GJ869U"
+          }
+        ],
+        "services": {
+          "appinvite_service": {
+            "other_platform_oauth_client": [
+              {
+                "client_id": "992973897759-2kbtivrhfdio3u3kl0nv82vstbr0l455.apps.googleusercontent.com",
+                "client_type": 3
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "configuration_version": "1"
+  }
