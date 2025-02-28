@@ -15,6 +15,7 @@ import Notification from "./models/Notification.js";
 import Transaction from "./models/Transaction.js";
 import Event from "./models/CalenderEvents.js";
 import placeRouter from './routes/places.js';
+import TripRouter from './routes/Trip.js'
 
 dotenv.config();
 
@@ -33,7 +34,7 @@ app.use(morgan("dev")); // Logs requests
 app.use('/auth', authRoutes);
 app.use('/', TransactionRoutes);
 app.use('/api/places', placeRouter);
-
+app.use('/api/trips' , TripRouter)
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("✅ MongoDB Connected"))

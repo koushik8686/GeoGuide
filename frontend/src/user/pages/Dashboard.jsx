@@ -1,3 +1,6 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { setWeather, setLocation, setUserLocation, setLoading, setError } from '../../redux/slices/weatherSlice';
+import { fetchCurrentTrip, cancelCurrentTrip } from '../../redux/slices/tripSlice';
 import React, { useState, useEffect } from 'react';
 import { 
   MapPin, 
@@ -21,14 +24,15 @@ import {
   Timer,
   CheckCircle,
   AlertCircle,
-  Cloud
+  Cloud,
+  Compass
 } from 'lucide-react';
 import axios from 'axios';
 import { motion, AnimatePresence } from 'framer-motion';
 import { API_BASE_URL } from '../../constants/urls';
 import { api } from '../services/api';
-import NewTripForm from '../components/NewTripForm';
 import { Link } from 'react-router-dom';
+import NewTripForm from '../../components/NewTripForm';
 
 function WeatherCard({ city, weather }) {
   if (!weather) return null;
@@ -162,11 +166,13 @@ function RecommendationCard({ image, title, rating, price }) {
   );
 }
 
-function CurrentTripCard({ trip }) {
+function CurrentTripCard({ trip, onCancelTrip }) {
   const [timeElapsed, setTimeElapsed] = useState('');
 
   useEffect(() => {
-    const startDate = new Date('2024-03-10T00:00:00');
+    if (!trip || !trip.startDate) return;
+    
+    const startDate = new Date(trip.startDate);
     
     const updateTimeElapsed = () => {
       const now = new Date();
@@ -183,7 +189,9 @@ function CurrentTripCard({ trip }) {
     const interval = setInterval(updateTimeElapsed, 60000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [trip]);
+
+  if (!trip) return null;
 
   return (
     <motion.div
@@ -193,22 +201,25 @@ function CurrentTripCard({ trip }) {
     >
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h2 className="text-2xl font-bold text-gray-800">Current Trip: Tokyo Explorer</h2>
+          <h2 className="text-2xl font-bold text-gray-800">Current Trip: {trip.title}</h2>
           <div className="flex items-center gap-4 mt-2 text-gray-600">
             <div className="flex items-center">
               <MapPin className="w-4 h-4 mr-1" />
-              Tokyo, Japan
+              {trip.location}
             </div>
             <div className="flex items-center">
               <Calendar className="w-4 h-4 mr-1" />
-              Mar 10 - Mar 20, 2024
+              {new Date(trip.startDate).toLocaleDateString()} - {new Date(trip.endDate).toLocaleDateString()}
             </div>
           </div>
         </div>
         <div className="flex items-center gap-4">
-          <button className="px-4 py-2 bg-red-100 text-red-600 rounded-lg hover:bg-red-200 transition-colors flex items-center gap-2">
+          <button 
+            onClick={() => onCancelTrip(trip._id)}
+            className="px-4 py-2 bg-red-100 text-red-600 rounded-lg hover:bg-red-200 transition-colors flex items-center gap-2"
+          >
             <AlertCircle className="w-4 h-4" />
-            Report Issue
+            Cancel Trip
           </button>
           <button className="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors flex items-center gap-2">
             <CheckCircle className="w-4 h-4" />
@@ -224,7 +235,7 @@ function CurrentTripCard({ trip }) {
             <span className="text-sm text-emerald-600">Time Elapsed</span>
           </div>
           <p className="text-2xl font-bold text-gray-800">{timeElapsed}</p>
-          <p className="text-sm text-gray-600 mt-1">of 10 days total</p>
+          <p className="text-sm text-gray-600 mt-1">of {trip.duration} days total</p>
         </div>
 
         <div className="bg-blue-50 rounded-lg p-4">
@@ -232,8 +243,8 @@ function CurrentTripCard({ trip }) {
             <DollarSign className="w-6 h-6 text-blue-600" />
             <span className="text-sm text-blue-600">Spent So Far</span>
           </div>
-          <p className="text-2xl font-bold text-gray-800">$1,250</p>
-          <p className="text-sm text-gray-600 mt-1">of $3,000 budget</p>
+          <p className="text-2xl font-bold text-gray-800">${trip.spentAmount || 0}</p>
+          <p className="text-sm text-gray-600 mt-1">of ${trip.budget} budget</p>
         </div>
 
         <div className="bg-purple-50 rounded-lg p-4">
@@ -241,8 +252,8 @@ function CurrentTripCard({ trip }) {
             <Map className="w-6 h-6 text-purple-600" />
             <span className="text-sm text-purple-600">Places Visited</span>
           </div>
-          <p className="text-2xl font-bold text-gray-800">8</p>
-          <p className="text-sm text-gray-600 mt-1">of 15 planned</p>
+          <p className="text-2xl font-bold text-gray-800">{trip.visitedPlaces?.length || 0}</p>
+          <p className="text-sm text-gray-600 mt-1">of {trip.plannedPlaces?.length || 0} planned</p>
         </div>
 
         <div className="bg-yellow-50 rounded-lg p-4">
@@ -250,42 +261,45 @@ function CurrentTripCard({ trip }) {
             <TrendingUp className="w-6 h-6 text-yellow-600" />
             <span className="text-sm text-yellow-600">Trip Progress</span>
           </div>
-          <p className="text-2xl font-bold text-gray-800">65%</p>
+          <p className="text-2xl font-bold text-gray-800">{trip.progress || 0}%</p>
           <div className="w-full h-2 bg-yellow-100 rounded-full mt-2">
-            <div className="w-[65%] h-full bg-yellow-400 rounded-full"></div>
+            <div 
+              className="h-full bg-yellow-400 rounded-full"
+              style={{ width: `${trip.progress || 0}%` }}
+            ></div>
           </div>
         </div>
       </div>
 
-      <div className="mt-6 pt-6 border-t">
-        <h3 className="text-lg font-semibold text-gray-800 mb-4">Today's Itinerary</h3>
-        <div className="space-y-4">
-          <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-            <div className="flex items-center gap-3">
-              <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
-              <span className="text-gray-600">9:00 AM</span>
-              <span className="font-medium text-gray-800">Tsukiji Fish Market Tour</span>
-            </div>
-            <span className="text-sm text-emerald-600">Completed</span>
-          </div>
-          <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-            <div className="flex items-center gap-3">
-              <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-              <span className="text-gray-600">2:00 PM</span>
-              <span className="font-medium text-gray-800">Sensoji Temple Visit</span>
-            </div>
-            <span className="text-sm text-blue-600">In Progress</span>
-          </div>
-          <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-            <div className="flex items-center gap-3">
-              <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
-              <span className="text-gray-600">7:00 PM</span>
-              <span className="font-medium text-gray-800">Shibuya Crossing & Dinner</span>
-            </div>
-            <span className="text-sm text-gray-600">Upcoming</span>
+      {trip.itinerary && (
+        <div className="mt-6 pt-6 border-t">
+          <h3 className="text-lg font-semibold text-gray-800 mb-4">Today's Itinerary</h3>
+          <div className="space-y-4">
+            {trip.itinerary.map((item, index) => (
+              <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                <div className="flex items-center gap-3">
+                  <div className={`w-2 h-2 rounded-full ${
+                    item.status === 'completed' ? 'bg-emerald-500' :
+                    item.status === 'in_progress' ? 'bg-blue-500' :
+                    'bg-gray-300'
+                  }`}></div>
+                  <span className="text-gray-600">{item.time}</span>
+                  <span className="font-medium text-gray-800">{item.activity}</span>
+                </div>
+                <span className={`text-sm ${
+                  item.status === 'completed' ? 'text-emerald-600' :
+                  item.status === 'in_progress' ? 'text-blue-600' :
+                  'text-gray-600'
+                }`}>
+                  {item.status === 'completed' ? 'Completed' :
+                   item.status === 'in_progress' ? 'In Progress' :
+                   'Upcoming'}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
-      </div>
+      )}
     </motion.div>
   );
 }
@@ -347,79 +361,112 @@ function SearchResultCard({ place }) {
 }
 
 export default function Dashboard() {
-  const [userLocation, setUserLocation] = useState(null);
+  const dispatch = useDispatch();
+  const { weather, location, userLocation, loading } = useSelector((state) => state.weather);
+  const { currentTrip } = useSelector((state) => state.trips);
   const [searchQuery, setSearchQuery] = useState("");
-  const [location, setLocation] = useState("");
   const [isListening, setIsListening] = useState(false);
   const [voiceError, setVoiceError] = useState("");
-  const [weather, setWeather] = useState(null);
   const [searchResults, setSearchResults] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
   const [showNewTripForm, setShowNewTripForm] = useState(false);
-  const [currentTrip, setCurrentTrip] = useState(null);
-  const [searchRadius, setSearchRadius] = useState(5); // in kilometers
+  const [searchRadius, setSearchRadius] = useState(5);
+  const [customLocation, setCustomLocation] = useState({
+    lat: '',
+    lng: ''
+  });
 
   useEffect(() => {
-    const getPlaceName = async (lat, lng) => {
-      const apiKey = import.meta.env.VITE_GOOGLE_PLACES_API_KEY;
-      console.log("api" ,apiKey)
-      const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${apiKey}`;
-    
-      try {
-        const response = await axios.get(url);
-        const placeName = response.data.results[5]?.formatted_address;
-        setLocation(placeName);
-      } catch (error) {
-        console.error('Error fetching place name:', error);
-      }
-    };
-    const fetchWeather = async (lat , lon) => {
-      try {
-        const response = await axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=28412fb167c07b40f03f1e004d82ef15&units=metric`
-        );
-        console.log(response.data)
-        setWeather(response.data);
-      } catch (error) {
-        console.error('Error fetching weather:', error);
-        setWeather(null);
-      } finally {
-        setLoading(false);
-      }
-    };
-  
-    // Get user's current location when component mounts
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          setUserLocation({
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
+    const initializeLocation = async () => {
+      if (!userLocation && navigator.geolocation) {
+        try {
+          const position = await new Promise((resolve, reject) => {
+            navigator.geolocation.getCurrentPosition(resolve, reject);
           });
-          getPlaceName(position.coords.latitude, position.coords.longitude);
-          fetchWeather(position.coords.latitude, position.coords.longitude);
-        },
-        (error) => {
+          
+          const { latitude, longitude } = position.coords;
+          dispatch(setUserLocation({
+            lat: latitude,
+            lng: longitude
+          }));
+          await getPlaceName(latitude, longitude);
+          await fetchWeather(latitude, longitude);
+        } catch (error) {
           console.error('Error getting location:', error);
           setVoiceError('Unable to get your location. Please enable location services.');
         }
-      );
-    } else {
-      setVoiceError('Geolocation is not supported by your browser');
-    }
-  }, []);
-
-  useEffect(() => {
-    const fetchCurrentTrip = async () => {
-      try {
-        const trip = await api.getCurrentTrip();
-        setCurrentTrip(trip);
-      } catch (error) {
-        console.error('Error fetching current trip:', error);
       }
     };
-    fetchCurrentTrip();
-  }, []);
+
+    initializeLocation();
+  }, [dispatch]);
+
+  useEffect(() => {
+    // Fetch current trip when component mounts
+    const userId = localStorage.getItem('userId'); // Assuming you store userId in localStorage
+    if (userId) {
+      dispatch(fetchCurrentTrip(userId));
+    }
+  }, [dispatch]);
+
+  const handleCustomLocationSearch = async () => {
+    if (!customLocation.lat || !customLocation.lng) {
+      setVoiceError("Please enter both latitude and longitude");
+      return;
+    }
+
+    const lat = parseFloat(customLocation.lat);
+    const lng = parseFloat(customLocation.lng);
+
+    if (isNaN(lat) || isNaN(lng) || lat < -90 || lat > 90 || lng < -180 || lng > 180) {
+      setVoiceError("Invalid latitude or longitude values");
+      return;
+    }
+
+    dispatch(setLoading(true));
+    try {
+      dispatch(setUserLocation({ lat, lng }));
+      await getPlaceName(lat, lng);
+      await fetchWeather(lat, lng);
+      if (searchQuery.trim()) {
+        await handleLocationSearch();
+      }
+      setVoiceError("");
+    } catch (error) {
+      console.error('Error searching custom location:', error);
+      setVoiceError("Failed to search at the specified location");
+    } finally {
+      dispatch(setLoading(false));
+    }
+  };
+
+  const getPlaceName = async (lat, lng) => {
+    const apiKey = import.meta.env.VITE_GOOGLE_PLACES_API_KEY;
+    const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${apiKey}`;
+  
+    try {
+      const response = await axios.get(url);
+      const placeName = response.data.results[5]?.formatted_address;
+      dispatch(setLocation(placeName));
+    } catch (error) {
+      console.error('Error fetching place name:', error);
+    }
+  };
+
+  const fetchWeather = async (lat, lon) => {
+    dispatch(setLoading(true));
+    try {
+      const response = await axios.get(
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=28412fb167c07b40f03f1e004d82ef15&units=metric`
+      );
+      dispatch(setWeather(response.data));
+    } catch (error) {
+      console.error('Error fetching weather:', error);
+      dispatch(setWeather(null));
+    } finally {
+      dispatch(setLoading(false));
+    }
+  };
 
   const handleLocationSearch = async () => {
     if (!searchQuery.trim() || !userLocation) return;
@@ -446,14 +493,6 @@ export default function Dashboard() {
         setSearchResults(data.results || []);
         setVoiceError("");
       }
-
-      // Log the response for debugging
-      console.log('Places API Response:', {
-        query: data.metadata.query,
-        types: data.metadata.searchTypes,
-        totalResults: data.metadata.totalResults,
-        apiStatus: data.metadata.apiStatus
-      });
     } catch (error) {
       console.error('Error searching locations:', error);
       setVoiceError("Failed to search locations. Please try again.");
@@ -515,14 +554,85 @@ export default function Dashboard() {
     }
   };
 
-  const handleTripCreated = async () => {
-    const trip = await api.getCurrentTrip();
-    setCurrentTrip(trip);
+  const handleTripCreated = async (newTrip) => {
+    setShowNewTripForm(false);
+    // Fetch updated current trip after creation
+    const userId = localStorage.getItem('userId');
+    if (userId) {
+      dispatch(fetchCurrentTrip(userId));
+    }
   };
- 
-  
+
+  const handleCancelTrip = async (tripId) => {
+    try {
+      await dispatch(cancelCurrentTrip(tripId)).unwrap();
+      // The trip will be set to null automatically through the reducer
+    } catch (error) {
+      console.error('Failed to cancel trip:', error);
+    }
+  };
+
   return (
     <div>
+      {/* Custom Location Search */}
+      <motion.div 
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="bg-white rounded-xl shadow-lg p-6 mb-8"
+      >
+        <h2 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
+          <Compass className="w-5 h-5 text-emerald-600" />
+          Find Places at Custom Location
+        </h2>
+        <div className="flex flex-col md:flex-row gap-4">
+          <div className="flex-1 grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Latitude
+              </label>
+              <input
+                type="number"
+                step="any"
+                value={customLocation.lat}
+                onChange={(e) => setCustomLocation(prev => ({ ...prev, lat: e.target.value }))}
+                placeholder="Enter latitude"
+                className="w-full px-4 py-2 bg-gray-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Longitude
+              </label>
+              <input
+                type="number"
+                step="any"
+                value={customLocation.lng}
+                onChange={(e) => setCustomLocation(prev => ({ ...prev, lng: e.target.value }))}
+                placeholder="Enter longitude"
+                className="w-full px-4 py-2 bg-gray-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              />
+            </div>
+          </div>
+          <button
+            onClick={handleCustomLocationSearch}
+            disabled={loading}
+            className="px-6 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors flex items-center gap-2 h-[42px] self-end"
+          >
+            {loading ? (
+              <span className="flex items-center gap-2">
+                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                Searching...
+              </span>
+            ) : (
+              <>
+                <MapPin className="w-4 h-4" />
+                Set Location
+              </>
+            )}
+          </button>
+        </div>
+      </motion.div>
+
       {/* Enhanced Search Section */}
       <motion.div 
         initial={{ opacity: 0, y: -20 }}
@@ -648,7 +758,7 @@ export default function Dashboard() {
       </div>
 
       {/* Current Trip Section */}
-      {currentTrip && <CurrentTripCard trip={currentTrip} />}
+      <CurrentTripCard trip={currentTrip} onCancelTrip={handleCancelTrip} />
 
       {/* New Trip Form Modal */}
       <AnimatePresence>

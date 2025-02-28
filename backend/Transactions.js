@@ -3,6 +3,7 @@ import Notification from './models/Notification.js';
 import Transaction from './models/Transaction.js';
 import User from './models/Usermodel.js'; // Added User model import
 import Usermodel from './models/Usermodel.js';
+import Trip from './models/Trip.js'; // Import Trip model
 import OpenAI from 'openai';
 
 const openai = new OpenAI({
@@ -34,8 +35,17 @@ router.post("/transactions", async (req, res) => {
       return res.status(400).json({ message: "Missing required transaction details" });
     }
 
+    // Find active trip for user
+    const activeTrip = await Trip.findOne({
+      userId,
+      status: 'active',
+      startDate: { $lte: new Date() },
+      endDate: { $gte: new Date() }
+    });
+
     const transaction = await Transaction.create({
       userId,
+      tripId: activeTrip?._id, // Associate with active trip if exists
       type,
       amount,
       category,
@@ -47,12 +57,18 @@ router.post("/transactions", async (req, res) => {
       rawMessage
     });
 
+    // Update trip spending if transaction is part of a trip
+    if (activeTrip) {
+      activeTrip.spentAmount = (activeTrip.spentAmount || 0) + amount;
+      await activeTrip.save();
+    }
+
     res.status(201).json({ 
       message: "Transaction saved successfully", 
       transaction 
     });
   } catch (error) {
-    console.error(" Error saving transaction:", error);
+    console.error("Error saving transaction:", error);
     res.status(500).json({ message: "Error saving transaction", error: error.message });
   }
 });
@@ -72,6 +88,37 @@ router.get("/transactions/:userId", async (req, res) => {
   }
 });
 
+// **Get Trip Transactions**
+router.get("/trips/:tripId/transactions", async (req, res) => {
+  try {
+    const { tripId } = req.params;
+    const transactions = await Transaction.find({ 
+      tripId,
+      timestamp: { 
+        $gte: trip.startDate,
+        $lte: trip.endDate 
+      }
+    }).sort({ timestamp: -1 });
+
+    // Calculate spending by category
+    const spendingByCategory = transactions.reduce((acc, trans) => {
+      if (!acc[trans.category]) {
+        acc[trans.category] = 0;
+      }
+      acc[trans.category] += trans.amount;
+      return acc;
+    }, {});
+
+    res.json({
+      transactions,
+      spendingByCategory
+    });
+  } catch (error) {
+    console.error("Error fetching trip transactions:", error);
+    res.status(500).json({ message: "Error fetching trip transactions", error: error.message });
+  }
+});
+
 // **SMS Routes**
 router.post("/api/sms", async (req, res) => {
   try {
@@ -82,13 +129,20 @@ router.post("/api/sms", async (req, res) => {
     const user = await Usermodel.findById(userId);
     if (!user) return res.status(404).json({ error: "User not found" });
 
+    // Find active trip
+    const activeTrip = await Trip.findOne({
+      userId,
+      status: 'active',
+      startDate: { $lte: new Date() },
+      endDate: { $gte: new Date() }
+    });
+
     user.notifications.push({
       sender: sender || 'Unknown',
       message,
       timestamp: new Date(timestamp || Date.now()),
       location: location || null
     });
-    console.log('Notification added:', user.notifications);
 
     try {
       const openRouterResponse = await fetch("https://openrouter.ai/api/v1/chat/completions", {
@@ -104,7 +158,20 @@ router.post("/api/sms", async (req, res) => {
           "messages": [
             {
               "role": "system",
-              "content": "You are a financial SMS parser. Analyze the following SMS and determine if it's a transaction. If it is, return a JSON with 'receiver' and 'amount'. If not, return an empty object."
+              "content": `You are a financial SMS parser. Analyze the following SMS and determine if it's a transaction. 
+              If it is, return a JSON with:
+              - 'receiver': The recipient/merchant name
+              - 'amount': The transaction amount
+              - 'category': Categorize the transaction into one of these categories:
+                - 'food_and_dining'
+                - 'transportation'
+                - 'accommodation'
+                - 'shopping'
+                - 'entertainment'
+                - 'sightseeing'
+                - 'other'
+              Base the category on the receiver name and any context in the message.
+              If not a transaction, return an empty object.`
             },
             {
               "role": "user",
@@ -120,24 +187,39 @@ router.post("/api/sms", async (req, res) => {
 
       if (responseContent) {
         try {
-          // Extract JSON content using regex
           const jsonMatch = responseContent.match(/\{.*\}/s);
           if (jsonMatch) {
             const transactionDetails = JSON.parse(jsonMatch[0]);
             console.log('Parsed Transaction Details:', transactionDetails);
             
             if (transactionDetails.amount) {
-              user.transactions.push({
+              const transaction = {
                 receiver: transactionDetails.receiver || 'Unknown',
                 message,
                 amount: transactionDetails.amount,
+                category: transactionDetails.category || 'other',
                 rawMessage: message,
                 timestamp: new Date(timestamp || Date.now()),
-                location: location || null
-              });
+                location: location || null,
+                tripId: activeTrip?._id
+              };
+
+              user.transactions.push(transaction);
+
+              // Update trip spending if transaction is part of a trip
+              if (activeTrip) {
+                activeTrip.spentAmount = (activeTrip.spentAmount || 0) + transactionDetails.amount;
+                
+                // Update category-specific spending
+                if (!activeTrip.spendingByCategory) {
+                  activeTrip.spendingByCategory = {};
+                }
+                activeTrip.spendingByCategory[transaction.category] = 
+                  (activeTrip.spendingByCategory[transaction.category] || 0) + transactionDetails.amount;
+                
+                await activeTrip.save();
+              }
             }
-          } else {
-            console.error('Error: No JSON found in OpenRouter response');
           }
         } catch (parseError) {
           console.error('Error parsing transaction details:', parseError);

@@ -78,20 +78,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     { path: '/user', icon: Home, label: 'Dashboard' },
     { path: '/user/explore', icon: Compass, label: 'Explore' },
     { path: '/user/calendar', icon: Calendar, label: 'Trip Planner' },
-    { path: '/user/packages', icon: Package, label: 'Packages' },
-    {path: '/user/hotels', icon: Hotel, label: 'Hotel'},
-    {path: '/user/history', icon: History, label: 'History'},
-    { path: '/user/analytics', icon: PieChart, label: 'Analytics' },
-    { path: '/user/community', icon: Trophy, label: 'Community' },
-    { path: '/user/users', icon: MessageSquare, label: 'Messages' },
-    { path: '/user/people', icon: UsersIcon, label: 'People' }
+    // { path: '/user/packages', icon: Package, label: 'Packages' },
+    // {path: '/user/hotels', icon: Hotel, label: 'Hotel'},
+    // {path: '/user/history', icon: History, label: 'History'},
+    // { path: '/user/analytics', icon: PieChart, label: 'Analytics' },
+    // { path: '/user/community', icon: Trophy, label: 'Community' },
+    // { path: '/user/users', icon: MessageSquare, label: 'Messages' },
+    // { path: '/user/people', icon: UsersIcon, label: 'People' }
   ];
 
-  const notifications = [
-    { id: 1, title: 'New trip suggestion', message: 'Check out this amazing deal to Paris!', time: '5m ago' },
-    { id: 2, title: 'Friend request', message: 'Sarah wants to connect with you', time: '1h ago' },
-    { id: 3, title: 'Trip reminder', message: 'Your flight to Tokyo is in 3 days', time: '2h ago' }
-  ];
 
   return (
     <div className="min-h-screen bg-gray-50">

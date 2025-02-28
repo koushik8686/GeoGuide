@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import nodemailer from "nodemailer";
 import crypto from "crypto";
 import { google } from "googleapis";
+import jwt from 'jsonwebtoken';
 import User from "./models/Usermodel.js";
 import Notification from "./models/Notification.js";
 import Transaction from "./models/Transaction.js";
@@ -35,9 +36,13 @@ function generateOTP() {
   return Math.floor(100000 + Math.random() * 900000).toString();
 }
 
-// Helper function to generate auth token
-function generateAuthToken(user) {
-  return crypto.randomBytes(20).toString('hex');
+// Helper function to generate JWT token
+function generateToken(user) {
+  return jwt.sign(
+    { userId: user._id, email: user.email },
+    process.env.JWT_SECRET,
+    { expiresIn: '7d' }
+  );
 }
 
 // Send OTP endpoint
@@ -97,16 +102,26 @@ router.post('/verify-otp', async (req, res) => {
     user.otpExpiry = undefined;
     await user.save();
 
+    // Generate JWT token
+    const token = generateToken(user);
+
+    // Set token in cookie
+    res.cookie('jwt_token', token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+      maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
+    });
+
     res.status(200).json({ 
-      message: 'OTP verified successfully', 
-      token: generateAuthToken(user),
-      userId: user._id
+      message: 'OTP verified successfully',
+      userId: user._id,
+      token // Also send token in response for client-side storage
     });
   } catch (error) {
     console.error('OTP verify error:', error);
     res.status(500).json({ error: 'Failed to verify OTP' });
   }
 });
-
 
 export default router;

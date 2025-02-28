@@ -6,6 +6,7 @@ const UserSchema = new mongoose.Schema({
   name: String,
   phoneNumber: String,
   profilePicture: String,
+  current_trip: { type: mongoose.Schema.Types.ObjectId, ref: 'Trips' },
   registrationDate: { type: Date, default: Date.now },
   lastLogin: Date,
   deviceToken: String, // For push notifications
@@ -15,6 +16,7 @@ const UserSchema = new mongoose.Schema({
   verified: { type: Boolean, default: false },
   events:[],
   history:[],
+  trips:[{type:mongoose.Schema.Types.ObjectId, ref: 'Trips'}],
   friends:[],
   calenderEvents:[],
   transactions:[{

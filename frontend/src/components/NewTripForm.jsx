@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import axios from 'axios';
 import { API_BASE_URL } from '../constants/urls';
+import Cookie from 'js-cookie';
 
 const NewTripForm = ({ onClose, onTripCreated }) => {
   const [formData, setFormData] = useState({
     tripName: '',
-    tripStartTime: '',
-    tripEndTime: '',
     StartLocation: '',
     EndLocation: '',
-    budget: ''
+    budget: '',
+    type: '',
+    tripStartTime: new Date().toISOString()
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -20,26 +22,35 @@ const NewTripForm = ({ onClose, onTripCreated }) => {
     setError('');
 
     try {
-      const token = localStorage.getItem('token'); // Get JWT token from localStorage
-      if (!token) {
-        throw new Error('No authentication token found');
-      }
+      const token = Cookie.get('jwt_token');
+      console.log('Token:', token); // Debug log
 
-      const response = await fetch(`${API_BASE_URL}/api/trips/create`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}` // Send JWT token in header
+      const response = await axios.post(
+        `${API_BASE_URL}/api/trips/creates`,
+        {
+          tripName: formData.tripName,
+          tripStartTime: formData.tripStartTime,
+          StartLocation: formData.StartLocation,
+          EndLocation: formData.EndLocation,
+          type: formData.type,
+          budget: Number(formData.budget)
         },
-        body: JSON.stringify(formData)
-      });
+        {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        }
+      );
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Failed to create trip');
+      console.log('Response status:', response.status); // Debug log
+
+      const data = response.data;
+      console.log('Response data:', data); // Debug log
+
+      if (!response.data.ok) {
+        throw new Error(data.message || 'Failed to create trip');
       }
 
-      const data = await response.json();
       onTripCreated(data);
       onClose();
     } catch (error) {
@@ -91,32 +102,6 @@ const NewTripForm = ({ onClose, onTripCreated }) => {
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Start Date & Time
-            </label>
-            <input
-              type="datetime-local"
-              name="tripStartTime"
-              value={formData.tripStartTime}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
-              required
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              End Date & Time
-            </label>
-            <input
-              type="datetime-local"
-              name="tripEndTime"
-              value={formData.tripEndTime}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
-              required
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
               Start Location
             </label>
             <input
@@ -149,6 +134,19 @@ const NewTripForm = ({ onClose, onTripCreated }) => {
               type="number"
               name="budget"
               value={formData.budget}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Type of Trip
+            </label>
+            <input
+              type="text"
+              name="type"
+              value={formData.type}
               onChange={handleChange}
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
               required
