@@ -24,7 +24,7 @@ const router = express.Router();
 // };
 
 // Create a new trip
-router.post("/creates", verifyToken, async (req, res) => {
+router.post("/create", verifyToken, async (req, res) => {
   try {
     console.log("Request body:", req.body); // Debug log
     console.log("User from token:", req.userId); // Debug log
