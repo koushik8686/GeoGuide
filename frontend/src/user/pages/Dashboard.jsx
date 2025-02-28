@@ -1,369 +1,61 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { setWeather, setLocation, setUserLocation, setLoading, setError } from '../../redux/slices/weatherSlice';
-import { fetchCurrentTrip, cancelCurrentTrip } from '../../redux/slices/tripSlice';
 import React, { useState, useEffect } from 'react';
 import { 
   MapPin, 
-  Calendar, 
-  Wallet,
-  Navigation,
-  Bell,
   Search,
-  User,
-  Settings,
-  TrendingUp,
-  Map,
-  Heart,
-  Clock,
-  Sun,
-  CloudRain,
-  Wind,
   Mic,
-  Send,
-  DollarSign,
-  Timer,
-  CheckCircle,
-  AlertCircle,
-  Cloud,
+  TrendingUp,
   Compass
 } from 'lucide-react';
 import axios from 'axios';
 import { motion, AnimatePresence } from 'framer-motion';
 import { API_BASE_URL } from '../../constants/urls';
-import { api } from '../services/api';
-import { Link } from 'react-router-dom';
+
+// Import components
+import WeatherCard from '../components/WeatherCard';
+import TripCard from '../components/TripCard';
+import ExpenseCard from '../components/ExpenseCard';
+import RecommendationCard from '../components/RecommendationCard';
+import SearchResultCard from '../components/SearchResultCard';
+import CurrentTripCard from '../components/CurrentTripCard';
 import NewTripForm from '../../components/NewTripForm';
 
-function WeatherCard({ city, weather }) {
-  if (!weather) return null;
+const axiosInstance = axios.create({
+  baseURL: API_BASE_URL,
+  withCredentials: true
+});
 
-  // Map weather conditions to icons
-  const getWeatherIcon = (condition) => {
-    switch (condition) {
-      case 'Clear':
-        return Sun;
-      case 'Rain':
-        return CloudRain;
-      case 'Clouds':
-        return Cloud;
-      case 'Wind':
-        return Wind;
-      default:
-        return Sun;
+const getLatLngFromPlace = async (placeName) => {
+  const apiKey = import.meta.env.VITE_GOOGLE_PLACES_API_KEY;
+  try {
+    const response = await axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
+      params: {
+        address: placeName,
+        key: apiKey,
+      },
+    });
+
+    const { results } = response.data;
+
+    if (results.length === 0) {
+      throw new Error('No results found for the given place name.');
     }
-  };
 
-  const WeatherIcon = getWeatherIcon(weather.weather[0].main);
-
-  return (
-    <div className="bg-white rounded-lg p-6 shadow-lg">
-      <div className="flex items-center justify-between mb-4">
-        <h3 className="text-lg font-semibold">{city}</h3>
-        <WeatherIcon className="w-8 h-8 text-emerald-500" />
-      </div>
-      <div className="space-y-2">
-        <p className="text-3xl font-bold">{Math.round(weather.main.temp)}°C</p>
-        <p className="text-gray-600 capitalize">{weather.weather[0].description}</p>
-        <div className="grid grid-cols-2 gap-2 mt-4 text-sm text-gray-600">
-          <div>
-            <p>Humidity</p>
-            <p className="font-medium">{weather.main.humidity}%</p>
-          </div>
-          <div>
-            <p>Wind</p>
-            <p className="font-medium">{weather.wind.speed} m/s</p>
-          </div>
-          <div>
-            <p>Feels Like</p>
-            <p className="font-medium">{Math.round(weather.main.feels_like)}°C</p>
-          </div>
-          <div>
-            <p>Visibility</p>
-            <p className="font-medium">{(weather.visibility / 1000).toFixed(1)} km</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function TripCard({ image, title, date, location }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
-    >
-      <div className="relative">
-        <img src={image} alt={title} className="w-full h-48 object-cover transform hover:scale-105 transition-transform duration-300" />
-        <div className="absolute top-4 right-4">
-          <button className="bg-white/90 p-2 rounded-full hover:bg-white transition-colors">
-            <Heart className="w-4 h-4 text-gray-600" />
-          </button>
-        </div>
-      </div>
-      <div className="p-4">
-        <h3 className="font-semibold text-lg text-gray-800 mb-2">{title}</h3>
-        <div className="flex items-center text-gray-600 text-sm mb-2">
-          <Calendar className="w-4 h-4 mr-2" />
-          {date}
-        </div>
-        <div className="flex items-center text-gray-600 text-sm">
-          <MapPin className="w-4 h-4 mr-2" />
-          {location}
-        </div>
-      </div>
-    </motion.div>
-  );
-}
-
-function ExpenseCard({ category, amount, trend }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
-      className="bg-white p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-    >
-      <div className="flex justify-between items-center mb-2">
-        <h3 className="text-gray-600">{category}</h3>
-        <span className={`text-sm ${trend > 0 ? 'text-red-500' : 'text-green-500'}`}>
-          {trend > 0 ? '+' : ''}{trend}%
-        </span>
-      </div>
-      <p className="text-2xl font-bold text-gray-800">{amount}</p>
-    </motion.div>
-  );
-}
-
-function RecommendationCard({ image, title, rating, price }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
-      className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
-    >
-      <div className="relative">
-        <img 
-          src={image} 
-          alt={title} 
-          className="w-full h-48 object-cover transform hover:scale-105 transition-transform duration-300"
-        />
-        <button className="absolute top-3 right-3 bg-white/90 p-2 rounded-full hover:bg-white transition-colors">
-          <Heart className="w-4 h-4 text-gray-600" />
-        </button>
-      </div>
-      <div className="p-4">
-        <h3 className="font-semibold text-gray-800 mb-2">{title}</h3>
-        <div className="flex justify-between items-center">
-          <div className="flex items-center">
-            <span className="text-yellow-400">★</span>
-            <span className="text-sm text-gray-600 ml-1">{rating}</span>
-          </div>
-          <span className="text-emerald-600 font-semibold">{price}</span>
-        </div>
-      </div>
-    </motion.div>
-  );
-}
-
-function CurrentTripCard({ trip, onCancelTrip }) {
-  const [timeElapsed, setTimeElapsed] = useState('');
-
-  useEffect(() => {
-    if (!trip || !trip.startDate) return;
-    
-    const startDate = new Date(trip.startDate);
-    
-    const updateTimeElapsed = () => {
-      const now = new Date();
-      const diff = now.getTime() - startDate.getTime();
-      
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      
-      setTimeElapsed(`${days}d ${hours}h ${minutes}m`);
-    };
-
-    updateTimeElapsed();
-    const interval = setInterval(updateTimeElapsed, 60000);
-
-    return () => clearInterval(interval);
-  }, [trip]);
-
-  if (!trip) return null;
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="bg-white rounded-xl shadow-lg p-6 mb-8"
-    >
-      <div className="flex items-center justify-between mb-6">
-        <div>
-          <h2 className="text-2xl font-bold text-gray-800">Current Trip: {trip.title}</h2>
-          <div className="flex items-center gap-4 mt-2 text-gray-600">
-            <div className="flex items-center">
-              <MapPin className="w-4 h-4 mr-1" />
-              {trip.location}
-            </div>
-            <div className="flex items-center">
-              <Calendar className="w-4 h-4 mr-1" />
-              {new Date(trip.startDate).toLocaleDateString()} - {new Date(trip.endDate).toLocaleDateString()}
-            </div>
-          </div>
-        </div>
-        <div className="flex items-center gap-4">
-          <button 
-            onClick={() => onCancelTrip(trip._id)}
-            className="px-4 py-2 bg-red-100 text-red-600 rounded-lg hover:bg-red-200 transition-colors flex items-center gap-2"
-          >
-            <AlertCircle className="w-4 h-4" />
-            Cancel Trip
-          </button>
-          <button className="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors flex items-center gap-2">
-            <CheckCircle className="w-4 h-4" />
-            Complete Trip
-          </button>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div className="bg-emerald-50 rounded-lg p-4">
-          <div className="flex items-center justify-between mb-2">
-            <Timer className="w-6 h-6 text-emerald-600" />
-            <span className="text-sm text-emerald-600">Time Elapsed</span>
-          </div>
-          <p className="text-2xl font-bold text-gray-800">{timeElapsed}</p>
-          <p className="text-sm text-gray-600 mt-1">of {trip.duration} days total</p>
-        </div>
-
-        <div className="bg-blue-50 rounded-lg p-4">
-          <div className="flex items-center justify-between mb-2">
-            <DollarSign className="w-6 h-6 text-blue-600" />
-            <span className="text-sm text-blue-600">Spent So Far</span>
-          </div>
-          <p className="text-2xl font-bold text-gray-800">${trip.spentAmount || 0}</p>
-          <p className="text-sm text-gray-600 mt-1">of ${trip.budget} budget</p>
-        </div>
-
-        <div className="bg-purple-50 rounded-lg p-4">
-          <div className="flex items-center justify-between mb-2">
-            <Map className="w-6 h-6 text-purple-600" />
-            <span className="text-sm text-purple-600">Places Visited</span>
-          </div>
-          <p className="text-2xl font-bold text-gray-800">{trip.visitedPlaces?.length || 0}</p>
-          <p className="text-sm text-gray-600 mt-1">of {trip.plannedPlaces?.length || 0} planned</p>
-        </div>
-
-        <div className="bg-yellow-50 rounded-lg p-4">
-          <div className="flex items-center justify-between mb-2">
-            <TrendingUp className="w-6 h-6 text-yellow-600" />
-            <span className="text-sm text-yellow-600">Trip Progress</span>
-          </div>
-          <p className="text-2xl font-bold text-gray-800">{trip.progress || 0}%</p>
-          <div className="w-full h-2 bg-yellow-100 rounded-full mt-2">
-            <div 
-              className="h-full bg-yellow-400 rounded-full"
-              style={{ width: `${trip.progress || 0}%` }}
-            ></div>
-          </div>
-        </div>
-      </div>
-
-      {trip.itinerary && (
-        <div className="mt-6 pt-6 border-t">
-          <h3 className="text-lg font-semibold text-gray-800 mb-4">Today's Itinerary</h3>
-          <div className="space-y-4">
-            {trip.itinerary.map((item, index) => (
-              <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                <div className="flex items-center gap-3">
-                  <div className={`w-2 h-2 rounded-full ${
-                    item.status === 'completed' ? 'bg-emerald-500' :
-                    item.status === 'in_progress' ? 'bg-blue-500' :
-                    'bg-gray-300'
-                  }`}></div>
-                  <span className="text-gray-600">{item.time}</span>
-                  <span className="font-medium text-gray-800">{item.activity}</span>
-                </div>
-                <span className={`text-sm ${
-                  item.status === 'completed' ? 'text-emerald-600' :
-                  item.status === 'in_progress' ? 'text-blue-600' :
-                  'text-gray-600'
-                }`}>
-                  {item.status === 'completed' ? 'Completed' :
-                   item.status === 'in_progress' ? 'In Progress' :
-                   'Upcoming'}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-    </motion.div>
-  );
-}
-
-function SearchResultCard({ place }) {
-  return (
-    <motion.div
-      initial={{ x: -20, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300"
-    >
-      <div className="relative">
-        {place.photos && place.photos[0] && (
-          <img
-            src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${place.photos[0].photo_reference}&key=AIzaSyBvB2LJE5tjlh4scJ3flCjWfBNzfAVSre0`}
-            alt={place.name}
-            className="w-full h-48 object-cover"
-          />
-        )}
-        <div className="absolute top-4 right-4">
-          <button className="bg-white/90 p-2 rounded-full hover:bg-white transition-colors">
-            <Heart className="w-4 h-4 text-gray-600" />
-          </button>
-        </div>
-        {place.distance && (
-          <div className="absolute bottom-4 left-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
-            {place.distance.formatted} away
-          </div>
-        )}
-      </div>
-      <div className="p-4">
-        <h3 className="font-semibold text-lg text-gray-800 mb-2">{place.name}</h3>
-        <div className="flex items-center mb-2">
-          <span className="text-yellow-400">{'★'.repeat(Math.round(place.rating || 0))}</span>
-          <span className="text-gray-600 ml-2">({place.user_ratings_total || 0} reviews)</span>
-        </div>
-        <div className="flex items-center text-gray-600 text-sm mb-3">
-          <MapPin className="w-4 h-4 mr-1" />
-          {place.vicinity}
-        </div>
-        <div className="flex justify-between items-center">
-          <Link
-            target="_blank"
-            to={`/ar/${place.geometry.location.lat}/${place.geometry.location.lng}`}
-            className="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors flex items-center gap-2"
-          >
-            <Map className="w-4 h-4" />
-            Explore in AR
-          </Link>
-          {place.opening_hours && (
-            <span className={`text-sm ${place.opening_hours.open_now ? 'text-green-600' : 'text-red-600'}`}>
-              {place.opening_hours.open_now ? 'Open Now' : 'Closed'}
-            </span>
-          )}
-        </div>
-      </div>
-    </motion.div>
-  );
-}
+    const { lat, lng } = results[0].geometry.location;
+    return { lat, lng };
+  } catch (error) {
+    console.error('Error fetching geocoordinates:', error.message);
+    throw error;
+  }
+};
 
 export default function Dashboard() {
   const dispatch = useDispatch();
   const { weather, location, userLocation, loading } = useSelector((state) => state.weather);
-  const { currentTrip } = useSelector((state) => state.trips);
+  const [currentTrip, setCurrentTrip] = useState(null);
+  const [tripLoading, setTripLoading] = useState(false);
+  const [tripError, setTripError] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [isListening, setIsListening] = useState(false);
   const [voiceError, setVoiceError] = useState("");
@@ -372,6 +64,7 @@ export default function Dashboard() {
   const [showNewTripForm, setShowNewTripForm] = useState(false);
   const [searchRadius, setSearchRadius] = useState(5);
   const [customLocation, setCustomLocation] = useState({
+    placeName: '',
     lat: '',
     lng: ''
   });
@@ -397,34 +90,43 @@ export default function Dashboard() {
         }
       }
     };
-
+    const fetchCurrentTrip = async () => {
+      setTripLoading(true);
+      setTripError(null);
+      try {
+        const response = await axiosInstance.get('/api/trips/current');
+        console.log(response.data)
+        setCurrentTrip(response.data);
+      } catch (error) {
+        console.error('Failed to fetch current trip:', error);
+        setTripError(error.response?.data?.message || 'Failed to fetch current trip');
+      } finally {
+        setTripLoading(false);
+      }
+    };
     initializeLocation();
+    // setInterval(() => {
+      fetchCurrentTrip();
+    // }, 3000);
   }, [dispatch]);
 
   useEffect(() => {
     // Fetch current trip when component mounts
     const userId = localStorage.getItem('userId'); // Assuming you store userId in localStorage
     if (userId) {
-      dispatch(fetchCurrentTrip(userId));
+      // dispatch(fetchCurrentTrip(userId));
     }
   }, [dispatch]);
 
   const handleCustomLocationSearch = async () => {
-    if (!customLocation.lat || !customLocation.lng) {
-      setVoiceError("Please enter both latitude and longitude");
-      return;
-    }
-
-    const lat = parseFloat(customLocation.lat);
-    const lng = parseFloat(customLocation.lng);
-
-    if (isNaN(lat) || isNaN(lng) || lat < -90 || lat > 90 || lng < -180 || lng > 180) {
-      setVoiceError("Invalid latitude or longitude values");
+    if (!customLocation.placeName.trim()) {
+      setVoiceError("Please enter a place name");
       return;
     }
 
     dispatch(setLoading(true));
     try {
+      const { lat, lng } = await getLatLngFromPlace(customLocation.placeName);
       dispatch(setUserLocation({ lat, lng }));
       await getPlaceName(lat, lng);
       await fetchWeather(lat, lng);
@@ -434,14 +136,14 @@ export default function Dashboard() {
       setVoiceError("");
     } catch (error) {
       console.error('Error searching custom location:', error);
-      setVoiceError("Failed to search at the specified location");
+      setVoiceError("Failed to find the specified location. Please try a different place name.");
     } finally {
       dispatch(setLoading(false));
     }
   };
 
   const getPlaceName = async (lat, lng) => {
-    const apiKey = import.meta.env.VITE_GOOGLE_PLACES_API_KEY;
+    const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
     const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${apiKey}`;
   
     try {
@@ -530,6 +232,7 @@ export default function Dashboard() {
 
     recognition.onend = () => {
       setIsListening(false);
+      handleLocationSearch();
     };
 
     recognition.onresult = (event) => {
@@ -559,16 +262,28 @@ export default function Dashboard() {
     // Fetch updated current trip after creation
     const userId = localStorage.getItem('userId');
     if (userId) {
-      dispatch(fetchCurrentTrip(userId));
+      // dispatch(fetchCurrentTrip(userId));
     }
+    fetchCurrentTrip();
   };
 
   const handleCancelTrip = async (tripId) => {
     try {
-      await dispatch(cancelCurrentTrip(tripId)).unwrap();
-      // The trip will be set to null automatically through the reducer
+      await axiosInstance.delete(`/api/trips/${tripId}`);
+      setCurrentTrip(null);
     } catch (error) {
       console.error('Failed to cancel trip:', error);
+      setTripError(error.response?.data?.message || 'Failed to cancel trip');
+    }
+  };
+
+  const handleCompleteTrip = async (tripId) => {
+    try {
+      await axiosInstance.post(`/api/trips/complete/${tripId}`);
+      setCurrentTrip(null);
+    } catch (error) {
+      console.error('Failed to complete trip:', error);
+      setTripError(error.response?.data?.message || 'Failed to complete trip');
     }
   };
 
@@ -582,36 +297,20 @@ export default function Dashboard() {
       >
         <h2 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
           <Compass className="w-5 h-5 text-emerald-600" />
-          Find Places at Custom Location
+          Search at Different Location
         </h2>
         <div className="flex flex-col md:flex-row gap-4">
-          <div className="flex-1 grid grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Latitude
-              </label>
-              <input
-                type="number"
-                step="any"
-                value={customLocation.lat}
-                onChange={(e) => setCustomLocation(prev => ({ ...prev, lat: e.target.value }))}
-                placeholder="Enter latitude"
-                className="w-full px-4 py-2 bg-gray-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Longitude
-              </label>
-              <input
-                type="number"
-                step="any"
-                value={customLocation.lng}
-                onChange={(e) => setCustomLocation(prev => ({ ...prev, lng: e.target.value }))}
-                placeholder="Enter longitude"
-                className="w-full px-4 py-2 bg-gray-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
-              />
-            </div>
+          <div className="flex-1">
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Enter Place Name
+            </label>
+            <input
+              type="text"
+              value={customLocation.placeName}
+              onChange={(e) => setCustomLocation(prev => ({ ...prev, placeName: e.target.value }))}
+              placeholder="Enter city, landmark, or address"
+              className="w-full px-4 py-2 bg-gray-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            />
           </div>
           <button
             onClick={handleCustomLocationSearch}
@@ -631,6 +330,9 @@ export default function Dashboard() {
             )}
           </button>
         </div>
+        {voiceError && (
+          <p className="mt-2 text-sm text-red-600">{voiceError}</p>
+        )}
       </motion.div>
 
       {/* Enhanced Search Section */}
@@ -758,7 +460,13 @@ export default function Dashboard() {
       </div>
 
       {/* Current Trip Section */}
-      <CurrentTripCard trip={currentTrip} onCancelTrip={handleCancelTrip} />
+      <CurrentTripCard 
+        trip={currentTrip}
+        loading={tripLoading}
+        error={tripError}
+        onCancelTrip={handleCancelTrip}
+        onCompleteTrip={handleCompleteTrip}
+      />
 
       {/* New Trip Form Modal */}
       <AnimatePresence>
@@ -771,7 +479,7 @@ export default function Dashboard() {
       </AnimatePresence>
 
       {/* Upcoming Trips */}
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2 }}
@@ -797,10 +505,10 @@ export default function Dashboard() {
             location="New York, USA"
           />
         </div>
-      </motion.div>
+      </motion.div> */}
 
       {/* Expenses Overview */}
-      <motion.div 
+      {/* <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.4 }}
@@ -831,10 +539,10 @@ export default function Dashboard() {
             </div>
           </motion.div>
         </div>
-      </motion.div>
+      </motion.div> */}
 
       {/* Recommended Destinations */}
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.6 }}
@@ -866,7 +574,7 @@ export default function Dashboard() {
             price="$350/night"
           />
         </div>
-      </motion.div>
+      </motion.div> */}
     </div>
   );
 }

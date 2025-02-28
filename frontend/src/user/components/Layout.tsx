@@ -81,7 +81,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     // { path: '/user/packages', icon: Package, label: 'Packages' },
     // {path: '/user/hotels', icon: Hotel, label: 'Hotel'},
     // {path: '/user/history', icon: History, label: 'History'},
-    // { path: '/user/analytics', icon: PieChart, label: 'Analytics' },
+    { path: '/user/analytics', icon: PieChart, label: 'Analytics' },
     // { path: '/user/community', icon: Trophy, label: 'Community' },
     // { path: '/user/users', icon: MessageSquare, label: 'Messages' },
     // { path: '/user/people', icon: UsersIcon, label: 'People' }

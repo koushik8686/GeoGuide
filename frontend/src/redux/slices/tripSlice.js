@@ -1,30 +1,37 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 import { API_BASE_URL } from '../../constants/urls';
+
+// Configure axios defaults
+const axiosInstance = axios.create({
+  baseURL: API_BASE_URL,
+  withCredentials: true
+});
 
 // Async thunk for fetching current trip
 export const fetchCurrentTrip = createAsyncThunk(
-  'trips/fetchCurrentTrip',
+  'trips/fetchCurrent',
   async (userId) => {
-    const response = await fetch(`${API_BASE_URL}/api/users/${userId}/current-trip`);
-    if (!response.ok) {
-      throw new Error('Failed to fetch current trip');
-    }
-    const data = await response.json();
-    return data;
+    const response = await axiosInstance.get('/trips/current');
+    return response.data;
   }
 );
 
 // Async thunk for cancelling current trip
 export const cancelCurrentTrip = createAsyncThunk(
-  'trips/cancelCurrentTrip',
+  'trips/cancel',
   async (tripId) => {
-    const response = await fetch(`${API_BASE_URL}/api/trips/${tripId}/cancel`, {
-      method: 'PUT'
-    });
-    if (!response.ok) {
-      throw new Error('Failed to cancel trip');
-    }
-    return null;
+    const response = await axiosInstance.delete(`/trips/${tripId}`);
+    return response.data;
+  }
+);
+
+// Async thunk for completing current trip
+export const completeCurrentTrip = createAsyncThunk(
+  'trips/complete',
+  async (tripId) => {
+    const response = await axiosInstance.post(`/trips/complete/${tripId}`);
+    return response.data;
   }
 );
 
@@ -51,8 +58,12 @@ const tripSlice = createSlice({
         state.loading = false;
         state.error = action.error.message;
       })
-      // Cancel current trip
+      // Cancel trip
       .addCase(cancelCurrentTrip.fulfilled, (state) => {
+        state.currentTrip = null;
+      })
+      // Complete trip
+      .addCase(completeCurrentTrip.fulfilled, (state) => {
         state.currentTrip = null;
       });
   }

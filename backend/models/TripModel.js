@@ -5,7 +5,7 @@ const TripSchema = mongoose.Schema({
     tripName: { type: String, required: true },
     tripStartTime: { type: Date, required: true },
     StartLocation: { type: String, required: true },
-    EndLocation: { type: String, required: true },
+    EndLocation: { type: String, },
     tripEndTime: { type: Date },
     trip_type: { type: String },
     budget: { type: Number, required: true },
@@ -21,32 +21,19 @@ const TripSchema = mongoose.Schema({
         default: {}
     },
     transactions: [{
-        Transaction_date: { type: Date, required: true },
-        amount: { type: Number, required: true },
-        category: { 
-            type: String,
-            enum: [
-                'food_and_dining',
-                'transportation',
-                'accommodation',
-                'shopping',
-                'entertainment',
-                'sightseeing',
-                'other'
-            ],
-            default: 'other'
-        },
-        description: { type: String },
-        bank: { type: String },
-        account: { type: String },
-        recipient: { type: String },
-        extractionConfidence: { type: Number },
-        rawMessage: { type: String },
+        receiver:String,
+        message:String,
+        amount: Number,
+        category: String,
+        bank: String,
+        rawMessage: String,
+        timestamp:Date,
         location: {
-            lat: Number,
-            lng: Number
+          latitude: Number,
+          longitude: Number,
+          accuracy: Number
         }
-    }],
+      }],
     visitedPlaces: [{
         name: String,
         location: {

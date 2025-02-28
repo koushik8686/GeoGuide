@@ -3,7 +3,7 @@ import Notification from './models/Notification.js';
 import Transaction from './models/Transaction.js';
 import User from './models/Usermodel.js'; // Added User model import
 import Usermodel from './models/Usermodel.js';
-import Trip from './models/Trip.js'; // Import Trip model
+import Trip from './models/TripModel.js'; // Import Trip model
 import OpenAI from 'openai';
 
 const openai = new OpenAI({
@@ -36,7 +36,7 @@ router.post("/transactions", async (req, res) => {
     }
 
     // Find active trip for user
-    const activeTrip = await Trip.findOne({
+    const curr_trip = await Trip.findOne({
       userId,
       status: 'active',
       startDate: { $lte: new Date() },
@@ -45,7 +45,7 @@ router.post("/transactions", async (req, res) => {
 
     const transaction = await Transaction.create({
       userId,
-      tripId: activeTrip?._id, // Associate with active trip if exists
+      tripId: curr_trip?._id, // Associate with active trip if exists
       type,
       amount,
       category,
@@ -58,9 +58,9 @@ router.post("/transactions", async (req, res) => {
     });
 
     // Update trip spending if transaction is part of a trip
-    if (activeTrip) {
-      activeTrip.spentAmount = (activeTrip.spentAmount || 0) + amount;
-      await activeTrip.save();
+    if (curr_trip) {
+      curr_trip.spentAmount = (curr_trip.spentAmount || 0) + amount;
+      await curr_trip.save();
     }
 
     res.status(201).json({ 
@@ -128,14 +128,9 @@ router.post("/api/sms", async (req, res) => {
 
     const user = await Usermodel.findById(userId);
     if (!user) return res.status(404).json({ error: "User not found" });
-
+    const curr_trip = await Trip.findById(user.current_trip);
     // Find active trip
-    const activeTrip = await Trip.findOne({
-      userId,
-      status: 'active',
-      startDate: { $lte: new Date() },
-      endDate: { $gte: new Date() }
-    });
+    
 
     user.notifications.push({
       sender: sender || 'Unknown',
@@ -143,92 +138,100 @@ router.post("/api/sms", async (req, res) => {
       timestamp: new Date(timestamp || Date.now()),
       location: location || null
     });
-
-    try {
-      const openRouterResponse = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-        method: "POST",
-        headers: {
-          "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
-          "HTTP-Referer": process.env.SITE_URL || "https://globemate.com",
-          "X-Title": process.env.SITE_NAME || "GlobeMate",
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          "model": "deepseek/deepseek-r1-distill-llama-70b:free",
-          "messages": [
-            {
-              "role": "system",
-              "content": `You are a financial SMS parser. Analyze the following SMS and determine if it's a transaction. 
-              If it is, return a JSON with:
-              - 'receiver': The recipient/merchant name
-              - 'amount': The transaction amount
-              - 'category': Categorize the transaction into one of these categories:
-                - 'food_and_dining'
-                - 'transportation'
-                - 'accommodation'
-                - 'shopping'
-                - 'entertainment'
-                - 'sightseeing'
-                - 'other'
-              Base the category on the receiver name and any context in the message.
-              If not a transaction, return an empty object.`
-            },
-            {
-              "role": "user",
-              "content": `Analyze this SMS for transaction details: ${message}`
-            }
-          ]
-        })
-      });
-
-      const responseData = await openRouterResponse.json();
-      const responseContent = responseData.choices?.[0]?.message?.content;
-      console.log('OpenRouter Response:', responseContent);
-
-      if (responseContent) {
-        try {
-          const jsonMatch = responseContent.match(/\{.*\}/s);
-          if (jsonMatch) {
-            const transactionDetails = JSON.parse(jsonMatch[0]);
-            console.log('Parsed Transaction Details:', transactionDetails);
-            
-            if (transactionDetails.amount) {
-              const transaction = {
-                receiver: transactionDetails.receiver || 'Unknown',
-                message,
-                amount: transactionDetails.amount,
-                category: transactionDetails.category || 'other',
-                rawMessage: message,
-                timestamp: new Date(timestamp || Date.now()),
-                location: location || null,
-                tripId: activeTrip?._id
-              };
-
-              user.transactions.push(transaction);
-
-              // Update trip spending if transaction is part of a trip
-              if (activeTrip) {
-                activeTrip.spentAmount = (activeTrip.spentAmount || 0) + transactionDetails.amount;
-                
-                // Update category-specific spending
-                if (!activeTrip.spendingByCategory) {
-                  activeTrip.spendingByCategory = {};
-                }
-                activeTrip.spendingByCategory[transaction.category] = 
-                  (activeTrip.spendingByCategory[transaction.category] || 0) + transactionDetails.amount;
-                
-                await activeTrip.save();
+   console.log(process.env.OPENROUTER_API_KEY)
+   var key = process.env.OPENROUTER_API_KEY
+   try {
+    const openRouterResponse = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${key}`,
+        "HTTP-Referer": process.env.SITE_URL || "https://globemate.com",
+        "X-Title": process.env.SITE_NAME || "GlobeMate",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        "model": "deepseek/deepseek-r1-distill-llama-70b:free",
+        "messages": [
+          {
+            "role": "system",
+            "content": `You are a financial SMS parser. Analyze the following SMS and determine if it's a transaction. 
+            If it is, return a JSON with:
+            - 'receiver': The recipient/merchant name
+            - 'amount': The transaction amount
+            - 'category': Categorize the transaction into one of these categories:
+              - 'food_and_dining'
+              - 'transportation'
+              - 'accommodation'
+              - 'shopping'
+              - 'entertainment'
+              - 'sightseeing'
+              - 'other'
+            Base the category on the receiver name and any context in the message.
+            If not a transaction, return an empty object.`
+          },
+          {
+            "role": "user",
+            "content": `Analyze this SMS for transaction details: ${message}`
+          }
+        ]
+      })
+    });
+  
+    const responseData = await openRouterResponse.json();
+    console.log('OpenRouter Response:', responseData);
+  
+    if (responseData.error) {
+      console.error('OpenRouter API Error:', responseData.error);
+      return res.status(500).json({ error: "OpenRouter API error" });
+    }
+  
+    const responseContent = responseData.choices?.[0]?.message?.content;
+    console.log('OpenRouter Response Content:', responseContent);
+  
+    if (responseContent) {
+      try {
+        const jsonMatch = responseContent.match(/\{.*\}/s);
+        if (jsonMatch) {
+          const transactionDetails = JSON.parse(jsonMatch[0]);
+          console.log('Parsed Transaction Details:', transactionDetails);
+          
+          if (transactionDetails.amount) {
+            const transaction = {
+              receiver: transactionDetails.receiver || 'Unknown',
+              message,
+              amount: transactionDetails.amount,
+              category: transactionDetails.category || 'other',
+              rawMessage: message,
+              timestamp: new Date(timestamp || Date.now()),
+              location: location || null,
+            };
+  
+            user.transactions.push(transaction);
+  
+            // Update trip spending if transaction is part of a trip
+            if (curr_trip) {
+              console.log(curr_trip)
+              curr_trip.spentAmount = (curr_trip.spentAmount || 0) + transactionDetails.amount;
+              // Update category-specific spending
+              if (!curr_trip.spendingByCategory) {
+                curr_trip.spendingByCategory = {};
               }
+              curr_trip.spendingByCategory[transaction.category] = 
+                (curr_trip.spendingByCategory[transaction.category] || 0) + transactionDetails.amount;
+              curr_trip.transactions.push(transaction);
+              await curr_trip.save();
             }
           }
-        } catch (parseError) {
-          console.error('Error parsing transaction details:', parseError);
         }
+      } catch (parseError) {
+        console.error('Error parsing transaction details:', parseError);
+        return res.status(500).json({ error: "Error parsing transaction details" });
       }
-      
-    } catch (aiError) {
-      console.error('OpenRouter API error:', aiError);
     }
+  } catch (aiError) {
+    console.error('OpenRouter API error:', aiError);
+    return res.status(500).json({ error: "OpenRouter API error" });
+  }
 
     await user.save();
     res.status(200).json({ message: "SMS processed and saved successfully" });

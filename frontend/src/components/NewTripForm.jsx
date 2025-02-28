@@ -24,9 +24,8 @@ const NewTripForm = ({ onClose, onTripCreated }) => {
     try {
       const token = Cookie.get('jwt_token');
       console.log('Token:', token); // Debug log
-
       const response = await axios.post(
-        `${API_BASE_URL}/api/trips/creates`,
+        `${API_BASE_URL}/api/trips/create`,
         {
           tripName: formData.tripName,
           tripStartTime: formData.tripStartTime,
@@ -36,9 +35,8 @@ const NewTripForm = ({ onClose, onTripCreated }) => {
           budget: Number(formData.budget)
         },
         {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
+         
+          withCredentials: true
         }
       );
 

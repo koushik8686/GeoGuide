@@ -33,6 +33,7 @@ app.use(morgan("dev")); // Logs requests
 // Mount authentication routes
 app.use('/auth', authRoutes);
 app.use('/', TransactionRoutes);
+app.get("/" , function (req , res) { res.send("hello")})
 app.use('/api/places', placeRouter);
 app.use('/api/trips' , TripRouter)
 // Connect to MongoDB
