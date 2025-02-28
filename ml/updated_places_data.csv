@@ -1,0 +1,5001 @@
+Location,Place_to_Go,Temperature
+Darjeeling,Hill Station,36.8
+Mumbai,Beach,33.7
+Kutch,Desert,36.9
+Chennai,Beach,36.7
+Darjeeling,Hill Station,25.3
+Hyderabad,Water Park,22.6
+Goa,Beach,24.5
+Puri,Beach,29.0
+Chennai,Beach,36.0
+Kutch,Desert,20.8
+Shimla,Hill Station,11.8
+Shimla,Hill Station,12.1
+Bikaner,Desert,23.2
+Delhi,Water Park,20.7
+Goa,Beach,39.8
+Jaisalmer,Desert,38.6
+Puri,Beach,23.2
+Ooty,Hill Station,39.3
+Manali,Hill Station,29.1
+Darjeeling,Hill Station,15.7
+Manali,Hill Station,21.4
+Manali,Hill Station,13.8
+Bangalore,Water Park,15.9
+Puri,Beach,28.1
+Shimla,Hill Station,18.5
+Bikaner,Desert,23.3
+Shimla,Hill Station,28.7
+Kolkata,Water Park,17.1
+Shimla,Hill Station,27.9
+Ooty,Hill Station,39.9
+Jaisalmer,Desert,32.8
+Kolkata,Water Park,39.2
+Bangalore,Water Park,36.9
+Bangalore,Water Park,18.5
+Jaisalmer,Desert,15.6
+Kolkata,Water Park,17.2
+Jaisalmer,Desert,24.8
+Chennai,Beach,18.2
+Ooty,Hill Station,29.3
+Jaisalmer,Desert,27.0
+Jaipur,Desert,14.6
+Mumbai,Beach,28.6
+Kutch,Desert,17.9
+Kutch,Desert,25.2
+Ooty,Hill Station,12.2
+Bikaner,Desert,14.1
+Jaipur,Desert,36.7
+Bangalore,Water Park,22.9
+Kolkata,Water Park,24.5
+Bikaner,Desert,24.8
+Shimla,Hill Station,11.3
+Bangalore,Water Park,30.1
+Jaipur,Desert,36.2
+Bangalore,Water Park,37.3
+Jaisalmer,Desert,37.1
+Bikaner,Desert,34.7
+Manali,Hill Station,11.0
+Hyderabad,Water Park,22.0
+Goa,Beach,10.0
+Hyderabad,Water Park,17.6
+Bangalore,Water Park,13.0
+Kolkata,Water Park,11.9
+Shimla,Hill Station,18.5
+Delhi,Water Park,12.4
+Bikaner,Desert,14.8
+Kutch,Desert,31.0
+Jaipur,Desert,39.2
+Ooty,Hill Station,12.1
+Bangalore,Water Park,17.6
+Bangalore,Water Park,18.0
+Puri,Beach,12.9
+Goa,Beach,18.0
+Kolkata,Water Park,33.4
+Shimla,Hill Station,32.5
+Bangalore,Water Park,26.4
+Jaisalmer,Desert,26.2
+Manali,Hill Station,39.6
+Puri,Beach,30.8
+Manali,Hill Station,37.1
+Hyderabad,Water Park,22.8
+Kutch,Desert,31.1
+Shimla,Hill Station,13.4
+Bikaner,Desert,15.6
+Manali,Hill Station,26.2
+Kutch,Desert,34.8
+Jaipur,Desert,17.7
+Jaisalmer,Desert,27.3
+Shimla,Hill Station,10.2
+Ooty,Hill Station,38.6
+Mumbai,Beach,32.2
+Puri,Beach,28.7
+Jaisalmer,Desert,39.4
+Bangalore,Water Park,21.5
+Delhi,Water Park,32.2
+Delhi,Water Park,12.8
+Kutch,Desert,20.3
+Darjeeling,Hill Station,18.3
+Chennai,Beach,15.9
+Manali,Hill Station,24.3
+Kolkata,Water Park,40.0
+Mumbai,Beach,13.2
+Manali,Hill Station,32.1
+Manali,Hill Station,25.7
+Jaisalmer,Desert,21.2
+Ooty,Hill Station,40.0
+Chennai,Beach,25.7
+Mumbai,Beach,17.4
+Jaisalmer,Desert,31.0
+Ooty,Hill Station,39.0
+Bikaner,Desert,34.6
+Jaisalmer,Desert,14.5
+Bangalore,Water Park,34.1
+Darjeeling,Hill Station,37.0
+Delhi,Water Park,25.0
+Jaipur,Desert,28.6
+Puri,Beach,22.5
+Bikaner,Desert,35.0
+Hyderabad,Water Park,11.7
+Darjeeling,Hill Station,18.3
+Kolkata,Water Park,16.9
+Puri,Beach,26.1
+Hyderabad,Water Park,39.3
+Ooty,Hill Station,11.7
+Hyderabad,Water Park,30.9
+Delhi,Water Park,21.0
+Jaipur,Desert,39.5
+Jaipur,Desert,13.2
+Mumbai,Beach,37.5
+Jaipur,Desert,14.2
+Kutch,Desert,12.3
+Bangalore,Water Park,30.3
+Manali,Hill Station,37.0
+Bikaner,Desert,25.4
+Mumbai,Beach,17.1
+Chennai,Beach,20.6
+Darjeeling,Hill Station,11.4
+Darjeeling,Hill Station,37.5
+Darjeeling,Hill Station,33.6
+Ooty,Hill Station,21.8
+Darjeeling,Hill Station,33.9
+Mumbai,Beach,11.7
+Hyderabad,Water Park,19.3
+Chennai,Beach,31.4
+Puri,Beach,35.1
+Delhi,Water Park,35.7
+Delhi,Water Park,22.4
+Hyderabad,Water Park,38.2
+Darjeeling,Hill Station,29.0
+Goa,Beach,37.3
+Darjeeling,Hill Station,24.8
+Manali,Hill Station,15.3
+Bangalore,Water Park,15.6
+Jaisalmer,Desert,18.7
+Chennai,Beach,39.2
+Puri,Beach,13.7
+Kutch,Desert,38.4
+Kolkata,Water Park,22.8
+Bangalore,Water Park,14.0
+Bangalore,Water Park,19.8
+Bangalore,Water Park,12.1
+Kolkata,Water Park,32.8
+Hyderabad,Water Park,22.9
+Puri,Beach,21.1
+Chennai,Beach,37.9
+Jaisalmer,Desert,15.4
+Puri,Beach,30.5
+Delhi,Water Park,10.8
+Goa,Beach,33.8
+Hyderabad,Water Park,15.1
+Kutch,Desert,30.4
+Mumbai,Beach,39.6
+Goa,Beach,13.0
+Chennai,Beach,32.0
+Delhi,Water Park,26.0
+Kolkata,Water Park,32.1
+Manali,Hill Station,18.3
+Jaipur,Desert,24.0
+Goa,Beach,32.6
+Goa,Beach,37.4
+Mumbai,Beach,23.5
+Kolkata,Water Park,23.5
+Ooty,Hill Station,12.2
+Shimla,Hill Station,17.5
+Kolkata,Water Park,12.8
+Bikaner,Desert,20.6
+Ooty,Hill Station,23.1
+Puri,Beach,38.1
+Kutch,Desert,12.2
+Hyderabad,Water Park,17.1
+Bikaner,Desert,35.9
+Bangalore,Water Park,13.7
+Chennai,Beach,34.4
+Kolkata,Water Park,12.6
+Kutch,Desert,39.4
+Hyderabad,Water Park,10.7
+Chennai,Beach,37.9
+Ooty,Hill Station,20.6
+Mumbai,Beach,24.8
+Puri,Beach,25.7
+Bikaner,Desert,18.5
+Shimla,Hill Station,37.3
+Goa,Beach,32.9
+Bikaner,Desert,23.2
+Kutch,Desert,24.6
+Kolkata,Water Park,31.1
+Mumbai,Beach,11.1
+Puri,Beach,13.4
+Bikaner,Desert,11.8
+Goa,Beach,28.2
+Bikaner,Desert,18.3
+Hyderabad,Water Park,15.7
+Bangalore,Water Park,21.4
+Jaipur,Desert,39.3
+Shimla,Hill Station,35.8
+Bangalore,Water Park,29.0
+Hyderabad,Water Park,15.6
+Goa,Beach,35.2
+Jaisalmer,Desert,15.3
+Hyderabad,Water Park,34.1
+Hyderabad,Water Park,39.2
+Shimla,Hill Station,13.9
+Bangalore,Water Park,17.4
+Jaisalmer,Desert,11.8
+Jaisalmer,Desert,36.0
+Jaisalmer,Desert,13.7
+Goa,Beach,11.6
+Kutch,Desert,24.2
+Jaisalmer,Desert,23.9
+Puri,Beach,35.8
+Hyderabad,Water Park,18.4
+Shimla,Hill Station,18.2
+Darjeeling,Hill Station,25.7
+Kolkata,Water Park,33.9
+Darjeeling,Hill Station,16.1
+Puri,Beach,13.1
+Kolkata,Water Park,14.7
+Kolkata,Water Park,24.8
+Bangalore,Water Park,36.8
+Bikaner,Desert,35.0
+Bangalore,Water Park,11.9
+Manali,Hill Station,25.5
+Shimla,Hill Station,38.2
+Shimla,Hill Station,16.2
+Goa,Beach,24.9
+Shimla,Hill Station,14.1
+Jaisalmer,Desert,30.1
+Delhi,Water Park,39.4
+Hyderabad,Water Park,28.5
+Delhi,Water Park,21.3
+Kolkata,Water Park,30.6
+Kolkata,Water Park,15.4
+Mumbai,Beach,25.5
+Kutch,Desert,15.0
+Jaisalmer,Desert,24.2
+Bangalore,Water Park,35.2
+Hyderabad,Water Park,14.1
+Kutch,Desert,25.1
+Kutch,Desert,18.0
+Bikaner,Desert,30.2
+Jaisalmer,Desert,23.0
+Kolkata,Water Park,14.3
+Darjeeling,Hill Station,20.4
+Manali,Hill Station,15.7
+Delhi,Water Park,33.6
+Bangalore,Water Park,36.8
+Darjeeling,Hill Station,29.5
+Darjeeling,Hill Station,31.6
+Chennai,Beach,21.3
+Manali,Hill Station,37.1
+Jaisalmer,Desert,22.1
+Chennai,Beach,14.2
+Hyderabad,Water Park,31.7
+Jaisalmer,Desert,21.1
+Puri,Beach,36.9
+Ooty,Hill Station,19.5
+Manali,Hill Station,16.0
+Mumbai,Beach,21.7
+Manali,Hill Station,13.5
+Kolkata,Water Park,38.3
+Puri,Beach,19.1
+Shimla,Hill Station,20.8
+Shimla,Hill Station,18.0
+Jaisalmer,Desert,26.3
+Shimla,Hill Station,13.3
+Kolkata,Water Park,35.0
+Jaisalmer,Desert,33.7
+Delhi,Water Park,26.4
+Manali,Hill Station,18.1
+Jaisalmer,Desert,24.0
+Goa,Beach,15.0
+Delhi,Water Park,33.0
+Darjeeling,Hill Station,15.0
+Shimla,Hill Station,36.8
+Delhi,Water Park,16.1
+Goa,Beach,28.5
+Bikaner,Desert,32.4
+Shimla,Hill Station,36.9
+Hyderabad,Water Park,26.8
+Puri,Beach,10.8
+Jaisalmer,Desert,30.3
+Chennai,Beach,19.2
+Puri,Beach,35.8
+Jaisalmer,Desert,33.6
+Darjeeling,Hill Station,39.0
+Kutch,Desert,16.2
+Jaisalmer,Desert,10.1
+Shimla,Hill Station,26.1
+Shimla,Hill Station,39.1
+Hyderabad,Water Park,27.2
+Manali,Hill Station,26.4
+Ooty,Hill Station,36.0
+Bangalore,Water Park,34.0
+Jaipur,Desert,10.3
+Mumbai,Beach,26.8
+Goa,Beach,23.7
+Kolkata,Water Park,34.5
+Shimla,Hill Station,16.6
+Bangalore,Water Park,28.3
+Darjeeling,Hill Station,14.2
+Mumbai,Beach,22.3
+Manali,Hill Station,32.6
+Kutch,Desert,37.0
+Jaisalmer,Desert,37.1
+Darjeeling,Hill Station,10.8
+Hyderabad,Water Park,11.9
+Delhi,Water Park,14.1
+Bikaner,Desert,24.8
+Puri,Beach,35.6
+Goa,Beach,16.6
+Delhi,Water Park,31.4
+Shimla,Hill Station,17.0
+Kolkata,Water Park,14.9
+Goa,Beach,34.2
+Kutch,Desert,39.1
+Bikaner,Desert,14.2
+Bangalore,Water Park,24.3
+Ooty,Hill Station,23.9
+Manali,Hill Station,22.2
+Puri,Beach,31.4
+Jaisalmer,Desert,30.7
+Puri,Beach,16.2
+Delhi,Water Park,21.9
+Bangalore,Water Park,12.1
+Shimla,Hill Station,15.0
+Shimla,Hill Station,26.8
+Goa,Beach,30.6
+Bikaner,Desert,35.1
+Kolkata,Water Park,22.8
+Manali,Hill Station,13.1
+Delhi,Water Park,10.4
+Puri,Beach,11.4
+Kutch,Desert,25.0
+Ooty,Hill Station,35.0
+Jaipur,Desert,30.5
+Chennai,Beach,34.1
+Ooty,Hill Station,15.2
+Kutch,Desert,37.8
+Jaipur,Desert,16.7
+Puri,Beach,26.1
+Bangalore,Water Park,18.9
+Jaipur,Desert,38.6
+Bangalore,Water Park,35.5
+Mumbai,Beach,22.5
+Delhi,Water Park,38.9
+Jaipur,Desert,39.1
+Kolkata,Water Park,38.8
+Manali,Hill Station,34.8
+Hyderabad,Water Park,14.9
+Chennai,Beach,28.0
+Darjeeling,Hill Station,26.2
+Goa,Beach,18.6
+Mumbai,Beach,29.1
+Bikaner,Desert,11.6
+Jaisalmer,Desert,37.1
+Chennai,Beach,33.9
+Jaisalmer,Desert,19.8
+Mumbai,Beach,39.8
+Puri,Beach,30.4
+Kutch,Desert,25.5
+Chennai,Beach,25.5
+Delhi,Water Park,10.0
+Kutch,Desert,23.6
+Jaisalmer,Desert,11.6
+Manali,Hill Station,23.1
+Darjeeling,Hill Station,39.5
+Jaisalmer,Desert,22.7
+Jaipur,Desert,24.2
+Darjeeling,Hill Station,31.1
+Kutch,Desert,37.2
+Ooty,Hill Station,28.4
+Delhi,Water Park,10.5
+Bikaner,Desert,25.6
+Shimla,Hill Station,20.0
+Ooty,Hill Station,14.5
+Bangalore,Water Park,24.2
+Jaipur,Desert,27.4
+Kolkata,Water Park,33.0
+Mumbai,Beach,19.4
+Hyderabad,Water Park,23.9
+Ooty,Hill Station,16.0
+Darjeeling,Hill Station,10.7
+Kolkata,Water Park,15.1
+Chennai,Beach,18.4
+Shimla,Hill Station,24.2
+Mumbai,Beach,29.1
+Shimla,Hill Station,33.8
+Jaisalmer,Desert,20.3
+Mumbai,Beach,19.2
+Chennai,Beach,15.2
+Bangalore,Water Park,31.1
+Delhi,Water Park,33.3
+Shimla,Hill Station,11.1
+Manali,Hill Station,26.1
+Mumbai,Beach,37.2
+Darjeeling,Hill Station,27.9
+Darjeeling,Hill Station,34.5
+Delhi,Water Park,32.1
+Shimla,Hill Station,10.3
+Darjeeling,Hill Station,16.4
+Shimla,Hill Station,29.5
+Manali,Hill Station,36.9
+Shimla,Hill Station,32.1
+Jaipur,Desert,18.9
+Kolkata,Water Park,13.7
+Puri,Beach,37.6
+Shimla,Hill Station,34.1
+Shimla,Hill Station,13.1
+Shimla,Hill Station,24.1
+Ooty,Hill Station,22.9
+Delhi,Water Park,25.3
+Bangalore,Water Park,21.5
+Darjeeling,Hill Station,36.0
+Manali,Hill Station,27.9
+Jaipur,Desert,11.0
+Bikaner,Desert,38.2
+Hyderabad,Water Park,11.1
+Darjeeling,Hill Station,36.1
+Puri,Beach,16.6
+Ooty,Hill Station,20.2
+Manali,Hill Station,36.8
+Jaisalmer,Desert,38.6
+Darjeeling,Hill Station,17.2
+Bikaner,Desert,34.9
+Jaipur,Desert,25.8
+Puri,Beach,24.5
+Kolkata,Water Park,27.6
+Bangalore,Water Park,39.8
+Darjeeling,Hill Station,21.9
+Jaipur,Desert,28.9
+Delhi,Water Park,23.6
+Chennai,Beach,15.9
+Bangalore,Water Park,29.9
+Bangalore,Water Park,37.1
+Kolkata,Water Park,20.7
+Mumbai,Beach,39.4
+Mumbai,Beach,19.7
+Manali,Hill Station,16.2
+Bikaner,Desert,12.6
+Jaisalmer,Desert,33.4
+Ooty,Hill Station,25.5
+Goa,Beach,27.2
+Delhi,Water Park,11.3
+Puri,Beach,34.1
+Darjeeling,Hill Station,16.4
+Delhi,Water Park,15.7
+Ooty,Hill Station,28.1
+Delhi,Water Park,10.2
+Bangalore,Water Park,13.7
+Chennai,Beach,38.6
+Goa,Beach,10.0
+Kutch,Desert,27.7
+Ooty,Hill Station,35.6
+Shimla,Hill Station,27.7
+Darjeeling,Hill Station,25.0
+Ooty,Hill Station,11.0
+Bikaner,Desert,25.2
+Hyderabad,Water Park,30.8
+Shimla,Hill Station,27.3
+Delhi,Water Park,19.4
+Kutch,Desert,34.7
+Bikaner,Desert,15.4
+Manali,Hill Station,32.1
+Puri,Beach,37.0
+Bangalore,Water Park,19.2
+Manali,Hill Station,35.7
+Kutch,Desert,38.2
+Bikaner,Desert,22.6
+Mumbai,Beach,25.4
+Darjeeling,Hill Station,32.9
+Puri,Beach,20.0
+Bangalore,Water Park,36.4
+Mumbai,Beach,30.2
+Chennai,Beach,31.1
+Goa,Beach,17.6
+Ooty,Hill Station,13.7
+Bikaner,Desert,38.0
+Ooty,Hill Station,22.8
+Mumbai,Beach,39.7
+Jaisalmer,Desert,30.5
+Goa,Beach,15.6
+Ooty,Hill Station,26.9
+Jaisalmer,Desert,35.5
+Kolkata,Water Park,28.0
+Jaisalmer,Desert,14.3
+Bikaner,Desert,25.9
+Chennai,Beach,29.0
+Jaisalmer,Desert,34.8
+Ooty,Hill Station,19.1
+Jaipur,Desert,29.4
+Mumbai,Beach,32.6
+Bangalore,Water Park,11.3
+Goa,Beach,34.7
+Ooty,Hill Station,17.1
+Puri,Beach,17.2
+Kolkata,Water Park,16.5
+Jaipur,Desert,29.4
+Hyderabad,Water Park,27.8
+Puri,Beach,11.7
+Jaisalmer,Desert,21.3
+Ooty,Hill Station,20.5
+Chennai,Beach,30.5
+Kolkata,Water Park,14.4
+Chennai,Beach,23.8
+Hyderabad,Water Park,38.5
+Bikaner,Desert,35.9
+Bangalore,Water Park,21.7
+Chennai,Beach,30.6
+Chennai,Beach,22.5
+Darjeeling,Hill Station,14.9
+Bangalore,Water Park,38.3
+Darjeeling,Hill Station,23.5
+Delhi,Water Park,22.3
+Chennai,Beach,23.1
+Jaisalmer,Desert,28.6
+Ooty,Hill Station,35.7
+Hyderabad,Water Park,34.4
+Kutch,Desert,13.9
+Mumbai,Beach,26.4
+Bikaner,Desert,23.0
+Bikaner,Desert,34.3
+Hyderabad,Water Park,28.8
+Kolkata,Water Park,30.4
+Ooty,Hill Station,39.5
+Kutch,Desert,32.8
+Mumbai,Beach,22.9
+Puri,Beach,17.7
+Goa,Beach,26.8
+Kolkata,Water Park,22.4
+Manali,Hill Station,24.4
+Goa,Beach,12.9
+Goa,Beach,30.9
+Chennai,Beach,10.3
+Delhi,Water Park,19.8
+Bangalore,Water Park,16.7
+Manali,Hill Station,36.3
+Goa,Beach,21.1
+Shimla,Hill Station,35.7
+Jaisalmer,Desert,11.0
+Chennai,Beach,20.5
+Kolkata,Water Park,34.4
+Puri,Beach,28.4
+Darjeeling,Hill Station,36.4
+Delhi,Water Park,14.0
+Bangalore,Water Park,27.3
+Darjeeling,Hill Station,24.9
+Delhi,Water Park,38.0
+Goa,Beach,37.0
+Chennai,Beach,22.3
+Kolkata,Water Park,18.9
+Ooty,Hill Station,32.2
+Darjeeling,Hill Station,27.4
+Chennai,Beach,16.6
+Manali,Hill Station,39.5
+Bangalore,Water Park,18.4
+Kolkata,Water Park,13.1
+Manali,Hill Station,27.4
+Bangalore,Water Park,11.0
+Shimla,Hill Station,21.3
+Jaisalmer,Desert,21.3
+Bikaner,Desert,12.9
+Jaipur,Desert,18.7
+Bikaner,Desert,36.5
+Bangalore,Water Park,22.7
+Kolkata,Water Park,33.7
+Jaisalmer,Desert,25.8
+Shimla,Hill Station,20.9
+Kutch,Desert,11.3
+Kutch,Desert,10.8
+Shimla,Hill Station,16.4
+Kutch,Desert,12.7
+Manali,Hill Station,21.0
+Hyderabad,Water Park,26.8
+Darjeeling,Hill Station,15.3
+Goa,Beach,24.4
+Kolkata,Water Park,38.3
+Mumbai,Beach,30.8
+Shimla,Hill Station,22.0
+Hyderabad,Water Park,27.9
+Hyderabad,Water Park,23.4
+Darjeeling,Hill Station,38.3
+Jaisalmer,Desert,11.8
+Manali,Hill Station,39.3
+Bangalore,Water Park,31.0
+Bangalore,Water Park,22.4
+Kutch,Desert,22.0
+Bikaner,Desert,11.0
+Manali,Hill Station,22.1
+Darjeeling,Hill Station,35.0
+Jaipur,Desert,32.7
+Jaipur,Desert,33.0
+Hyderabad,Water Park,28.3
+Jaisalmer,Desert,31.7
+Delhi,Water Park,19.0
+Chennai,Beach,24.2
+Mumbai,Beach,25.6
+Jaipur,Desert,25.3
+Hyderabad,Water Park,21.0
+Jaipur,Desert,36.9
+Mumbai,Beach,10.5
+Hyderabad,Water Park,29.3
+Puri,Beach,10.5
+Mumbai,Beach,15.2
+Bikaner,Desert,15.1
+Goa,Beach,39.0
+Bikaner,Desert,27.3
+Bangalore,Water Park,21.8
+Chennai,Beach,26.6
+Chennai,Beach,31.7
+Puri,Beach,12.1
+Jaipur,Desert,18.3
+Kutch,Desert,34.4
+Bangalore,Water Park,14.3
+Kutch,Desert,25.4
+Goa,Beach,39.9
+Bikaner,Desert,10.4
+Goa,Beach,33.9
+Kolkata,Water Park,27.6
+Goa,Beach,12.3
+Shimla,Hill Station,33.8
+Bangalore,Water Park,17.7
+Ooty,Hill Station,23.4
+Jaipur,Desert,38.4
+Bangalore,Water Park,10.6
+Bikaner,Desert,24.7
+Bikaner,Desert,18.5
+Manali,Hill Station,21.5
+Ooty,Hill Station,35.7
+Mumbai,Beach,32.1
+Kolkata,Water Park,28.2
+Delhi,Water Park,37.9
+Kutch,Desert,16.7
+Bangalore,Water Park,10.0
+Hyderabad,Water Park,26.9
+Puri,Beach,14.4
+Ooty,Hill Station,33.1
+Goa,Beach,25.2
+Jaipur,Desert,37.8
+Chennai,Beach,31.9
+Chennai,Beach,14.4
+Darjeeling,Hill Station,39.8
+Bikaner,Desert,31.1
+Delhi,Water Park,35.4
+Chennai,Beach,29.9
+Bangalore,Water Park,33.8
+Goa,Beach,35.1
+Kutch,Desert,14.2
+Hyderabad,Water Park,26.2
+Shimla,Hill Station,29.8
+Mumbai,Beach,38.9
+Jaipur,Desert,30.0
+Manali,Hill Station,14.9
+Bikaner,Desert,25.3
+Goa,Beach,31.7
+Bangalore,Water Park,17.9
+Puri,Beach,14.1
+Hyderabad,Water Park,20.0
+Bikaner,Desert,29.6
+Jaipur,Desert,16.3
+Ooty,Hill Station,32.6
+Ooty,Hill Station,33.4
+Bangalore,Water Park,20.0
+Bikaner,Desert,35.1
+Mumbai,Beach,13.6
+Bangalore,Water Park,38.4
+Mumbai,Beach,38.1
+Shimla,Hill Station,13.2
+Jaipur,Desert,19.3
+Shimla,Hill Station,35.6
+Jaipur,Desert,15.8
+Darjeeling,Hill Station,19.0
+Hyderabad,Water Park,36.7
+Hyderabad,Water Park,32.5
+Bikaner,Desert,10.9
+Jaisalmer,Desert,22.4
+Manali,Hill Station,36.4
+Hyderabad,Water Park,17.8
+Ooty,Hill Station,36.5
+Jaipur,Desert,24.6
+Delhi,Water Park,26.8
+Chennai,Beach,16.7
+Ooty,Hill Station,16.3
+Mumbai,Beach,17.6
+Jaisalmer,Desert,38.9
+Goa,Beach,12.7
+Kolkata,Water Park,29.0
+Puri,Beach,35.4
+Kolkata,Water Park,37.5
+Darjeeling,Hill Station,26.2
+Manali,Hill Station,14.8
+Bikaner,Desert,35.9
+Bikaner,Desert,19.2
+Jaipur,Desert,21.3
+Bangalore,Water Park,38.9
+Goa,Beach,11.7
+Chennai,Beach,38.0
+Jaisalmer,Desert,19.7
+Shimla,Hill Station,25.8
+Manali,Hill Station,11.0
+Kutch,Desert,29.5
+Jaisalmer,Desert,26.7
+Jaisalmer,Desert,13.8
+Manali,Hill Station,31.8
+Ooty,Hill Station,13.1
+Manali,Hill Station,10.6
+Shimla,Hill Station,37.6
+Darjeeling,Hill Station,26.4
+Delhi,Water Park,26.4
+Mumbai,Beach,13.7
+Mumbai,Beach,17.1
+Mumbai,Beach,37.3
+Goa,Beach,17.5
+Chennai,Beach,35.1
+Hyderabad,Water Park,28.0
+Hyderabad,Water Park,27.3
+Darjeeling,Hill Station,14.9
+Delhi,Water Park,15.0
+Ooty,Hill Station,16.6
+Kutch,Desert,35.5
+Bikaner,Desert,17.6
+Mumbai,Beach,26.2
+Manali,Hill Station,34.9
+Darjeeling,Hill Station,30.2
+Jaipur,Desert,32.2
+Ooty,Hill Station,28.0
+Delhi,Water Park,37.7
+Mumbai,Beach,32.1
+Darjeeling,Hill Station,31.9
+Puri,Beach,29.2
+Delhi,Water Park,11.5
+Kolkata,Water Park,22.8
+Kutch,Desert,36.9
+Kutch,Desert,17.3
+Chennai,Beach,10.1
+Goa,Beach,10.1
+Jaipur,Desert,35.9
+Manali,Hill Station,12.7
+Jaisalmer,Desert,39.1
+Kolkata,Water Park,15.5
+Ooty,Hill Station,26.2
+Puri,Beach,21.7
+Delhi,Water Park,30.2
+Jaisalmer,Desert,22.1
+Puri,Beach,17.3
+Ooty,Hill Station,10.5
+Jaipur,Desert,31.0
+Manali,Hill Station,35.2
+Ooty,Hill Station,32.0
+Chennai,Beach,39.4
+Hyderabad,Water Park,17.3
+Manali,Hill Station,24.4
+Darjeeling,Hill Station,32.6
+Bangalore,Water Park,23.5
+Mumbai,Beach,35.0
+Kolkata,Water Park,13.5
+Hyderabad,Water Park,37.8
+Shimla,Hill Station,20.5
+Bangalore,Water Park,20.4
+Puri,Beach,10.8
+Shimla,Hill Station,22.4
+Bikaner,Desert,13.7
+Chennai,Beach,30.6
+Chennai,Beach,13.0
+Goa,Beach,34.5
+Jaisalmer,Desert,35.9
+Darjeeling,Hill Station,24.2
+Jaipur,Desert,32.7
+Kutch,Desert,23.4
+Delhi,Water Park,24.6
+Manali,Hill Station,21.7
+Delhi,Water Park,28.5
+Chennai,Beach,31.6
+Ooty,Hill Station,32.0
+Manali,Hill Station,20.5
+Shimla,Hill Station,30.9
+Ooty,Hill Station,24.0
+Hyderabad,Water Park,37.0
+Jaipur,Desert,20.2
+Delhi,Water Park,24.8
+Kolkata,Water Park,32.8
+Jaisalmer,Desert,21.3
+Shimla,Hill Station,28.8
+Jaipur,Desert,28.4
+Kolkata,Water Park,30.3
+Hyderabad,Water Park,19.0
+Darjeeling,Hill Station,34.8
+Jaisalmer,Desert,12.7
+Kolkata,Water Park,34.9
+Kolkata,Water Park,22.7
+Kolkata,Water Park,37.8
+Manali,Hill Station,28.0
+Chennai,Beach,12.8
+Jaisalmer,Desert,10.1
+Kutch,Desert,20.5
+Ooty,Hill Station,30.8
+Delhi,Water Park,25.0
+Bikaner,Desert,31.3
+Jaisalmer,Desert,36.4
+Puri,Beach,25.1
+Mumbai,Beach,23.6
+Jaisalmer,Desert,30.8
+Bangalore,Water Park,29.7
+Darjeeling,Hill Station,16.8
+Mumbai,Beach,31.5
+Bikaner,Desert,19.4
+Mumbai,Beach,21.5
+Jaisalmer,Desert,32.1
+Jaisalmer,Desert,21.8
+Mumbai,Beach,33.5
+Ooty,Hill Station,35.8
+Darjeeling,Hill Station,38.3
+Jaisalmer,Desert,31.6
+Kolkata,Water Park,23.5
+Mumbai,Beach,26.4
+Delhi,Water Park,14.2
+Jaipur,Desert,38.0
+Kolkata,Water Park,34.4
+Goa,Beach,29.1
+Hyderabad,Water Park,13.5
+Bikaner,Desert,32.9
+Bangalore,Water Park,38.2
+Bikaner,Desert,24.2
+Jaisalmer,Desert,15.1
+Jaipur,Desert,17.3
+Manali,Hill Station,17.2
+Goa,Beach,17.8
+Delhi,Water Park,12.8
+Bikaner,Desert,33.9
+Shimla,Hill Station,38.8
+Ooty,Hill Station,26.6
+Ooty,Hill Station,25.2
+Chennai,Beach,32.4
+Kutch,Desert,19.0
+Bangalore,Water Park,25.1
+Hyderabad,Water Park,38.0
+Kutch,Desert,18.9
+Jaipur,Desert,29.7
+Shimla,Hill Station,38.5
+Shimla,Hill Station,18.2
+Manali,Hill Station,16.5
+Kolkata,Water Park,25.4
+Delhi,Water Park,33.4
+Delhi,Water Park,26.9
+Bikaner,Desert,33.6
+Manali,Hill Station,17.6
+Kutch,Desert,20.3
+Jaipur,Desert,39.9
+Ooty,Hill Station,22.4
+Bikaner,Desert,26.4
+Ooty,Hill Station,38.5
+Chennai,Beach,26.4
+Goa,Beach,28.6
+Puri,Beach,16.7
+Bangalore,Water Park,16.7
+Kutch,Desert,37.7
+Jaipur,Desert,29.6
+Kutch,Desert,22.9
+Bikaner,Desert,14.8
+Jaipur,Desert,39.6
+Mumbai,Beach,30.4
+Darjeeling,Hill Station,36.6
+Delhi,Water Park,39.0
+Jaipur,Desert,10.6
+Bikaner,Desert,16.6
+Jaipur,Desert,19.1
+Darjeeling,Hill Station,17.0
+Ooty,Hill Station,25.1
+Ooty,Hill Station,21.9
+Shimla,Hill Station,24.5
+Kutch,Desert,38.2
+Darjeeling,Hill Station,15.9
+Kolkata,Water Park,31.7
+Bikaner,Desert,17.5
+Darjeeling,Hill Station,23.9
+Shimla,Hill Station,13.8
+Manali,Hill Station,20.7
+Manali,Hill Station,32.5
+Chennai,Beach,31.5
+Hyderabad,Water Park,19.0
+Puri,Beach,34.0
+Delhi,Water Park,22.3
+Hyderabad,Water Park,10.4
+Hyderabad,Water Park,17.2
+Goa,Beach,23.4
+Bikaner,Desert,13.9
+Manali,Hill Station,35.1
+Darjeeling,Hill Station,22.4
+Goa,Beach,37.3
+Shimla,Hill Station,27.8
+Goa,Beach,26.0
+Darjeeling,Hill Station,28.8
+Puri,Beach,34.3
+Kolkata,Water Park,17.6
+Shimla,Hill Station,27.4
+Ooty,Hill Station,28.6
+Chennai,Beach,39.3
+Kolkata,Water Park,35.5
+Darjeeling,Hill Station,33.6
+Manali,Hill Station,39.4
+Puri,Beach,15.2
+Chennai,Beach,18.6
+Jaisalmer,Desert,34.5
+Manali,Hill Station,37.4
+Hyderabad,Water Park,36.6
+Shimla,Hill Station,22.2
+Jaipur,Desert,29.1
+Mumbai,Beach,16.6
+Bikaner,Desert,37.4
+Jaipur,Desert,14.1
+Shimla,Hill Station,19.4
+Goa,Beach,17.3
+Chennai,Beach,38.7
+Jaisalmer,Desert,16.5
+Jaisalmer,Desert,37.7
+Puri,Beach,33.6
+Chennai,Beach,15.6
+Hyderabad,Water Park,10.4
+Shimla,Hill Station,15.5
+Jaipur,Desert,17.0
+Manali,Hill Station,32.5
+Bangalore,Water Park,21.1
+Mumbai,Beach,29.5
+Kolkata,Water Park,29.1
+Bangalore,Water Park,36.1
+Delhi,Water Park,17.6
+Hyderabad,Water Park,28.7
+Kolkata,Water Park,39.1
+Delhi,Water Park,18.4
+Delhi,Water Park,26.3
+Puri,Beach,20.6
+Hyderabad,Water Park,27.1
+Jaisalmer,Desert,33.5
+Mumbai,Beach,30.8
+Hyderabad,Water Park,16.8
+Manali,Hill Station,11.6
+Kolkata,Water Park,27.0
+Puri,Beach,31.7
+Jaisalmer,Desert,14.8
+Hyderabad,Water Park,15.3
+Kolkata,Water Park,21.2
+Kutch,Desert,38.9
+Delhi,Water Park,21.4
+Bangalore,Water Park,10.8
+Delhi,Water Park,26.5
+Hyderabad,Water Park,11.3
+Manali,Hill Station,20.8
+Delhi,Water Park,39.7
+Hyderabad,Water Park,38.8
+Manali,Hill Station,31.3
+Shimla,Hill Station,28.0
+Manali,Hill Station,12.5
+Ooty,Hill Station,36.4
+Bangalore,Water Park,11.9
+Manali,Hill Station,13.6
+Goa,Beach,21.2
+Kolkata,Water Park,26.0
+Hyderabad,Water Park,38.3
+Hyderabad,Water Park,34.5
+Bangalore,Water Park,38.2
+Chennai,Beach,25.8
+Bangalore,Water Park,23.0
+Shimla,Hill Station,25.1
+Manali,Hill Station,39.4
+Shimla,Hill Station,32.5
+Bikaner,Desert,22.2
+Ooty,Hill Station,28.9
+Jaipur,Desert,17.0
+Manali,Hill Station,16.0
+Darjeeling,Hill Station,22.7
+Jaisalmer,Desert,22.5
+Manali,Hill Station,23.1
+Shimla,Hill Station,23.9
+Kolkata,Water Park,30.7
+Jaisalmer,Desert,26.0
+Jaisalmer,Desert,12.5
+Darjeeling,Hill Station,19.3
+Delhi,Water Park,13.0
+Kolkata,Water Park,12.4
+Darjeeling,Hill Station,26.8
+Kolkata,Water Park,13.4
+Darjeeling,Hill Station,26.4
+Delhi,Water Park,30.8
+Jaisalmer,Desert,23.1
+Kutch,Desert,33.8
+Bikaner,Desert,25.0
+Chennai,Beach,33.2
+Jaisalmer,Desert,18.4
+Hyderabad,Water Park,15.8
+Goa,Beach,16.8
+Kolkata,Water Park,26.8
+Hyderabad,Water Park,31.4
+Chennai,Beach,35.8
+Jaipur,Desert,32.9
+Jaisalmer,Desert,13.5
+Puri,Beach,14.2
+Delhi,Water Park,17.6
+Bangalore,Water Park,18.5
+Manali,Hill Station,33.2
+Jaipur,Desert,30.2
+Chennai,Beach,22.1
+Shimla,Hill Station,26.5
+Ooty,Hill Station,14.4
+Jaipur,Desert,37.6
+Puri,Beach,25.9
+Delhi,Water Park,17.2
+Ooty,Hill Station,17.7
+Jaipur,Desert,10.6
+Jaipur,Desert,17.3
+Jaisalmer,Desert,33.3
+Ooty,Hill Station,20.3
+Hyderabad,Water Park,34.6
+Kutch,Desert,22.6
+Hyderabad,Water Park,12.6
+Shimla,Hill Station,18.0
+Bikaner,Desert,24.5
+Manali,Hill Station,13.5
+Goa,Beach,29.3
+Bangalore,Water Park,17.2
+Manali,Hill Station,31.3
+Jaisalmer,Desert,28.5
+Delhi,Water Park,17.4
+Puri,Beach,22.8
+Jaisalmer,Desert,19.1
+Darjeeling,Hill Station,19.2
+Chennai,Beach,23.7
+Shimla,Hill Station,31.6
+Bangalore,Water Park,20.9
+Bangalore,Water Park,29.2
+Jaisalmer,Desert,33.1
+Puri,Beach,30.6
+Ooty,Hill Station,32.3
+Hyderabad,Water Park,23.3
+Goa,Beach,34.4
+Ooty,Hill Station,32.3
+Ooty,Hill Station,23.3
+Kolkata,Water Park,13.1
+Delhi,Water Park,13.8
+Ooty,Hill Station,34.9
+Bangalore,Water Park,22.1
+Mumbai,Beach,24.8
+Jaisalmer,Desert,17.0
+Kolkata,Water Park,21.0
+Puri,Beach,16.5
+Kolkata,Water Park,21.0
+Puri,Beach,22.7
+Jaisalmer,Desert,11.3
+Kolkata,Water Park,37.9
+Puri,Beach,36.6
+Darjeeling,Hill Station,12.9
+Darjeeling,Hill Station,16.0
+Puri,Beach,21.7
+Hyderabad,Water Park,15.5
+Jaipur,Desert,33.3
+Hyderabad,Water Park,38.7
+Manali,Hill Station,17.0
+Jaipur,Desert,28.2
+Puri,Beach,13.8
+Darjeeling,Hill Station,21.1
+Shimla,Hill Station,24.2
+Manali,Hill Station,17.7
+Jaisalmer,Desert,30.1
+Kutch,Desert,38.0
+Bikaner,Desert,21.6
+Jaipur,Desert,31.0
+Kutch,Desert,16.2
+Shimla,Hill Station,19.8
+Ooty,Hill Station,27.9
+Puri,Beach,13.7
+Jaipur,Desert,15.9
+Jaisalmer,Desert,39.6
+Darjeeling,Hill Station,24.7
+Mumbai,Beach,25.8
+Kutch,Desert,20.0
+Goa,Beach,21.0
+Bikaner,Desert,12.1
+Jaisalmer,Desert,32.0
+Jaipur,Desert,19.1
+Jaisalmer,Desert,29.3
+Bikaner,Desert,17.5
+Ooty,Hill Station,24.7
+Manali,Hill Station,18.4
+Goa,Beach,20.9
+Manali,Hill Station,34.2
+Hyderabad,Water Park,21.5
+Delhi,Water Park,26.2
+Kutch,Desert,22.6
+Mumbai,Beach,16.3
+Mumbai,Beach,22.9
+Kolkata,Water Park,32.3
+Kutch,Desert,23.0
+Jaisalmer,Desert,29.2
+Chennai,Beach,34.2
+Ooty,Hill Station,26.0
+Hyderabad,Water Park,26.8
+Delhi,Water Park,22.6
+Hyderabad,Water Park,38.5
+Hyderabad,Water Park,32.7
+Mumbai,Beach,31.5
+Puri,Beach,24.7
+Chennai,Beach,13.2
+Kolkata,Water Park,28.7
+Mumbai,Beach,34.5
+Bangalore,Water Park,34.5
+Mumbai,Beach,20.5
+Goa,Beach,18.6
+Jaipur,Desert,39.3
+Jaisalmer,Desert,36.9
+Delhi,Water Park,39.4
+Kutch,Desert,15.9
+Jaisalmer,Desert,39.5
+Hyderabad,Water Park,14.1
+Mumbai,Beach,19.0
+Bikaner,Desert,13.6
+Shimla,Hill Station,27.8
+Bangalore,Water Park,29.8
+Manali,Hill Station,20.1
+Kolkata,Water Park,34.6
+Jaisalmer,Desert,18.4
+Shimla,Hill Station,37.0
+Shimla,Hill Station,20.6
+Puri,Beach,33.5
+Manali,Hill Station,31.1
+Jaipur,Desert,24.7
+Chennai,Beach,31.6
+Hyderabad,Water Park,35.6
+Kolkata,Water Park,38.1
+Jaipur,Desert,24.3
+Puri,Beach,15.9
+Bikaner,Desert,28.1
+Darjeeling,Hill Station,40.0
+Darjeeling,Hill Station,18.8
+Manali,Hill Station,23.6
+Kolkata,Water Park,15.6
+Bangalore,Water Park,32.5
+Puri,Beach,29.4
+Puri,Beach,36.0
+Jaipur,Desert,38.2
+Ooty,Hill Station,32.8
+Bangalore,Water Park,26.7
+Puri,Beach,33.1
+Bangalore,Water Park,26.8
+Mumbai,Beach,27.0
+Darjeeling,Hill Station,12.7
+Hyderabad,Water Park,39.1
+Kutch,Desert,14.5
+Jaipur,Desert,10.1
+Kolkata,Water Park,27.7
+Kolkata,Water Park,25.3
+Ooty,Hill Station,18.9
+Kutch,Desert,11.6
+Kutch,Desert,27.3
+Darjeeling,Hill Station,29.5
+Kolkata,Water Park,32.4
+Manali,Hill Station,31.2
+Ooty,Hill Station,12.6
+Goa,Beach,34.9
+Shimla,Hill Station,12.1
+Shimla,Hill Station,16.5
+Ooty,Hill Station,15.9
+Shimla,Hill Station,27.8
+Darjeeling,Hill Station,27.1
+Bangalore,Water Park,27.9
+Jaipur,Desert,36.1
+Jaipur,Desert,34.0
+Chennai,Beach,34.0
+Jaipur,Desert,25.0
+Jaipur,Desert,21.8
+Hyderabad,Water Park,21.3
+Chennai,Beach,11.1
+Jaipur,Desert,12.5
+Puri,Beach,17.6
+Puri,Beach,32.5
+Delhi,Water Park,15.9
+Jaipur,Desert,35.9
+Ooty,Hill Station,25.1
+Darjeeling,Hill Station,19.5
+Darjeeling,Hill Station,34.4
+Bangalore,Water Park,31.5
+Ooty,Hill Station,11.5
+Darjeeling,Hill Station,22.5
+Bikaner,Desert,25.8
+Darjeeling,Hill Station,20.1
+Jaipur,Desert,28.2
+Kolkata,Water Park,36.5
+Kolkata,Water Park,16.0
+Ooty,Hill Station,31.2
+Ooty,Hill Station,37.5
+Chennai,Beach,37.7
+Bangalore,Water Park,23.3
+Ooty,Hill Station,13.7
+Mumbai,Beach,28.6
+Ooty,Hill Station,19.6
+Shimla,Hill Station,28.7
+Jaipur,Desert,30.7
+Jaisalmer,Desert,23.5
+Kolkata,Water Park,25.0
+Manali,Hill Station,15.9
+Bangalore,Water Park,16.5
+Mumbai,Beach,23.4
+Shimla,Hill Station,18.8
+Goa,Beach,39.2
+Darjeeling,Hill Station,33.2
+Kolkata,Water Park,33.1
+Bikaner,Desert,34.1
+Jaipur,Desert,20.1
+Jaisalmer,Desert,36.4
+Puri,Beach,21.1
+Manali,Hill Station,34.7
+Chennai,Beach,27.9
+Jaipur,Desert,24.3
+Mumbai,Beach,39.0
+Ooty,Hill Station,17.7
+Goa,Beach,12.8
+Mumbai,Beach,39.6
+Hyderabad,Water Park,27.0
+Ooty,Hill Station,17.2
+Delhi,Water Park,10.5
+Bikaner,Desert,38.5
+Ooty,Hill Station,11.6
+Shimla,Hill Station,30.2
+Kolkata,Water Park,15.4
+Manali,Hill Station,35.9
+Kutch,Desert,31.0
+Goa,Beach,24.1
+Bikaner,Desert,15.6
+Bikaner,Desert,28.4
+Shimla,Hill Station,19.7
+Darjeeling,Hill Station,29.9
+Bikaner,Desert,21.0
+Kolkata,Water Park,34.8
+Kolkata,Water Park,28.3
+Jaisalmer,Desert,32.1
+Hyderabad,Water Park,21.9
+Kutch,Desert,22.3
+Mumbai,Beach,19.3
+Jaipur,Desert,13.1
+Bikaner,Desert,22.5
+Mumbai,Beach,13.0
+Chennai,Beach,32.4
+Ooty,Hill Station,35.3
+Kolkata,Water Park,12.6
+Delhi,Water Park,11.9
+Shimla,Hill Station,25.6
+Bikaner,Desert,19.2
+Shimla,Hill Station,35.2
+Shimla,Hill Station,15.0
+Darjeeling,Hill Station,38.1
+Goa,Beach,25.8
+Mumbai,Beach,28.4
+Puri,Beach,28.4
+Hyderabad,Water Park,24.1
+Ooty,Hill Station,36.6
+Bangalore,Water Park,24.9
+Jaipur,Desert,20.8
+Hyderabad,Water Park,20.0
+Bangalore,Water Park,34.3
+Delhi,Water Park,15.1
+Manali,Hill Station,21.8
+Kutch,Desert,30.5
+Darjeeling,Hill Station,36.5
+Darjeeling,Hill Station,14.9
+Bikaner,Desert,21.0
+Delhi,Water Park,27.2
+Darjeeling,Hill Station,14.9
+Manali,Hill Station,12.9
+Delhi,Water Park,27.9
+Darjeeling,Hill Station,35.4
+Goa,Beach,34.7
+Manali,Hill Station,19.5
+Kutch,Desert,30.0
+Puri,Beach,21.2
+Goa,Beach,20.2
+Puri,Beach,23.9
+Jaisalmer,Desert,18.8
+Kolkata,Water Park,19.6
+Jaipur,Desert,22.5
+Shimla,Hill Station,32.6
+Shimla,Hill Station,38.4
+Goa,Beach,36.0
+Puri,Beach,30.7
+Kolkata,Water Park,33.3
+Hyderabad,Water Park,25.2
+Darjeeling,Hill Station,19.9
+Kolkata,Water Park,12.8
+Kolkata,Water Park,17.3
+Shimla,Hill Station,26.3
+Kutch,Desert,25.5
+Kolkata,Water Park,34.6
+Delhi,Water Park,29.8
+Hyderabad,Water Park,31.5
+Ooty,Hill Station,36.8
+Kolkata,Water Park,27.8
+Mumbai,Beach,23.7
+Ooty,Hill Station,28.7
+Kolkata,Water Park,20.5
+Jaipur,Desert,19.4
+Hyderabad,Water Park,17.5
+Bangalore,Water Park,31.9
+Bangalore,Water Park,26.2
+Darjeeling,Hill Station,29.8
+Kolkata,Water Park,18.2
+Delhi,Water Park,10.6
+Kutch,Desert,32.7
+Shimla,Hill Station,29.1
+Delhi,Water Park,21.7
+Jaisalmer,Desert,38.1
+Kolkata,Water Park,19.2
+Chennai,Beach,29.9
+Bikaner,Desert,11.2
+Kolkata,Water Park,23.9
+Puri,Beach,17.3
+Jaipur,Desert,13.1
+Delhi,Water Park,14.7
+Puri,Beach,21.0
+Ooty,Hill Station,12.1
+Chennai,Beach,17.3
+Jaipur,Desert,15.9
+Delhi,Water Park,22.5
+Chennai,Beach,36.1
+Goa,Beach,32.9
+Hyderabad,Water Park,30.2
+Manali,Hill Station,33.2
+Darjeeling,Hill Station,14.3
+Jaisalmer,Desert,18.4
+Jaisalmer,Desert,29.8
+Goa,Beach,25.0
+Shimla,Hill Station,13.0
+Jaipur,Desert,11.7
+Bikaner,Desert,28.4
+Shimla,Hill Station,31.6
+Mumbai,Beach,22.3
+Jaisalmer,Desert,19.5
+Delhi,Water Park,17.1
+Delhi,Water Park,15.1
+Hyderabad,Water Park,16.5
+Kolkata,Water Park,32.8
+Goa,Beach,24.7
+Delhi,Water Park,10.5
+Manali,Hill Station,20.7
+Shimla,Hill Station,24.2
+Hyderabad,Water Park,19.0
+Kutch,Desert,31.5
+Shimla,Hill Station,29.7
+Delhi,Water Park,23.7
+Delhi,Water Park,21.4
+Bangalore,Water Park,30.6
+Bikaner,Desert,20.1
+Darjeeling,Hill Station,29.2
+Chennai,Beach,21.0
+Kolkata,Water Park,25.9
+Kolkata,Water Park,19.4
+Kutch,Desert,32.4
+Jaisalmer,Desert,27.8
+Puri,Beach,20.5
+Chennai,Beach,21.5
+Hyderabad,Water Park,29.7
+Bangalore,Water Park,35.4
+Puri,Beach,26.5
+Chennai,Beach,37.3
+Ooty,Hill Station,19.3
+Mumbai,Beach,11.4
+Jaisalmer,Desert,29.7
+Bangalore,Water Park,14.2
+Manali,Hill Station,18.0
+Puri,Beach,39.4
+Kutch,Desert,33.7
+Hyderabad,Water Park,24.1
+Jaipur,Desert,29.7
+Darjeeling,Hill Station,20.4
+Shimla,Hill Station,26.3
+Hyderabad,Water Park,20.3
+Delhi,Water Park,13.4
+Bikaner,Desert,38.7
+Puri,Beach,39.3
+Delhi,Water Park,20.2
+Shimla,Hill Station,33.4
+Jaipur,Desert,33.2
+Shimla,Hill Station,17.0
+Shimla,Hill Station,24.2
+Bangalore,Water Park,25.1
+Delhi,Water Park,19.2
+Bikaner,Desert,12.5
+Delhi,Water Park,28.6
+Jaipur,Desert,30.4
+Bangalore,Water Park,18.3
+Shimla,Hill Station,21.6
+Ooty,Hill Station,18.6
+Hyderabad,Water Park,37.2
+Bikaner,Desert,13.1
+Jaipur,Desert,36.4
+Kutch,Desert,21.7
+Ooty,Hill Station,15.9
+Puri,Beach,18.5
+Puri,Beach,18.6
+Manali,Hill Station,25.9
+Hyderabad,Water Park,38.2
+Kutch,Desert,29.5
+Kolkata,Water Park,30.9
+Goa,Beach,26.9
+Chennai,Beach,32.4
+Chennai,Beach,37.7
+Delhi,Water Park,27.3
+Manali,Hill Station,21.0
+Kutch,Desert,19.5
+Kutch,Desert,14.0
+Jaipur,Desert,29.5
+Puri,Beach,15.0
+Delhi,Water Park,22.4
+Jaipur,Desert,24.5
+Shimla,Hill Station,20.5
+Mumbai,Beach,13.0
+Chennai,Beach,20.1
+Puri,Beach,34.7
+Kolkata,Water Park,13.1
+Ooty,Hill Station,17.2
+Chennai,Beach,17.2
+Shimla,Hill Station,20.1
+Bikaner,Desert,13.5
+Jaipur,Desert,28.4
+Goa,Beach,27.3
+Manali,Hill Station,24.8
+Puri,Beach,36.8
+Delhi,Water Park,16.0
+Jaisalmer,Desert,23.0
+Ooty,Hill Station,32.6
+Kolkata,Water Park,15.1
+Kolkata,Water Park,32.2
+Bangalore,Water Park,25.4
+Mumbai,Beach,30.2
+Hyderabad,Water Park,27.8
+Mumbai,Beach,26.4
+Hyderabad,Water Park,26.2
+Puri,Beach,12.9
+Chennai,Beach,39.6
+Chennai,Beach,35.2
+Shimla,Hill Station,35.9
+Goa,Beach,32.0
+Puri,Beach,15.6
+Puri,Beach,24.2
+Bikaner,Desert,11.1
+Puri,Beach,10.3
+Darjeeling,Hill Station,29.2
+Kutch,Desert,25.9
+Darjeeling,Hill Station,38.0
+Jaisalmer,Desert,30.1
+Bangalore,Water Park,16.7
+Kutch,Desert,33.3
+Kolkata,Water Park,39.2
+Jaipur,Desert,26.6
+Goa,Beach,36.4
+Jaipur,Desert,13.8
+Goa,Beach,22.8
+Kolkata,Water Park,31.3
+Puri,Beach,37.0
+Manali,Hill Station,17.6
+Ooty,Hill Station,31.8
+Jaisalmer,Desert,17.4
+Darjeeling,Hill Station,16.1
+Hyderabad,Water Park,33.1
+Jaipur,Desert,33.5
+Delhi,Water Park,15.9
+Puri,Beach,32.2
+Manali,Hill Station,21.2
+Hyderabad,Water Park,11.9
+Bangalore,Water Park,27.5
+Jaipur,Desert,36.0
+Bikaner,Desert,20.7
+Hyderabad,Water Park,17.0
+Darjeeling,Hill Station,38.1
+Goa,Beach,10.1
+Mumbai,Beach,37.8
+Mumbai,Beach,25.5
+Darjeeling,Hill Station,12.1
+Manali,Hill Station,15.0
+Mumbai,Beach,33.5
+Goa,Beach,14.0
+Bikaner,Desert,18.5
+Bikaner,Desert,17.9
+Bangalore,Water Park,36.2
+Ooty,Hill Station,19.8
+Jaipur,Desert,14.7
+Hyderabad,Water Park,26.4
+Jaisalmer,Desert,37.7
+Shimla,Hill Station,27.5
+Darjeeling,Hill Station,34.3
+Darjeeling,Hill Station,31.3
+Bikaner,Desert,33.2
+Puri,Beach,16.1
+Jaipur,Desert,15.0
+Hyderabad,Water Park,35.3
+Manali,Hill Station,26.7
+Jaisalmer,Desert,20.4
+Kolkata,Water Park,11.1
+Kutch,Desert,29.7
+Kolkata,Water Park,33.1
+Delhi,Water Park,27.1
+Kutch,Desert,29.7
+Puri,Beach,25.7
+Delhi,Water Park,28.7
+Jaisalmer,Desert,15.7
+Hyderabad,Water Park,15.4
+Jaipur,Desert,28.6
+Kutch,Desert,35.4
+Kutch,Desert,25.0
+Kutch,Desert,29.2
+Kolkata,Water Park,11.7
+Goa,Beach,13.0
+Kutch,Desert,23.3
+Mumbai,Beach,12.2
+Goa,Beach,14.2
+Shimla,Hill Station,24.6
+Goa,Beach,11.4
+Manali,Hill Station,34.6
+Kutch,Desert,34.3
+Kolkata,Water Park,15.5
+Shimla,Hill Station,24.0
+Ooty,Hill Station,32.9
+Kolkata,Water Park,25.0
+Ooty,Hill Station,18.5
+Darjeeling,Hill Station,33.6
+Mumbai,Beach,34.7
+Darjeeling,Hill Station,19.5
+Hyderabad,Water Park,27.9
+Chennai,Beach,34.8
+Shimla,Hill Station,37.8
+Bikaner,Desert,28.7
+Hyderabad,Water Park,35.5
+Kutch,Desert,36.5
+Darjeeling,Hill Station,25.3
+Jaisalmer,Desert,30.4
+Bikaner,Desert,22.5
+Bikaner,Desert,28.5
+Puri,Beach,29.0
+Darjeeling,Hill Station,30.6
+Shimla,Hill Station,19.8
+Puri,Beach,34.0
+Bikaner,Desert,32.9
+Jaipur,Desert,33.2
+Manali,Hill Station,21.4
+Chennai,Beach,32.6
+Shimla,Hill Station,27.0
+Darjeeling,Hill Station,17.6
+Mumbai,Beach,18.5
+Shimla,Hill Station,38.7
+Mumbai,Beach,36.0
+Jaisalmer,Desert,14.2
+Bikaner,Desert,10.4
+Delhi,Water Park,35.3
+Ooty,Hill Station,34.5
+Delhi,Water Park,34.1
+Manali,Hill Station,37.0
+Shimla,Hill Station,23.8
+Jaisalmer,Desert,20.2
+Jaipur,Desert,25.1
+Manali,Hill Station,37.5
+Jaipur,Desert,18.1
+Shimla,Hill Station,10.6
+Jaipur,Desert,28.7
+Shimla,Hill Station,23.6
+Hyderabad,Water Park,23.7
+Shimla,Hill Station,19.0
+Puri,Beach,21.9
+Kolkata,Water Park,36.1
+Hyderabad,Water Park,33.0
+Shimla,Hill Station,24.6
+Goa,Beach,31.2
+Hyderabad,Water Park,38.7
+Bangalore,Water Park,30.5
+Bikaner,Desert,39.5
+Jaipur,Desert,22.9
+Hyderabad,Water Park,36.5
+Bikaner,Desert,23.4
+Chennai,Beach,17.1
+Bikaner,Desert,15.9
+Puri,Beach,33.4
+Bikaner,Desert,34.4
+Jaisalmer,Desert,30.5
+Jaisalmer,Desert,36.2
+Mumbai,Beach,13.0
+Goa,Beach,31.9
+Darjeeling,Hill Station,26.9
+Bikaner,Desert,15.2
+Jaisalmer,Desert,18.7
+Mumbai,Beach,25.2
+Darjeeling,Hill Station,36.0
+Bangalore,Water Park,21.1
+Puri,Beach,11.6
+Kutch,Desert,24.3
+Bangalore,Water Park,18.8
+Kolkata,Water Park,22.3
+Kutch,Desert,35.7
+Kutch,Desert,29.9
+Hyderabad,Water Park,21.7
+Jaisalmer,Desert,22.3
+Jaipur,Desert,27.3
+Ooty,Hill Station,16.6
+Manali,Hill Station,35.3
+Manali,Hill Station,13.8
+Jaisalmer,Desert,14.9
+Manali,Hill Station,21.2
+Chennai,Beach,36.2
+Shimla,Hill Station,25.4
+Jaipur,Desert,21.7
+Hyderabad,Water Park,22.2
+Kolkata,Water Park,34.6
+Delhi,Water Park,28.5
+Ooty,Hill Station,13.0
+Kolkata,Water Park,12.4
+Jaipur,Desert,31.9
+Hyderabad,Water Park,34.1
+Goa,Beach,39.3
+Delhi,Water Park,12.3
+Kutch,Desert,34.3
+Mumbai,Beach,29.7
+Kolkata,Water Park,35.3
+Bangalore,Water Park,33.6
+Puri,Beach,34.4
+Kutch,Desert,10.9
+Kutch,Desert,27.2
+Hyderabad,Water Park,38.7
+Goa,Beach,32.9
+Kolkata,Water Park,38.0
+Goa,Beach,28.9
+Kutch,Desert,17.3
+Puri,Beach,37.0
+Shimla,Hill Station,20.4
+Delhi,Water Park,14.4
+Jaipur,Desert,38.9
+Mumbai,Beach,24.5
+Goa,Beach,39.8
+Hyderabad,Water Park,35.0
+Darjeeling,Hill Station,30.3
+Bikaner,Desert,22.8
+Kolkata,Water Park,27.2
+Bikaner,Desert,23.1
+Shimla,Hill Station,10.0
+Bikaner,Desert,36.1
+Mumbai,Beach,28.8
+Delhi,Water Park,11.5
+Jaisalmer,Desert,12.9
+Shimla,Hill Station,25.0
+Mumbai,Beach,19.5
+Delhi,Water Park,35.2
+Puri,Beach,28.6
+Jaipur,Desert,31.3
+Kolkata,Water Park,32.6
+Kutch,Desert,38.4
+Jaipur,Desert,27.0
+Bikaner,Desert,16.7
+Darjeeling,Hill Station,15.4
+Ooty,Hill Station,31.8
+Kutch,Desert,26.1
+Mumbai,Beach,30.7
+Delhi,Water Park,20.1
+Manali,Hill Station,35.2
+Hyderabad,Water Park,28.3
+Mumbai,Beach,30.8
+Kolkata,Water Park,38.7
+Puri,Beach,36.3
+Mumbai,Beach,37.9
+Kolkata,Water Park,20.1
+Kolkata,Water Park,16.9
+Delhi,Water Park,28.8
+Hyderabad,Water Park,16.3
+Jaipur,Desert,12.1
+Kutch,Desert,37.3
+Bangalore,Water Park,13.6
+Jaisalmer,Desert,39.6
+Hyderabad,Water Park,12.8
+Chennai,Beach,16.9
+Mumbai,Beach,38.7
+Shimla,Hill Station,15.6
+Kolkata,Water Park,28.1
+Ooty,Hill Station,24.1
+Chennai,Beach,34.3
+Shimla,Hill Station,25.5
+Mumbai,Beach,39.0
+Hyderabad,Water Park,39.5
+Jaipur,Desert,23.4
+Puri,Beach,23.6
+Hyderabad,Water Park,23.6
+Chennai,Beach,23.0
+Puri,Beach,38.8
+Kolkata,Water Park,31.5
+Bangalore,Water Park,16.5
+Delhi,Water Park,35.8
+Jaisalmer,Desert,35.6
+Chennai,Beach,15.0
+Hyderabad,Water Park,21.6
+Bikaner,Desert,21.4
+Goa,Beach,27.9
+Delhi,Water Park,39.5
+Jaisalmer,Desert,25.2
+Delhi,Water Park,34.1
+Bangalore,Water Park,21.6
+Mumbai,Beach,37.2
+Hyderabad,Water Park,17.2
+Chennai,Beach,14.0
+Goa,Beach,33.5
+Manali,Hill Station,39.8
+Ooty,Hill Station,24.0
+Mumbai,Beach,36.5
+Goa,Beach,39.6
+Shimla,Hill Station,23.4
+Puri,Beach,24.7
+Bikaner,Desert,38.6
+Jaipur,Desert,24.9
+Goa,Beach,16.2
+Mumbai,Beach,11.0
+Manali,Hill Station,28.4
+Kutch,Desert,38.5
+Jaipur,Desert,10.3
+Ooty,Hill Station,16.2
+Darjeeling,Hill Station,23.8
+Jaipur,Desert,13.2
+Darjeeling,Hill Station,20.5
+Jaisalmer,Desert,31.5
+Shimla,Hill Station,18.0
+Puri,Beach,30.3
+Darjeeling,Hill Station,25.2
+Ooty,Hill Station,27.0
+Mumbai,Beach,13.6
+Puri,Beach,11.7
+Shimla,Hill Station,12.6
+Bikaner,Desert,23.0
+Bangalore,Water Park,24.3
+Kolkata,Water Park,26.7
+Mumbai,Beach,20.4
+Jaipur,Desert,26.1
+Jaisalmer,Desert,23.7
+Puri,Beach,27.1
+Ooty,Hill Station,23.5
+Hyderabad,Water Park,36.0
+Puri,Beach,17.7
+Hyderabad,Water Park,33.3
+Manali,Hill Station,14.5
+Hyderabad,Water Park,10.4
+Manali,Hill Station,35.6
+Manali,Hill Station,31.4
+Hyderabad,Water Park,29.0
+Kolkata,Water Park,17.1
+Kutch,Desert,13.1
+Kolkata,Water Park,20.4
+Puri,Beach,31.7
+Kutch,Desert,26.5
+Delhi,Water Park,21.4
+Darjeeling,Hill Station,28.5
+Shimla,Hill Station,22.2
+Kolkata,Water Park,15.5
+Delhi,Water Park,19.1
+Shimla,Hill Station,25.5
+Kutch,Desert,20.3
+Kutch,Desert,32.3
+Goa,Beach,27.1
+Bangalore,Water Park,30.8
+Bikaner,Desert,19.7
+Hyderabad,Water Park,38.8
+Bangalore,Water Park,14.6
+Bangalore,Water Park,27.0
+Delhi,Water Park,32.5
+Darjeeling,Hill Station,39.3
+Manali,Hill Station,37.8
+Darjeeling,Hill Station,16.0
+Mumbai,Beach,31.9
+Jaipur,Desert,13.5
+Kutch,Desert,19.5
+Chennai,Beach,32.1
+Hyderabad,Water Park,19.3
+Manali,Hill Station,13.6
+Goa,Beach,22.6
+Chennai,Beach,14.6
+Kutch,Desert,10.7
+Jaisalmer,Desert,12.3
+Jaisalmer,Desert,13.4
+Darjeeling,Hill Station,22.2
+Puri,Beach,20.6
+Hyderabad,Water Park,28.2
+Goa,Beach,20.2
+Bikaner,Desert,35.4
+Ooty,Hill Station,10.0
+Ooty,Hill Station,36.3
+Kolkata,Water Park,29.3
+Kolkata,Water Park,40.0
+Kolkata,Water Park,31.9
+Delhi,Water Park,32.7
+Jaipur,Desert,34.5
+Bangalore,Water Park,27.5
+Shimla,Hill Station,17.1
+Goa,Beach,29.3
+Puri,Beach,10.7
+Hyderabad,Water Park,38.6
+Bangalore,Water Park,16.7
+Manali,Hill Station,33.5
+Jaisalmer,Desert,23.1
+Goa,Beach,19.9
+Bangalore,Water Park,15.8
+Puri,Beach,34.5
+Jaipur,Desert,32.3
+Hyderabad,Water Park,16.3
+Goa,Beach,25.9
+Jaipur,Desert,38.0
+Jaisalmer,Desert,39.4
+Ooty,Hill Station,25.1
+Kutch,Desert,38.7
+Hyderabad,Water Park,11.3
+Jaipur,Desert,34.2
+Manali,Hill Station,32.7
+Kolkata,Water Park,36.1
+Manali,Hill Station,38.9
+Darjeeling,Hill Station,12.8
+Jaipur,Desert,12.6
+Shimla,Hill Station,12.6
+Kolkata,Water Park,23.4
+Delhi,Water Park,24.1
+Puri,Beach,17.0
+Hyderabad,Water Park,28.4
+Chennai,Beach,13.8
+Hyderabad,Water Park,25.1
+Goa,Beach,30.1
+Shimla,Hill Station,28.0
+Puri,Beach,36.8
+Kolkata,Water Park,33.2
+Delhi,Water Park,35.7
+Kolkata,Water Park,40.0
+Kolkata,Water Park,38.9
+Ooty,Hill Station,29.7
+Chennai,Beach,19.8
+Goa,Beach,31.5
+Jaisalmer,Desert,33.6
+Ooty,Hill Station,10.5
+Bangalore,Water Park,18.7
+Kolkata,Water Park,38.8
+Ooty,Hill Station,28.3
+Bikaner,Desert,24.7
+Puri,Beach,12.7
+Darjeeling,Hill Station,27.8
+Mumbai,Beach,34.9
+Delhi,Water Park,36.8
+Hyderabad,Water Park,16.6
+Goa,Beach,39.9
+Shimla,Hill Station,19.8
+Ooty,Hill Station,38.1
+Goa,Beach,17.2
+Kolkata,Water Park,27.5
+Bangalore,Water Park,14.5
+Shimla,Hill Station,18.2
+Darjeeling,Hill Station,33.5
+Bikaner,Desert,26.5
+Goa,Beach,30.9
+Darjeeling,Hill Station,31.3
+Jaisalmer,Desert,29.7
+Kutch,Desert,15.4
+Hyderabad,Water Park,37.0
+Ooty,Hill Station,14.5
+Mumbai,Beach,30.1
+Bikaner,Desert,12.2
+Chennai,Beach,15.8
+Puri,Beach,12.7
+Ooty,Hill Station,31.4
+Kolkata,Water Park,31.1
+Mumbai,Beach,35.3
+Bangalore,Water Park,12.9
+Jaisalmer,Desert,27.0
+Shimla,Hill Station,20.2
+Puri,Beach,33.4
+Chennai,Beach,36.6
+Delhi,Water Park,23.3
+Goa,Beach,24.0
+Delhi,Water Park,31.3
+Chennai,Beach,25.4
+Puri,Beach,10.2
+Ooty,Hill Station,27.6
+Bangalore,Water Park,36.7
+Jaisalmer,Desert,17.6
+Manali,Hill Station,15.0
+Bikaner,Desert,27.3
+Chennai,Beach,11.1
+Puri,Beach,22.4
+Darjeeling,Hill Station,15.9
+Bikaner,Desert,36.6
+Bangalore,Water Park,10.2
+Bikaner,Desert,24.1
+Ooty,Hill Station,14.9
+Puri,Beach,31.0
+Mumbai,Beach,26.6
+Ooty,Hill Station,19.5
+Chennai,Beach,17.0
+Bikaner,Desert,24.9
+Jaipur,Desert,26.7
+Kolkata,Water Park,37.2
+Ooty,Hill Station,39.0
+Darjeeling,Hill Station,30.9
+Darjeeling,Hill Station,26.7
+Jaisalmer,Desert,27.7
+Goa,Beach,22.2
+Kutch,Desert,36.9
+Bikaner,Desert,26.3
+Chennai,Beach,36.0
+Ooty,Hill Station,13.7
+Bikaner,Desert,34.0
+Puri,Beach,34.4
+Manali,Hill Station,31.0
+Jaisalmer,Desert,35.0
+Kolkata,Water Park,18.1
+Goa,Beach,29.8
+Bikaner,Desert,14.8
+Shimla,Hill Station,32.8
+Puri,Beach,13.9
+Manali,Hill Station,24.3
+Kolkata,Water Park,25.8
+Kutch,Desert,32.9
+Kolkata,Water Park,19.6
+Kutch,Desert,38.3
+Delhi,Water Park,29.8
+Bikaner,Desert,19.3
+Jaisalmer,Desert,38.4
+Mumbai,Beach,14.6
+Jaipur,Desert,37.6
+Mumbai,Beach,32.8
+Chennai,Beach,13.2
+Shimla,Hill Station,29.6
+Puri,Beach,36.4
+Chennai,Beach,35.9
+Kutch,Desert,37.9
+Manali,Hill Station,16.1
+Jaisalmer,Desert,13.0
+Jaisalmer,Desert,17.4
+Ooty,Hill Station,18.0
+Delhi,Water Park,23.3
+Mumbai,Beach,12.4
+Kolkata,Water Park,39.3
+Hyderabad,Water Park,26.6
+Jaipur,Desert,15.2
+Delhi,Water Park,23.9
+Ooty,Hill Station,29.4
+Jaisalmer,Desert,33.3
+Kutch,Desert,15.1
+Jaisalmer,Desert,24.7
+Kutch,Desert,39.9
+Kutch,Desert,39.9
+Shimla,Hill Station,19.1
+Darjeeling,Hill Station,26.6
+Goa,Beach,11.0
+Bikaner,Desert,30.0
+Bikaner,Desert,34.2
+Bikaner,Desert,30.0
+Chennai,Beach,26.1
+Darjeeling,Hill Station,12.0
+Jaipur,Desert,12.9
+Mumbai,Beach,14.8
+Jaisalmer,Desert,37.1
+Mumbai,Beach,23.1
+Jaisalmer,Desert,20.5
+Darjeeling,Hill Station,14.5
+Mumbai,Beach,16.3
+Darjeeling,Hill Station,16.3
+Hyderabad,Water Park,30.5
+Jaisalmer,Desert,15.6
+Kutch,Desert,29.8
+Jaipur,Desert,23.2
+Puri,Beach,22.7
+Puri,Beach,29.0
+Mumbai,Beach,13.3
+Manali,Hill Station,25.8
+Darjeeling,Hill Station,24.1
+Shimla,Hill Station,23.9
+Bikaner,Desert,16.2
+Hyderabad,Water Park,31.9
+Delhi,Water Park,38.6
+Jaisalmer,Desert,16.0
+Hyderabad,Water Park,37.4
+Darjeeling,Hill Station,29.6
+Puri,Beach,39.2
+Ooty,Hill Station,26.8
+Hyderabad,Water Park,13.8
+Mumbai,Beach,20.3
+Kutch,Desert,38.5
+Mumbai,Beach,13.5
+Goa,Beach,35.4
+Mumbai,Beach,30.9
+Ooty,Hill Station,26.3
+Kutch,Desert,32.9
+Manali,Hill Station,25.4
+Darjeeling,Hill Station,37.8
+Puri,Beach,22.8
+Bikaner,Desert,28.4
+Mumbai,Beach,26.7
+Shimla,Hill Station,16.3
+Bikaner,Desert,10.4
+Kolkata,Water Park,15.8
+Delhi,Water Park,20.7
+Bangalore,Water Park,39.8
+Bikaner,Desert,28.2
+Darjeeling,Hill Station,19.7
+Bikaner,Desert,30.7
+Bikaner,Desert,38.1
+Shimla,Hill Station,34.8
+Jaisalmer,Desert,39.8
+Shimla,Hill Station,12.8
+Goa,Beach,14.2
+Kutch,Desert,31.9
+Bikaner,Desert,13.3
+Chennai,Beach,37.6
+Jaipur,Desert,39.6
+Hyderabad,Water Park,25.4
+Mumbai,Beach,27.8
+Manali,Hill Station,25.3
+Chennai,Beach,25.6
+Kutch,Desert,12.2
+Darjeeling,Hill Station,29.8
+Jaipur,Desert,18.3
+Hyderabad,Water Park,36.0
+Jaipur,Desert,12.4
+Shimla,Hill Station,13.1
+Hyderabad,Water Park,37.7
+Hyderabad,Water Park,17.5
+Shimla,Hill Station,35.9
+Delhi,Water Park,37.3
+Delhi,Water Park,10.2
+Kolkata,Water Park,25.4
+Manali,Hill Station,26.7
+Jaisalmer,Desert,33.7
+Shimla,Hill Station,24.2
+Goa,Beach,10.9
+Puri,Beach,33.5
+Mumbai,Beach,29.5
+Ooty,Hill Station,27.4
+Mumbai,Beach,15.2
+Bangalore,Water Park,25.9
+Delhi,Water Park,20.8
+Puri,Beach,37.1
+Kutch,Desert,38.2
+Shimla,Hill Station,27.9
+Ooty,Hill Station,36.6
+Manali,Hill Station,13.2
+Chennai,Beach,24.9
+Hyderabad,Water Park,33.0
+Chennai,Beach,12.9
+Ooty,Hill Station,31.6
+Bikaner,Desert,36.9
+Darjeeling,Hill Station,30.2
+Jaipur,Desert,22.6
+Kolkata,Water Park,31.2
+Jaipur,Desert,21.9
+Puri,Beach,34.0
+Ooty,Hill Station,21.3
+Kolkata,Water Park,32.5
+Hyderabad,Water Park,17.7
+Hyderabad,Water Park,21.2
+Manali,Hill Station,28.0
+Puri,Beach,30.4
+Manali,Hill Station,29.5
+Hyderabad,Water Park,25.7
+Mumbai,Beach,24.2
+Darjeeling,Hill Station,27.3
+Delhi,Water Park,23.7
+Kutch,Desert,16.1
+Goa,Beach,30.1
+Delhi,Water Park,19.1
+Mumbai,Beach,32.3
+Jaisalmer,Desert,28.4
+Bikaner,Desert,34.9
+Shimla,Hill Station,28.9
+Kolkata,Water Park,26.1
+Hyderabad,Water Park,14.1
+Kolkata,Water Park,22.7
+Delhi,Water Park,21.6
+Jaisalmer,Desert,39.3
+Delhi,Water Park,23.8
+Hyderabad,Water Park,23.6
+Mumbai,Beach,28.5
+Mumbai,Beach,14.0
+Mumbai,Beach,19.5
+Jaipur,Desert,31.0
+Jaipur,Desert,27.4
+Bangalore,Water Park,14.0
+Darjeeling,Hill Station,28.2
+Manali,Hill Station,38.9
+Bikaner,Desert,33.5
+Mumbai,Beach,32.1
+Mumbai,Beach,16.0
+Jaisalmer,Desert,26.4
+Bikaner,Desert,12.9
+Manali,Hill Station,10.0
+Jaisalmer,Desert,35.3
+Kutch,Desert,30.1
+Bangalore,Water Park,12.8
+Shimla,Hill Station,19.3
+Kutch,Desert,27.7
+Jaipur,Desert,25.2
+Delhi,Water Park,39.9
+Bikaner,Desert,21.3
+Bangalore,Water Park,31.1
+Bikaner,Desert,14.5
+Kutch,Desert,20.4
+Kolkata,Water Park,34.3
+Bangalore,Water Park,36.9
+Puri,Beach,11.1
+Hyderabad,Water Park,16.9
+Bangalore,Water Park,26.3
+Hyderabad,Water Park,36.0
+Puri,Beach,26.4
+Puri,Beach,15.1
+Jaipur,Desert,35.8
+Kutch,Desert,23.1
+Ooty,Hill Station,36.0
+Kutch,Desert,20.7
+Mumbai,Beach,39.9
+Bangalore,Water Park,17.2
+Jaisalmer,Desert,17.8
+Jaipur,Desert,12.4
+Jaisalmer,Desert,34.8
+Chennai,Beach,28.3
+Puri,Beach,30.7
+Puri,Beach,19.6
+Bangalore,Water Park,22.9
+Darjeeling,Hill Station,23.5
+Puri,Beach,15.8
+Shimla,Hill Station,14.1
+Ooty,Hill Station,12.0
+Bangalore,Water Park,27.5
+Kutch,Desert,19.7
+Ooty,Hill Station,30.6
+Hyderabad,Water Park,11.2
+Jaipur,Desert,25.4
+Manali,Hill Station,34.9
+Jaipur,Desert,18.0
+Darjeeling,Hill Station,32.1
+Delhi,Water Park,17.3
+Goa,Beach,39.2
+Manali,Hill Station,20.5
+Goa,Beach,18.7
+Bikaner,Desert,12.6
+Shimla,Hill Station,23.4
+Chennai,Beach,34.5
+Shimla,Hill Station,17.4
+Jaipur,Desert,23.8
+Kutch,Desert,31.6
+Puri,Beach,13.1
+Darjeeling,Hill Station,35.3
+Ooty,Hill Station,36.9
+Bikaner,Desert,18.6
+Kolkata,Water Park,19.8
+Bangalore,Water Park,32.4
+Kolkata,Water Park,21.0
+Chennai,Beach,13.7
+Mumbai,Beach,31.6
+Puri,Beach,31.3
+Mumbai,Beach,23.7
+Bikaner,Desert,27.1
+Manali,Hill Station,29.5
+Delhi,Water Park,19.6
+Bangalore,Water Park,39.1
+Bangalore,Water Park,19.1
+Darjeeling,Hill Station,20.2
+Kutch,Desert,12.4
+Manali,Hill Station,27.7
+Bikaner,Desert,31.5
+Chennai,Beach,30.7
+Bangalore,Water Park,39.5
+Bangalore,Water Park,27.9
+Hyderabad,Water Park,36.8
+Hyderabad,Water Park,22.2
+Jaipur,Desert,32.0
+Goa,Beach,15.0
+Chennai,Beach,26.4
+Jaipur,Desert,37.3
+Puri,Beach,22.2
+Puri,Beach,10.4
+Kolkata,Water Park,17.5
+Shimla,Hill Station,26.9
+Goa,Beach,26.5
+Kutch,Desert,17.5
+Goa,Beach,14.4
+Puri,Beach,29.4
+Kolkata,Water Park,25.0
+Kolkata,Water Park,16.9
+Bangalore,Water Park,10.8
+Goa,Beach,38.1
+Kutch,Desert,33.5
+Kutch,Desert,16.7
+Shimla,Hill Station,29.1
+Shimla,Hill Station,36.6
+Chennai,Beach,30.2
+Puri,Beach,11.0
+Bangalore,Water Park,31.4
+Shimla,Hill Station,14.3
+Mumbai,Beach,32.0
+Delhi,Water Park,36.7
+Bikaner,Desert,36.4
+Hyderabad,Water Park,13.0
+Mumbai,Beach,37.3
+Kolkata,Water Park,30.1
+Delhi,Water Park,19.3
+Goa,Beach,28.4
+Puri,Beach,11.2
+Kutch,Desert,29.3
+Ooty,Hill Station,16.7
+Kolkata,Water Park,12.9
+Jaipur,Desert,36.8
+Goa,Beach,10.3
+Darjeeling,Hill Station,23.1
+Mumbai,Beach,21.9
+Chennai,Beach,34.7
+Puri,Beach,26.8
+Ooty,Hill Station,25.4
+Darjeeling,Hill Station,23.6
+Delhi,Water Park,14.0
+Puri,Beach,17.5
+Puri,Beach,25.5
+Hyderabad,Water Park,19.5
+Jaipur,Desert,25.1
+Manali,Hill Station,13.8
+Puri,Beach,26.3
+Bikaner,Desert,27.8
+Hyderabad,Water Park,38.9
+Bangalore,Water Park,12.2
+Puri,Beach,33.7
+Manali,Hill Station,16.6
+Kolkata,Water Park,25.9
+Mumbai,Beach,35.8
+Bangalore,Water Park,13.2
+Mumbai,Beach,33.9
+Chennai,Beach,37.9
+Shimla,Hill Station,17.5
+Mumbai,Beach,19.1
+Jaipur,Desert,24.8
+Kolkata,Water Park,38.2
+Chennai,Beach,12.0
+Jaisalmer,Desert,12.4
+Bangalore,Water Park,23.8
+Mumbai,Beach,12.1
+Kolkata,Water Park,10.2
+Goa,Beach,35.7
+Goa,Beach,19.6
+Shimla,Hill Station,24.1
+Bikaner,Desert,23.6
+Kutch,Desert,27.6
+Manali,Hill Station,21.5
+Goa,Beach,39.3
+Hyderabad,Water Park,20.9
+Manali,Hill Station,26.1
+Hyderabad,Water Park,21.9
+Manali,Hill Station,17.2
+Jaisalmer,Desert,35.3
+Kolkata,Water Park,29.8
+Goa,Beach,25.4
+Kolkata,Water Park,27.1
+Ooty,Hill Station,35.8
+Bangalore,Water Park,30.8
+Shimla,Hill Station,12.6
+Puri,Beach,29.0
+Bikaner,Desert,29.0
+Darjeeling,Hill Station,34.8
+Manali,Hill Station,26.4
+Hyderabad,Water Park,39.7
+Puri,Beach,12.7
+Chennai,Beach,16.2
+Puri,Beach,16.5
+Bangalore,Water Park,21.7
+Kolkata,Water Park,11.2
+Ooty,Hill Station,27.5
+Chennai,Beach,39.9
+Delhi,Water Park,37.9
+Kutch,Desert,25.3
+Jaipur,Desert,27.5
+Ooty,Hill Station,31.1
+Kolkata,Water Park,13.5
+Jaisalmer,Desert,33.9
+Ooty,Hill Station,18.2
+Puri,Beach,32.0
+Goa,Beach,25.8
+Mumbai,Beach,20.2
+Ooty,Hill Station,33.7
+Chennai,Beach,38.0
+Puri,Beach,33.8
+Bangalore,Water Park,18.9
+Bangalore,Water Park,19.6
+Ooty,Hill Station,18.8
+Darjeeling,Hill Station,34.7
+Kolkata,Water Park,38.2
+Jaipur,Desert,37.3
+Ooty,Hill Station,31.2
+Goa,Beach,26.1
+Jaipur,Desert,18.2
+Chennai,Beach,36.4
+Hyderabad,Water Park,27.0
+Jaisalmer,Desert,29.7
+Bangalore,Water Park,14.1
+Puri,Beach,34.1
+Jaipur,Desert,30.8
+Bangalore,Water Park,31.3
+Chennai,Beach,23.2
+Bangalore,Water Park,15.2
+Kolkata,Water Park,29.3
+Kolkata,Water Park,29.5
+Kolkata,Water Park,16.4
+Kolkata,Water Park,38.8
+Delhi,Water Park,10.5
+Bangalore,Water Park,12.4
+Chennai,Beach,29.3
+Mumbai,Beach,36.6
+Chennai,Beach,38.4
+Bangalore,Water Park,13.4
+Jaisalmer,Desert,39.3
+Kolkata,Water Park,13.8
+Chennai,Beach,20.1
+Kolkata,Water Park,25.8
+Puri,Beach,35.6
+Kutch,Desert,21.4
+Ooty,Hill Station,23.3
+Mumbai,Beach,26.7
+Hyderabad,Water Park,38.6
+Hyderabad,Water Park,28.0
+Kutch,Desert,17.9
+Puri,Beach,29.5
+Kutch,Desert,26.2
+Bikaner,Desert,31.5
+Jaipur,Desert,12.2
+Ooty,Hill Station,26.9
+Bangalore,Water Park,14.1
+Goa,Beach,13.4
+Manali,Hill Station,10.7
+Hyderabad,Water Park,27.0
+Darjeeling,Hill Station,12.6
+Goa,Beach,18.7
+Chennai,Beach,35.8
+Ooty,Hill Station,18.5
+Bikaner,Desert,26.6
+Mumbai,Beach,37.2
+Jaisalmer,Desert,39.2
+Kolkata,Water Park,25.6
+Delhi,Water Park,28.0
+Jaipur,Desert,33.5
+Delhi,Water Park,33.9
+Chennai,Beach,20.7
+Chennai,Beach,30.4
+Shimla,Hill Station,21.9
+Chennai,Beach,37.6
+Ooty,Hill Station,25.4
+Kutch,Desert,35.0
+Hyderabad,Water Park,34.6
+Shimla,Hill Station,16.8
+Bikaner,Desert,38.4
+Jaisalmer,Desert,31.9
+Manali,Hill Station,22.6
+Manali,Hill Station,39.6
+Mumbai,Beach,26.7
+Jaisalmer,Desert,36.5
+Hyderabad,Water Park,32.1
+Bangalore,Water Park,16.0
+Manali,Hill Station,15.5
+Hyderabad,Water Park,26.5
+Shimla,Hill Station,28.8
+Darjeeling,Hill Station,26.1
+Goa,Beach,33.9
+Delhi,Water Park,14.6
+Manali,Hill Station,19.3
+Kolkata,Water Park,27.0
+Kolkata,Water Park,13.3
+Kolkata,Water Park,38.4
+Bangalore,Water Park,10.1
+Darjeeling,Hill Station,22.8
+Manali,Hill Station,29.7
+Kolkata,Water Park,37.9
+Puri,Beach,29.4
+Puri,Beach,22.6
+Shimla,Hill Station,39.2
+Bangalore,Water Park,36.3
+Hyderabad,Water Park,15.2
+Kolkata,Water Park,38.4
+Mumbai,Beach,31.7
+Delhi,Water Park,16.8
+Chennai,Beach,20.9
+Jaipur,Desert,26.8
+Bangalore,Water Park,26.7
+Kolkata,Water Park,26.0
+Jaipur,Desert,22.5
+Jaisalmer,Desert,12.7
+Bikaner,Desert,26.1
+Manali,Hill Station,14.0
+Mumbai,Beach,36.5
+Delhi,Water Park,33.3
+Delhi,Water Park,23.6
+Mumbai,Beach,38.4
+Bikaner,Desert,37.9
+Goa,Beach,21.5
+Bikaner,Desert,15.9
+Bangalore,Water Park,17.4
+Mumbai,Beach,36.7
+Manali,Hill Station,30.2
+Delhi,Water Park,24.9
+Jaisalmer,Desert,34.0
+Hyderabad,Water Park,22.0
+Hyderabad,Water Park,20.5
+Jaisalmer,Desert,29.2
+Kutch,Desert,31.1
+Manali,Hill Station,28.0
+Chennai,Beach,36.8
+Mumbai,Beach,31.2
+Puri,Beach,16.1
+Puri,Beach,27.4
+Darjeeling,Hill Station,15.7
+Shimla,Hill Station,38.6
+Jaisalmer,Desert,28.4
+Darjeeling,Hill Station,30.8
+Jaipur,Desert,15.4
+Chennai,Beach,11.5
+Jaisalmer,Desert,23.1
+Jaisalmer,Desert,18.1
+Goa,Beach,23.8
+Chennai,Beach,15.9
+Bangalore,Water Park,35.5
+Mumbai,Beach,15.6
+Puri,Beach,27.6
+Darjeeling,Hill Station,22.1
+Bangalore,Water Park,22.7
+Kolkata,Water Park,29.0
+Puri,Beach,16.3
+Chennai,Beach,31.1
+Bangalore,Water Park,20.7
+Kutch,Desert,35.2
+Shimla,Hill Station,36.5
+Bangalore,Water Park,18.0
+Jaipur,Desert,25.8
+Darjeeling,Hill Station,27.0
+Kolkata,Water Park,34.3
+Manali,Hill Station,30.8
+Jaipur,Desert,17.7
+Kolkata,Water Park,39.3
+Ooty,Hill Station,11.8
+Bikaner,Desert,11.6
+Bikaner,Desert,31.9
+Darjeeling,Hill Station,14.7
+Hyderabad,Water Park,26.7
+Shimla,Hill Station,22.5
+Jaipur,Desert,27.4
+Darjeeling,Hill Station,15.3
+Kutch,Desert,10.3
+Ooty,Hill Station,36.6
+Delhi,Water Park,19.0
+Hyderabad,Water Park,23.8
+Bangalore,Water Park,21.3
+Bangalore,Water Park,30.3
+Ooty,Hill Station,12.0
+Ooty,Hill Station,28.2
+Delhi,Water Park,10.6
+Puri,Beach,20.9
+Ooty,Hill Station,33.7
+Delhi,Water Park,20.9
+Darjeeling,Hill Station,11.6
+Delhi,Water Park,18.2
+Kolkata,Water Park,10.2
+Bikaner,Desert,24.3
+Goa,Beach,39.6
+Goa,Beach,30.2
+Manali,Hill Station,38.0
+Mumbai,Beach,25.6
+Hyderabad,Water Park,21.0
+Kutch,Desert,29.0
+Mumbai,Beach,38.0
+Mumbai,Beach,37.9
+Goa,Beach,15.5
+Darjeeling,Hill Station,19.2
+Jaipur,Desert,29.0
+Hyderabad,Water Park,10.1
+Shimla,Hill Station,18.1
+Kolkata,Water Park,35.0
+Jaisalmer,Desert,23.8
+Kutch,Desert,14.5
+Kolkata,Water Park,17.6
+Kolkata,Water Park,27.7
+Delhi,Water Park,22.0
+Mumbai,Beach,32.7
+Puri,Beach,26.1
+Chennai,Beach,14.8
+Kolkata,Water Park,17.5
+Hyderabad,Water Park,20.5
+Goa,Beach,13.5
+Hyderabad,Water Park,31.8
+Bangalore,Water Park,27.7
+Kolkata,Water Park,16.7
+Kolkata,Water Park,10.5
+Ooty,Hill Station,24.7
+Bikaner,Desert,24.7
+Ooty,Hill Station,25.7
+Shimla,Hill Station,15.8
+Puri,Beach,25.4
+Jaisalmer,Desert,39.2
+Ooty,Hill Station,14.3
+Bikaner,Desert,32.1
+Manali,Hill Station,27.9
+Kolkata,Water Park,36.1
+Bikaner,Desert,11.9
+Shimla,Hill Station,17.7
+Jaisalmer,Desert,35.2
+Puri,Beach,38.5
+Bikaner,Desert,30.8
+Puri,Beach,31.6
+Bikaner,Desert,29.5
+Ooty,Hill Station,13.4
+Mumbai,Beach,38.5
+Bangalore,Water Park,17.2
+Delhi,Water Park,17.8
+Bikaner,Desert,19.6
+Chennai,Beach,15.3
+Jaisalmer,Desert,14.0
+Hyderabad,Water Park,38.1
+Jaipur,Desert,28.0
+Jaisalmer,Desert,21.5
+Puri,Beach,34.7
+Jaipur,Desert,23.1
+Bangalore,Water Park,23.4
+Bangalore,Water Park,33.8
+Jaisalmer,Desert,30.2
+Mumbai,Beach,25.9
+Delhi,Water Park,29.2
+Bangalore,Water Park,39.8
+Puri,Beach,15.9
+Delhi,Water Park,36.6
+Bikaner,Desert,33.0
+Bangalore,Water Park,30.3
+Manali,Hill Station,34.1
+Delhi,Water Park,12.9
+Bangalore,Water Park,13.9
+Darjeeling,Hill Station,26.5
+Bikaner,Desert,24.9
+Shimla,Hill Station,29.2
+Jaipur,Desert,22.7
+Bikaner,Desert,30.7
+Ooty,Hill Station,21.3
+Jaipur,Desert,24.9
+Jaipur,Desert,28.6
+Kolkata,Water Park,31.1
+Hyderabad,Water Park,13.2
+Hyderabad,Water Park,32.7
+Bikaner,Desert,23.8
+Bikaner,Desert,33.5
+Hyderabad,Water Park,38.3
+Chennai,Beach,18.9
+Mumbai,Beach,10.9
+Puri,Beach,20.0
+Manali,Hill Station,38.5
+Bikaner,Desert,30.9
+Jaisalmer,Desert,24.9
+Ooty,Hill Station,28.3
+Goa,Beach,20.7
+Jaipur,Desert,38.9
+Manali,Hill Station,36.3
+Manali,Hill Station,23.7
+Bangalore,Water Park,35.6
+Chennai,Beach,13.0
+Delhi,Water Park,16.8
+Hyderabad,Water Park,17.3
+Shimla,Hill Station,24.7
+Kolkata,Water Park,15.9
+Jaipur,Desert,28.1
+Jaisalmer,Desert,34.3
+Ooty,Hill Station,15.6
+Bangalore,Water Park,25.2
+Mumbai,Beach,12.6
+Jaipur,Desert,20.4
+Jaipur,Desert,35.5
+Jaipur,Desert,21.6
+Kutch,Desert,16.9
+Delhi,Water Park,33.1
+Jaisalmer,Desert,11.0
+Ooty,Hill Station,32.0
+Kolkata,Water Park,33.8
+Jaipur,Desert,23.8
+Manali,Hill Station,23.3
+Shimla,Hill Station,22.4
+Jaisalmer,Desert,10.5
+Puri,Beach,10.6
+Shimla,Hill Station,17.3
+Manali,Hill Station,17.9
+Chennai,Beach,24.4
+Delhi,Water Park,15.4
+Ooty,Hill Station,35.1
+Ooty,Hill Station,25.5
+Jaisalmer,Desert,35.3
+Mumbai,Beach,32.5
+Kutch,Desert,22.8
+Mumbai,Beach,37.1
+Manali,Hill Station,24.6
+Bikaner,Desert,32.0
+Kutch,Desert,21.6
+Shimla,Hill Station,15.8
+Goa,Beach,18.3
+Shimla,Hill Station,23.3
+Delhi,Water Park,29.3
+Jaipur,Desert,33.7
+Chennai,Beach,21.5
+Manali,Hill Station,25.0
+Kolkata,Water Park,35.1
+Puri,Beach,18.8
+Darjeeling,Hill Station,13.6
+Ooty,Hill Station,17.3
+Hyderabad,Water Park,38.0
+Chennai,Beach,32.9
+Darjeeling,Hill Station,27.0
+Bikaner,Desert,23.2
+Kolkata,Water Park,38.1
+Kolkata,Water Park,37.5
+Goa,Beach,21.4
+Shimla,Hill Station,24.5
+Jaipur,Desert,26.7
+Hyderabad,Water Park,29.0
+Kolkata,Water Park,10.4
+Jaipur,Desert,19.2
+Mumbai,Beach,26.2
+Delhi,Water Park,31.9
+Jaipur,Desert,36.3
+Hyderabad,Water Park,12.3
+Bikaner,Desert,28.7
+Jaipur,Desert,29.3
+Delhi,Water Park,23.2
+Jaisalmer,Desert,20.3
+Hyderabad,Water Park,35.2
+Shimla,Hill Station,16.1
+Mumbai,Beach,21.4
+Manali,Hill Station,36.9
+Jaisalmer,Desert,30.0
+Jaisalmer,Desert,17.3
+Darjeeling,Hill Station,16.0
+Ooty,Hill Station,29.8
+Hyderabad,Water Park,20.3
+Goa,Beach,36.0
+Mumbai,Beach,26.0
+Chennai,Beach,29.3
+Jaisalmer,Desert,27.9
+Kolkata,Water Park,26.3
+Shimla,Hill Station,16.2
+Mumbai,Beach,26.2
+Hyderabad,Water Park,35.2
+Mumbai,Beach,23.9
+Chennai,Beach,24.8
+Bangalore,Water Park,24.2
+Manali,Hill Station,28.5
+Chennai,Beach,37.9
+Mumbai,Beach,18.0
+Hyderabad,Water Park,21.3
+Chennai,Beach,39.3
+Jaisalmer,Desert,25.6
+Manali,Hill Station,39.2
+Goa,Beach,27.6
+Mumbai,Beach,28.4
+Ooty,Hill Station,19.3
+Manali,Hill Station,30.2
+Darjeeling,Hill Station,31.6
+Hyderabad,Water Park,13.8
+Darjeeling,Hill Station,35.3
+Goa,Beach,16.3
+Puri,Beach,28.9
+Darjeeling,Hill Station,34.3
+Shimla,Hill Station,18.5
+Puri,Beach,34.8
+Bikaner,Desert,12.3
+Shimla,Hill Station,33.5
+Bikaner,Desert,17.9
+Shimla,Hill Station,29.7
+Jaisalmer,Desert,36.1
+Shimla,Hill Station,19.3
+Chennai,Beach,10.7
+Chennai,Beach,14.2
+Bangalore,Water Park,24.8
+Delhi,Water Park,29.2
+Manali,Hill Station,37.2
+Bangalore,Water Park,21.9
+Goa,Beach,23.5
+Ooty,Hill Station,29.2
+Mumbai,Beach,18.4
+Hyderabad,Water Park,15.8
+Ooty,Hill Station,11.0
+Mumbai,Beach,22.2
+Hyderabad,Water Park,30.7
+Bikaner,Desert,21.0
+Bikaner,Desert,16.0
+Bikaner,Desert,13.3
+Hyderabad,Water Park,28.7
+Delhi,Water Park,39.2
+Bangalore,Water Park,26.2
+Jaipur,Desert,23.0
+Delhi,Water Park,18.8
+Kolkata,Water Park,19.6
+Jaisalmer,Desert,26.4
+Shimla,Hill Station,34.1
+Delhi,Water Park,33.9
+Kolkata,Water Park,21.5
+Ooty,Hill Station,32.5
+Bikaner,Desert,32.8
+Manali,Hill Station,28.0
+Mumbai,Beach,17.6
+Chennai,Beach,31.9
+Jaipur,Desert,16.9
+Darjeeling,Hill Station,16.8
+Puri,Beach,15.3
+Kutch,Desert,29.6
+Ooty,Hill Station,19.3
+Bangalore,Water Park,19.7
+Ooty,Hill Station,18.8
+Mumbai,Beach,36.8
+Delhi,Water Park,23.7
+Puri,Beach,30.5
+Ooty,Hill Station,36.8
+Darjeeling,Hill Station,37.3
+Shimla,Hill Station,31.7
+Goa,Beach,38.3
+Manali,Hill Station,17.0
+Hyderabad,Water Park,33.8
+Mumbai,Beach,35.7
+Ooty,Hill Station,31.9
+Hyderabad,Water Park,10.4
+Bikaner,Desert,12.9
+Mumbai,Beach,33.2
+Ooty,Hill Station,12.2
+Puri,Beach,29.3
+Delhi,Water Park,35.5
+Kutch,Desert,16.0
+Bikaner,Desert,20.6
+Goa,Beach,25.1
+Puri,Beach,11.2
+Goa,Beach,22.3
+Jaisalmer,Desert,20.4
+Delhi,Water Park,38.6
+Jaisalmer,Desert,39.8
+Darjeeling,Hill Station,27.8
+Darjeeling,Hill Station,19.0
+Puri,Beach,13.7
+Kutch,Desert,24.6
+Kutch,Desert,35.6
+Kutch,Desert,39.4
+Kutch,Desert,39.0
+Chennai,Beach,36.4
+Shimla,Hill Station,17.8
+Manali,Hill Station,20.0
+Manali,Hill Station,37.5
+Chennai,Beach,26.5
+Puri,Beach,36.6
+Ooty,Hill Station,30.7
+Darjeeling,Hill Station,19.0
+Goa,Beach,36.7
+Kutch,Desert,21.5
+Bangalore,Water Park,27.9
+Darjeeling,Hill Station,39.3
+Kolkata,Water Park,12.4
+Hyderabad,Water Park,28.1
+Manali,Hill Station,14.3
+Darjeeling,Hill Station,11.0
+Hyderabad,Water Park,39.4
+Delhi,Water Park,13.5
+Goa,Beach,35.3
+Kutch,Desert,17.8
+Puri,Beach,16.8
+Puri,Beach,22.1
+Shimla,Hill Station,32.6
+Darjeeling,Hill Station,22.3
+Jaipur,Desert,15.5
+Delhi,Water Park,26.7
+Delhi,Water Park,13.0
+Bangalore,Water Park,27.0
+Kutch,Desert,19.5
+Manali,Hill Station,29.4
+Darjeeling,Hill Station,28.8
+Bangalore,Water Park,21.9
+Bangalore,Water Park,34.4
+Jaisalmer,Desert,11.9
+Kolkata,Water Park,27.9
+Shimla,Hill Station,35.8
+Puri,Beach,37.4
+Kutch,Desert,12.8
+Chennai,Beach,33.8
+Darjeeling,Hill Station,33.8
+Manali,Hill Station,23.6
+Jaipur,Desert,10.7
+Kutch,Desert,21.0
+Darjeeling,Hill Station,27.1
+Kutch,Desert,16.9
+Delhi,Water Park,35.4
+Puri,Beach,19.4
+Jaisalmer,Desert,19.4
+Puri,Beach,14.1
+Hyderabad,Water Park,39.5
+Goa,Beach,24.8
+Ooty,Hill Station,16.8
+Hyderabad,Water Park,29.0
+Bikaner,Desert,15.1
+Puri,Beach,25.4
+Goa,Beach,25.5
+Ooty,Hill Station,29.5
+Manali,Hill Station,28.5
+Chennai,Beach,35.5
+Goa,Beach,15.3
+Shimla,Hill Station,11.8
+Bikaner,Desert,27.4
+Goa,Beach,36.2
+Kutch,Desert,15.1
+Goa,Beach,29.2
+Mumbai,Beach,11.0
+Jaisalmer,Desert,26.3
+Ooty,Hill Station,26.7
+Goa,Beach,34.3
+Darjeeling,Hill Station,35.3
+Darjeeling,Hill Station,20.5
+Jaisalmer,Desert,33.4
+Chennai,Beach,13.2
+Mumbai,Beach,33.9
+Shimla,Hill Station,29.7
+Bikaner,Desert,11.4
+Jaisalmer,Desert,31.1
+Hyderabad,Water Park,21.2
+Kutch,Desert,17.2
+Mumbai,Beach,38.6
+Manali,Hill Station,16.6
+Mumbai,Beach,20.1
+Delhi,Water Park,38.2
+Shimla,Hill Station,38.5
+Delhi,Water Park,28.6
+Bikaner,Desert,37.1
+Kutch,Desert,23.5
+Hyderabad,Water Park,23.0
+Kutch,Desert,27.5
+Hyderabad,Water Park,34.7
+Kutch,Desert,26.5
+Kolkata,Water Park,25.7
+Hyderabad,Water Park,39.0
+Jaisalmer,Desert,18.7
+Jaisalmer,Desert,30.0
+Puri,Beach,19.0
+Jaipur,Desert,29.3
+Hyderabad,Water Park,28.4
+Kolkata,Water Park,28.1
+Chennai,Beach,26.7
+Jaisalmer,Desert,36.5
+Mumbai,Beach,36.0
+Bikaner,Desert,19.4
+Puri,Beach,20.9
+Darjeeling,Hill Station,16.3
+Mumbai,Beach,26.1
+Hyderabad,Water Park,21.4
+Mumbai,Beach,26.7
+Delhi,Water Park,20.7
+Bikaner,Desert,17.2
+Jaipur,Desert,11.9
+Jaipur,Desert,28.2
+Ooty,Hill Station,22.0
+Darjeeling,Hill Station,32.0
+Bangalore,Water Park,27.6
+Delhi,Water Park,20.1
+Manali,Hill Station,17.1
+Manali,Hill Station,15.1
+Kolkata,Water Park,29.5
+Chennai,Beach,33.7
+Manali,Hill Station,12.3
+Ooty,Hill Station,27.7
+Mumbai,Beach,15.2
+Jaipur,Desert,24.9
+Puri,Beach,18.0
+Goa,Beach,20.6
+Darjeeling,Hill Station,16.9
+Manali,Hill Station,39.2
+Bangalore,Water Park,29.2
+Kutch,Desert,15.8
+Jaipur,Desert,17.0
+Bikaner,Desert,21.1
+Kolkata,Water Park,32.7
+Jaisalmer,Desert,10.5
+Chennai,Beach,20.2
+Kolkata,Water Park,22.8
+Delhi,Water Park,29.7
+Kolkata,Water Park,34.2
+Kolkata,Water Park,18.2
+Jaisalmer,Desert,23.7
+Bangalore,Water Park,22.0
+Chennai,Beach,36.1
+Delhi,Water Park,15.6
+Kutch,Desert,22.8
+Jaisalmer,Desert,35.8
+Bikaner,Desert,31.8
+Jaipur,Desert,33.6
+Hyderabad,Water Park,33.5
+Kolkata,Water Park,21.6
+Goa,Beach,10.1
+Kolkata,Water Park,10.7
+Manali,Hill Station,28.2
+Darjeeling,Hill Station,33.5
+Jaipur,Desert,10.4
+Jaisalmer,Desert,23.0
+Goa,Beach,28.6
+Kutch,Desert,24.5
+Shimla,Hill Station,36.3
+Bikaner,Desert,12.0
+Shimla,Hill Station,18.2
+Shimla,Hill Station,34.0
+Ooty,Hill Station,17.3
+Goa,Beach,29.1
+Manali,Hill Station,14.3
+Jaipur,Desert,18.9
+Bangalore,Water Park,39.5
+Jaisalmer,Desert,37.1
+Ooty,Hill Station,25.1
+Delhi,Water Park,33.4
+Mumbai,Beach,32.9
+Kolkata,Water Park,29.5
+Delhi,Water Park,38.8
+Bikaner,Desert,21.9
+Ooty,Hill Station,19.4
+Delhi,Water Park,31.9
+Shimla,Hill Station,23.1
+Bikaner,Desert,22.9
+Kolkata,Water Park,32.7
+Jaisalmer,Desert,16.4
+Delhi,Water Park,15.4
+Goa,Beach,20.0
+Goa,Beach,15.6
+Ooty,Hill Station,32.8
+Kutch,Desert,27.2
+Hyderabad,Water Park,24.2
+Darjeeling,Hill Station,35.5
+Jaipur,Desert,33.3
+Ooty,Hill Station,27.8
+Kolkata,Water Park,22.6
+Ooty,Hill Station,37.0
+Jaisalmer,Desert,17.3
+Jaipur,Desert,21.3
+Bikaner,Desert,17.3
+Goa,Beach,32.2
+Bikaner,Desert,31.1
+Mumbai,Beach,20.4
+Kolkata,Water Park,21.6
+Jaisalmer,Desert,10.6
+Jaipur,Desert,12.2
+Kutch,Desert,37.4
+Darjeeling,Hill Station,16.6
+Darjeeling,Hill Station,13.7
+Bangalore,Water Park,12.6
+Jaipur,Desert,24.6
+Delhi,Water Park,30.2
+Kolkata,Water Park,28.3
+Hyderabad,Water Park,39.1
+Jaipur,Desert,20.3
+Puri,Beach,11.5
+Jaisalmer,Desert,12.9
+Jaisalmer,Desert,34.2
+Jaipur,Desert,12.9
+Shimla,Hill Station,34.5
+Jaisalmer,Desert,19.5
+Bikaner,Desert,33.7
+Mumbai,Beach,11.3
+Puri,Beach,30.3
+Kolkata,Water Park,36.9
+Goa,Beach,21.5
+Bangalore,Water Park,28.9
+Bangalore,Water Park,16.9
+Shimla,Hill Station,15.3
+Delhi,Water Park,34.4
+Delhi,Water Park,13.7
+Darjeeling,Hill Station,14.2
+Darjeeling,Hill Station,25.2
+Goa,Beach,29.0
+Puri,Beach,23.5
+Jaisalmer,Desert,20.2
+Bangalore,Water Park,17.7
+Jaipur,Desert,38.0
+Shimla,Hill Station,20.9
+Kutch,Desert,39.6
+Hyderabad,Water Park,22.9
+Darjeeling,Hill Station,27.9
+Kolkata,Water Park,32.8
+Shimla,Hill Station,19.8
+Delhi,Water Park,38.4
+Bikaner,Desert,17.3
+Puri,Beach,26.3
+Jaipur,Desert,29.3
+Kolkata,Water Park,37.7
+Shimla,Hill Station,19.7
+Shimla,Hill Station,25.6
+Shimla,Hill Station,37.8
+Jaipur,Desert,19.5
+Delhi,Water Park,33.6
+Goa,Beach,12.9
+Darjeeling,Hill Station,38.8
+Manali,Hill Station,27.5
+Bikaner,Desert,14.5
+Bangalore,Water Park,36.5
+Kolkata,Water Park,37.5
+Chennai,Beach,39.4
+Delhi,Water Park,39.5
+Mumbai,Beach,26.5
+Delhi,Water Park,25.0
+Kolkata,Water Park,35.3
+Jaisalmer,Desert,22.0
+Jaipur,Desert,30.8
+Mumbai,Beach,10.5
+Puri,Beach,27.3
+Jaipur,Desert,15.6
+Jaisalmer,Desert,10.6
+Hyderabad,Water Park,26.2
+Goa,Beach,20.6
+Jaipur,Desert,13.9
+Ooty,Hill Station,17.0
+Jaipur,Desert,38.8
+Puri,Beach,18.8
+Chennai,Beach,36.9
+Kutch,Desert,22.9
+Kolkata,Water Park,10.6
+Shimla,Hill Station,20.3
+Ooty,Hill Station,22.9
+Delhi,Water Park,10.7
+Kutch,Desert,20.3
+Bikaner,Desert,35.8
+Manali,Hill Station,27.4
+Kolkata,Water Park,33.0
+Bangalore,Water Park,11.0
+Bikaner,Desert,31.6
+Kolkata,Water Park,11.4
+Bangalore,Water Park,38.1
+Manali,Hill Station,35.8
+Kutch,Desert,24.1
+Puri,Beach,35.7
+Puri,Beach,31.8
+Mumbai,Beach,38.5
+Shimla,Hill Station,12.2
+Jaisalmer,Desert,20.3
+Manali,Hill Station,16.0
+Bikaner,Desert,27.4
+Delhi,Water Park,11.3
+Ooty,Hill Station,24.2
+Chennai,Beach,26.4
+Bangalore,Water Park,30.6
+Jaipur,Desert,35.1
+Kutch,Desert,38.1
+Bikaner,Desert,38.8
+Mumbai,Beach,29.1
+Bangalore,Water Park,18.1
+Shimla,Hill Station,14.4
+Hyderabad,Water Park,29.5
+Manali,Hill Station,34.8
+Mumbai,Beach,35.4
+Manali,Hill Station,18.6
+Darjeeling,Hill Station,29.2
+Jaisalmer,Desert,26.2
+Puri,Beach,18.9
+Mumbai,Beach,23.3
+Kolkata,Water Park,15.2
+Bikaner,Desert,11.1
+Ooty,Hill Station,15.3
+Chennai,Beach,37.8
+Ooty,Hill Station,13.7
+Jaisalmer,Desert,32.9
+Kutch,Desert,25.2
+Jaisalmer,Desert,39.5
+Jaisalmer,Desert,27.8
+Puri,Beach,13.9
+Kutch,Desert,24.5
+Delhi,Water Park,21.8
+Ooty,Hill Station,14.2
+Shimla,Hill Station,36.7
+Ooty,Hill Station,18.1
+Shimla,Hill Station,18.7
+Ooty,Hill Station,15.1
+Manali,Hill Station,25.3
+Delhi,Water Park,29.5
+Shimla,Hill Station,15.6
+Bangalore,Water Park,26.8
+Kolkata,Water Park,16.7
+Jaisalmer,Desert,20.9
+Jaisalmer,Desert,12.4
+Chennai,Beach,15.7
+Bikaner,Desert,13.0
+Kutch,Desert,23.0
+Hyderabad,Water Park,39.9
+Goa,Beach,31.4
+Kolkata,Water Park,30.1
+Goa,Beach,23.5
+Goa,Beach,32.9
+Chennai,Beach,27.6
+Bikaner,Desert,15.1
+Mumbai,Beach,22.7
+Manali,Hill Station,31.4
+Manali,Hill Station,13.0
+Manali,Hill Station,24.3
+Kolkata,Water Park,37.2
+Ooty,Hill Station,33.2
+Darjeeling,Hill Station,36.1
+Kolkata,Water Park,22.5
+Manali,Hill Station,33.7
+Chennai,Beach,30.4
+Mumbai,Beach,34.6
+Mumbai,Beach,36.9
+Jaisalmer,Desert,37.8
+Goa,Beach,39.5
+Chennai,Beach,34.5
+Jaipur,Desert,24.4
+Chennai,Beach,32.0
+Chennai,Beach,16.9
+Ooty,Hill Station,38.1
+Puri,Beach,27.7
+Kolkata,Water Park,13.0
+Delhi,Water Park,29.1
+Shimla,Hill Station,29.6
+Ooty,Hill Station,20.5
+Mumbai,Beach,25.0
+Ooty,Hill Station,10.4
+Manali,Hill Station,24.3
+Shimla,Hill Station,31.4
+Ooty,Hill Station,14.4
+Goa,Beach,12.6
+Goa,Beach,13.5
+Shimla,Hill Station,10.6
+Kutch,Desert,22.5
+Mumbai,Beach,25.5
+Shimla,Hill Station,33.0
+Mumbai,Beach,37.9
+Manali,Hill Station,33.5
+Jaipur,Desert,24.8
+Kolkata,Water Park,20.1
+Ooty,Hill Station,22.2
+Hyderabad,Water Park,15.9
+Kolkata,Water Park,38.9
+Kutch,Desert,10.4
+Darjeeling,Hill Station,26.6
+Puri,Beach,15.3
+Shimla,Hill Station,16.8
+Puri,Beach,28.7
+Jaipur,Desert,31.1
+Manali,Hill Station,13.2
+Hyderabad,Water Park,38.7
+Manali,Hill Station,21.0
+Kutch,Desert,36.8
+Kolkata,Water Park,22.7
+Mumbai,Beach,31.5
+Manali,Hill Station,18.4
+Kutch,Desert,34.4
+Darjeeling,Hill Station,34.6
+Shimla,Hill Station,32.5
+Jaisalmer,Desert,21.9
+Goa,Beach,32.2
+Jaipur,Desert,11.3
+Kolkata,Water Park,13.3
+Mumbai,Beach,23.5
+Chennai,Beach,32.2
+Shimla,Hill Station,24.7
+Chennai,Beach,18.0
+Ooty,Hill Station,31.9
+Manali,Hill Station,31.1
+Kolkata,Water Park,31.6
+Bikaner,Desert,34.3
+Ooty,Hill Station,22.2
+Delhi,Water Park,28.2
+Mumbai,Beach,32.1
+Chennai,Beach,26.3
+Bikaner,Desert,22.2
+Bikaner,Desert,25.0
+Jaisalmer,Desert,10.5
+Jaisalmer,Desert,12.5
+Mumbai,Beach,21.4
+Manali,Hill Station,17.7
+Manali,Hill Station,39.2
+Kolkata,Water Park,29.8
+Kolkata,Water Park,37.6
+Delhi,Water Park,37.4
+Goa,Beach,21.8
+Mumbai,Beach,37.9
+Jaipur,Desert,16.2
+Mumbai,Beach,20.3
+Delhi,Water Park,23.1
+Bangalore,Water Park,32.6
+Jaipur,Desert,28.5
+Puri,Beach,11.0
+Ooty,Hill Station,31.7
+Goa,Beach,33.0
+Kolkata,Water Park,34.7
+Jaipur,Desert,32.6
+Bangalore,Water Park,19.3
+Manali,Hill Station,10.3
+Jaipur,Desert,21.0
+Puri,Beach,15.2
+Ooty,Hill Station,33.5
+Delhi,Water Park,21.0
+Jaipur,Desert,32.2
+Mumbai,Beach,18.2
+Darjeeling,Hill Station,35.4
+Bikaner,Desert,10.1
+Kutch,Desert,21.9
+Darjeeling,Hill Station,29.4
+Jaipur,Desert,13.7
+Kolkata,Water Park,22.9
+Bikaner,Desert,11.4
+Goa,Beach,35.6
+Kolkata,Water Park,29.9
+Kutch,Desert,18.3
+Chennai,Beach,35.3
+Bikaner,Desert,21.7
+Kutch,Desert,26.5
+Chennai,Beach,10.8
+Shimla,Hill Station,17.2
+Hyderabad,Water Park,12.1
+Bikaner,Desert,13.1
+Shimla,Hill Station,13.7
+Chennai,Beach,19.2
+Delhi,Water Park,34.0
+Kolkata,Water Park,35.3
+Shimla,Hill Station,30.9
+Jaisalmer,Desert,18.9
+Kutch,Desert,23.0
+Puri,Beach,15.7
+Jaipur,Desert,13.9
+Kutch,Desert,35.2
+Goa,Beach,28.4
+Chennai,Beach,29.4
+Shimla,Hill Station,32.6
+Kolkata,Water Park,18.3
+Mumbai,Beach,25.1
+Chennai,Beach,10.0
+Jaisalmer,Desert,33.7
+Bikaner,Desert,34.3
+Shimla,Hill Station,29.8
+Kutch,Desert,31.8
+Ooty,Hill Station,23.4
+Shimla,Hill Station,34.4
+Puri,Beach,16.8
+Delhi,Water Park,12.6
+Goa,Beach,34.2
+Bangalore,Water Park,36.1
+Kutch,Desert,30.5
+Hyderabad,Water Park,16.0
+Hyderabad,Water Park,14.5
+Ooty,Hill Station,10.9
+Ooty,Hill Station,19.2
+Jaisalmer,Desert,26.9
+Puri,Beach,12.0
+Ooty,Hill Station,39.9
+Chennai,Beach,15.2
+Puri,Beach,30.0
+Shimla,Hill Station,35.0
+Manali,Hill Station,33.9
+Bikaner,Desert,22.6
+Ooty,Hill Station,26.2
+Jaisalmer,Desert,34.8
+Puri,Beach,19.5
+Manali,Hill Station,14.9
+Bikaner,Desert,26.1
+Shimla,Hill Station,26.2
+Bikaner,Desert,23.0
+Kolkata,Water Park,10.3
+Puri,Beach,30.4
+Kutch,Desert,20.7
+Manali,Hill Station,14.8
+Mumbai,Beach,20.1
+Goa,Beach,12.4
+Hyderabad,Water Park,27.7
+Kolkata,Water Park,37.6
+Puri,Beach,32.4
+Manali,Hill Station,26.8
+Goa,Beach,16.1
+Jaipur,Desert,35.6
+Chennai,Beach,33.2
+Delhi,Water Park,34.2
+Ooty,Hill Station,11.5
+Puri,Beach,14.0
+Puri,Beach,10.1
+Hyderabad,Water Park,27.8
+Darjeeling,Hill Station,27.3
+Mumbai,Beach,39.4
+Manali,Hill Station,30.8
+Ooty,Hill Station,35.2
+Bangalore,Water Park,22.3
+Delhi,Water Park,21.3
+Bikaner,Desert,26.4
+Kolkata,Water Park,13.1
+Darjeeling,Hill Station,32.6
+Goa,Beach,14.9
+Hyderabad,Water Park,10.7
+Kolkata,Water Park,36.5
+Puri,Beach,35.6
+Puri,Beach,22.9
+Jaisalmer,Desert,18.5
+Bangalore,Water Park,26.5
+Manali,Hill Station,25.9
+Delhi,Water Park,13.3
+Bikaner,Desert,11.6
+Manali,Hill Station,22.1
+Darjeeling,Hill Station,15.0
+Shimla,Hill Station,20.7
+Ooty,Hill Station,13.3
+Chennai,Beach,23.0
+Mumbai,Beach,36.7
+Kutch,Desert,11.5
+Mumbai,Beach,11.7
+Manali,Hill Station,11.4
+Hyderabad,Water Park,22.1
+Shimla,Hill Station,20.0
+Bikaner,Desert,28.2
+Goa,Beach,23.4
+Jaipur,Desert,16.0
+Hyderabad,Water Park,17.6
+Delhi,Water Park,28.5
+Bangalore,Water Park,22.3
+Ooty,Hill Station,15.2
+Jaipur,Desert,13.0
+Ooty,Hill Station,26.9
+Hyderabad,Water Park,18.2
+Mumbai,Beach,35.1
+Jaisalmer,Desert,36.2
+Kutch,Desert,13.0
+Hyderabad,Water Park,26.2
+Hyderabad,Water Park,25.2
+Darjeeling,Hill Station,37.9
+Bangalore,Water Park,34.2
+Chennai,Beach,35.1
+Ooty,Hill Station,24.5
+Kolkata,Water Park,31.8
+Ooty,Hill Station,20.2
+Jaipur,Desert,14.4
+Delhi,Water Park,36.0
+Delhi,Water Park,15.5
+Shimla,Hill Station,12.9
+Delhi,Water Park,25.5
+Goa,Beach,11.6
+Mumbai,Beach,12.3
+Ooty,Hill Station,21.4
+Bangalore,Water Park,12.8
+Jaisalmer,Desert,17.4
+Kutch,Desert,18.2
+Puri,Beach,12.7
+Delhi,Water Park,21.1
+Delhi,Water Park,34.2
+Manali,Hill Station,12.3
+Kutch,Desert,11.8
+Puri,Beach,22.4
+Kolkata,Water Park,16.1
+Puri,Beach,37.3
+Manali,Hill Station,24.5
+Ooty,Hill Station,38.9
+Kolkata,Water Park,15.5
+Bikaner,Desert,27.0
+Manali,Hill Station,39.9
+Bangalore,Water Park,12.4
+Manali,Hill Station,19.5
+Ooty,Hill Station,33.6
+Darjeeling,Hill Station,15.5
+Bangalore,Water Park,24.7
+Kutch,Desert,12.4
+Manali,Hill Station,27.4
+Bangalore,Water Park,23.8
+Puri,Beach,29.4
+Goa,Beach,30.1
+Jaipur,Desert,13.7
+Chennai,Beach,22.3
+Kolkata,Water Park,20.1
+Darjeeling,Hill Station,11.9
+Jaipur,Desert,14.5
+Goa,Beach,26.2
+Manali,Hill Station,22.1
+Shimla,Hill Station,30.0
+Darjeeling,Hill Station,25.5
+Delhi,Water Park,17.6
+Mumbai,Beach,30.1
+Manali,Hill Station,35.4
+Darjeeling,Hill Station,13.2
+Jaipur,Desert,20.2
+Ooty,Hill Station,16.8
+Jaipur,Desert,17.2
+Shimla,Hill Station,37.3
+Jaisalmer,Desert,38.2
+Delhi,Water Park,11.3
+Shimla,Hill Station,10.4
+Jaisalmer,Desert,33.2
+Jaisalmer,Desert,34.7
+Hyderabad,Water Park,35.4
+Darjeeling,Hill Station,28.1
+Delhi,Water Park,19.1
+Manali,Hill Station,29.9
+Ooty,Hill Station,28.1
+Bangalore,Water Park,20.0
+Kolkata,Water Park,31.0
+Bikaner,Desert,21.9
+Jaisalmer,Desert,35.5
+Manali,Hill Station,30.2
+Goa,Beach,31.1
+Goa,Beach,33.7
+Mumbai,Beach,25.3
+Delhi,Water Park,40.0
+Jaipur,Desert,19.1
+Chennai,Beach,20.0
+Goa,Beach,18.8
+Kolkata,Water Park,23.7
+Kutch,Desert,36.8
+Hyderabad,Water Park,20.4
+Jaisalmer,Desert,27.4
+Darjeeling,Hill Station,16.9
+Delhi,Water Park,32.4
+Darjeeling,Hill Station,21.1
+Delhi,Water Park,36.5
+Shimla,Hill Station,15.2
+Darjeeling,Hill Station,23.7
+Puri,Beach,19.6
+Shimla,Hill Station,30.7
+Delhi,Water Park,25.9
+Kolkata,Water Park,34.2
+Delhi,Water Park,18.2
+Darjeeling,Hill Station,29.4
+Ooty,Hill Station,36.2
+Goa,Beach,35.8
+Manali,Hill Station,25.4
+Bangalore,Water Park,28.8
+Bangalore,Water Park,15.8
+Hyderabad,Water Park,34.0
+Kolkata,Water Park,12.3
+Delhi,Water Park,16.3
+Goa,Beach,21.5
+Hyderabad,Water Park,37.5
+Jaipur,Desert,31.4
+Shimla,Hill Station,31.5
+Hyderabad,Water Park,10.5
+Puri,Beach,11.4
+Jaipur,Desert,33.6
+Mumbai,Beach,20.8
+Hyderabad,Water Park,10.6
+Goa,Beach,19.7
+Bikaner,Desert,19.6
+Manali,Hill Station,14.1
+Jaisalmer,Desert,12.0
+Jaipur,Desert,25.6
+Manali,Hill Station,31.2
+Delhi,Water Park,17.4
+Goa,Beach,36.8
+Jaipur,Desert,32.7
+Jaisalmer,Desert,19.8
+Kutch,Desert,30.4
+Manali,Hill Station,34.9
+Kolkata,Water Park,24.7
+Delhi,Water Park,15.0
+Goa,Beach,28.5
+Bangalore,Water Park,32.1
+Bikaner,Desert,12.4
+Bangalore,Water Park,19.2
+Kolkata,Water Park,35.4
+Kutch,Desert,34.1
+Delhi,Water Park,27.5
+Kolkata,Water Park,34.8
+Puri,Beach,22.7
+Darjeeling,Hill Station,35.6
+Ooty,Hill Station,26.0
+Chennai,Beach,19.5
+Jaipur,Desert,14.0
+Puri,Beach,10.1
+Kolkata,Water Park,16.0
+Delhi,Water Park,32.5
+Hyderabad,Water Park,19.4
+Delhi,Water Park,28.6
+Darjeeling,Hill Station,10.1
+Kolkata,Water Park,25.9
+Delhi,Water Park,10.3
+Goa,Beach,33.0
+Shimla,Hill Station,31.2
+Hyderabad,Water Park,30.3
+Mumbai,Beach,31.9
+Darjeeling,Hill Station,16.1
+Delhi,Water Park,35.4
+Delhi,Water Park,29.9
+Chennai,Beach,19.7
+Chennai,Beach,11.6
+Goa,Beach,34.5
+Puri,Beach,15.4
+Jaisalmer,Desert,32.2
+Delhi,Water Park,36.6
+Bangalore,Water Park,33.4
+Shimla,Hill Station,36.2
+Shimla,Hill Station,32.3
+Bangalore,Water Park,20.6
+Darjeeling,Hill Station,32.4
+Darjeeling,Hill Station,22.8
+Delhi,Water Park,14.9
+Hyderabad,Water Park,12.4
+Bangalore,Water Park,11.9
+Kolkata,Water Park,11.0
+Ooty,Hill Station,37.7
+Goa,Beach,34.4
+Manali,Hill Station,38.1
+Puri,Beach,15.8
+Bikaner,Desert,32.4
+Jaisalmer,Desert,22.3
+Shimla,Hill Station,14.3
+Chennai,Beach,23.4
+Manali,Hill Station,30.4
+Darjeeling,Hill Station,35.1
+Puri,Beach,38.7
+Delhi,Water Park,17.5
+Kutch,Desert,11.9
+Kutch,Desert,16.0
+Shimla,Hill Station,24.1
+Chennai,Beach,15.2
+Bikaner,Desert,22.7
+Mumbai,Beach,32.3
+Hyderabad,Water Park,11.1
+Darjeeling,Hill Station,35.0
+Ooty,Hill Station,25.7
+Ooty,Hill Station,15.8
+Delhi,Water Park,21.5
+Puri,Beach,10.1
+Chennai,Beach,23.1
+Hyderabad,Water Park,31.0
+Manali,Hill Station,11.8
+Goa,Beach,15.6
+Ooty,Hill Station,10.2
+Manali,Hill Station,21.4
+Chennai,Beach,16.1
+Kutch,Desert,38.3
+Jaisalmer,Desert,25.9
+Bikaner,Desert,21.4
+Jaisalmer,Desert,33.7
+Chennai,Beach,12.9
+Kolkata,Water Park,15.3
+Kolkata,Water Park,16.4
+Ooty,Hill Station,26.7
+Ooty,Hill Station,21.1
+Hyderabad,Water Park,38.8
+Shimla,Hill Station,28.2
+Hyderabad,Water Park,19.0
+Jaipur,Desert,27.4
+Bikaner,Desert,14.8
+Chennai,Beach,34.5
+Hyderabad,Water Park,15.6
+Delhi,Water Park,38.3
+Kolkata,Water Park,16.0
+Bikaner,Desert,12.2
+Manali,Hill Station,24.1
+Shimla,Hill Station,14.2
+Mumbai,Beach,23.8
+Darjeeling,Hill Station,24.2
+Jaipur,Desert,38.2
+Bikaner,Desert,18.1
+Mumbai,Beach,24.9
+Kolkata,Water Park,20.6
+Kutch,Desert,26.1
+Kutch,Desert,15.1
+Delhi,Water Park,25.2
+Delhi,Water Park,14.9
+Shimla,Hill Station,21.1
+Chennai,Beach,34.4
+Manali,Hill Station,32.2
+Ooty,Hill Station,36.9
+Ooty,Hill Station,13.5
+Goa,Beach,35.5
+Bangalore,Water Park,18.1
+Delhi,Water Park,39.8
+Kolkata,Water Park,10.8
+Mumbai,Beach,37.1
+Jaisalmer,Desert,31.4
+Goa,Beach,27.2
+Hyderabad,Water Park,35.7
+Hyderabad,Water Park,16.2
+Manali,Hill Station,17.8
+Jaisalmer,Desert,31.6
+Darjeeling,Hill Station,39.6
+Hyderabad,Water Park,32.3
+Manali,Hill Station,10.5
+Goa,Beach,31.4
+Puri,Beach,37.9
+Jaisalmer,Desert,12.3
+Kolkata,Water Park,12.2
+Mumbai,Beach,25.6
+Kolkata,Water Park,13.5
+Darjeeling,Hill Station,29.2
+Jaisalmer,Desert,20.0
+Delhi,Water Park,22.5
+Mumbai,Beach,22.9
+Bangalore,Water Park,21.5
+Delhi,Water Park,10.7
+Chennai,Beach,10.7
+Shimla,Hill Station,10.4
+Bikaner,Desert,16.0
+Darjeeling,Hill Station,28.0
+Hyderabad,Water Park,17.6
+Puri,Beach,34.7
+Goa,Beach,23.2
+Mumbai,Beach,12.8
+Shimla,Hill Station,27.9
+Darjeeling,Hill Station,33.5
+Puri,Beach,26.7
+Kutch,Desert,31.4
+Bikaner,Desert,13.8
+Ooty,Hill Station,18.6
+Hyderabad,Water Park,30.2
+Darjeeling,Hill Station,35.9
+Bikaner,Desert,27.2
+Chennai,Beach,20.5
+Kolkata,Water Park,13.5
+Bangalore,Water Park,31.5
+Kolkata,Water Park,36.0
+Kutch,Desert,16.5
+Goa,Beach,32.5
+Kolkata,Water Park,14.7
+Kutch,Desert,32.5
+Shimla,Hill Station,36.8
+Bangalore,Water Park,21.6
+Manali,Hill Station,16.8
+Delhi,Water Park,15.4
+Bangalore,Water Park,11.8
+Chennai,Beach,34.7
+Darjeeling,Hill Station,22.4
+Manali,Hill Station,22.0
+Shimla,Hill Station,14.2
+Bikaner,Desert,27.4
+Chennai,Beach,13.5
+Shimla,Hill Station,26.6
+Ooty,Hill Station,17.0
+Chennai,Beach,28.4
+Jaipur,Desert,18.4
+Jaisalmer,Desert,22.3
+Jaipur,Desert,13.5
+Puri,Beach,33.4
+Puri,Beach,18.1
+Jaipur,Desert,28.5
+Puri,Beach,27.7
+Manali,Hill Station,33.1
+Shimla,Hill Station,31.5
+Jaisalmer,Desert,21.2
+Hyderabad,Water Park,18.3
+Hyderabad,Water Park,37.7
+Manali,Hill Station,39.2
+Kutch,Desert,11.3
+Kutch,Desert,10.1
+Kolkata,Water Park,37.9
+Ooty,Hill Station,28.9
+Kutch,Desert,12.5
+Chennai,Beach,17.8
+Mumbai,Beach,25.0
+Bangalore,Water Park,12.8
+Jaipur,Desert,30.4
+Kutch,Desert,35.6
+Kolkata,Water Park,23.2
+Kolkata,Water Park,19.2
+Jaisalmer,Desert,39.2
+Jaipur,Desert,34.4
+Jaipur,Desert,34.2
+Hyderabad,Water Park,14.9
+Manali,Hill Station,32.6
+Manali,Hill Station,24.2
+Jaisalmer,Desert,19.7
+Jaipur,Desert,34.4
+Manali,Hill Station,28.4
+Ooty,Hill Station,21.3
+Delhi,Water Park,24.9
+Jaisalmer,Desert,22.5
+Manali,Hill Station,38.7
+Hyderabad,Water Park,38.1
+Bikaner,Desert,28.8
+Ooty,Hill Station,18.1
+Jaipur,Desert,14.1
+Kutch,Desert,23.6
+Shimla,Hill Station,27.4
+Kutch,Desert,30.7
+Kolkata,Water Park,23.2
+Chennai,Beach,11.4
+Kolkata,Water Park,19.5
+Chennai,Beach,33.3
+Jaisalmer,Desert,10.8
+Darjeeling,Hill Station,33.8
+Jaisalmer,Desert,18.9
+Mumbai,Beach,37.8
+Darjeeling,Hill Station,35.1
+Ooty,Hill Station,21.6
+Shimla,Hill Station,23.5
+Bikaner,Desert,15.9
+Puri,Beach,27.3
+Puri,Beach,36.8
+Jaisalmer,Desert,11.4
+Mumbai,Beach,16.4
+Kutch,Desert,38.9
+Bikaner,Desert,23.9
+Bangalore,Water Park,20.1
+Mumbai,Beach,15.7
+Shimla,Hill Station,18.4
+Manali,Hill Station,19.5
+Mumbai,Beach,16.3
+Darjeeling,Hill Station,10.6
+Bangalore,Water Park,18.6
+Ooty,Hill Station,11.9
+Ooty,Hill Station,30.2
+Mumbai,Beach,22.3
+Ooty,Hill Station,15.5
+Bangalore,Water Park,24.5
+Hyderabad,Water Park,16.7
+Puri,Beach,36.0
+Manali,Hill Station,32.0
+Puri,Beach,10.7
+Mumbai,Beach,12.1
+Jaipur,Desert,20.6
+Mumbai,Beach,30.5
+Hyderabad,Water Park,27.2
+Hyderabad,Water Park,36.4
+Chennai,Beach,18.8
+Darjeeling,Hill Station,30.6
+Puri,Beach,34.5
+Shimla,Hill Station,11.3
+Jaisalmer,Desert,16.0
+Hyderabad,Water Park,23.1
+Manali,Hill Station,35.5
+Puri,Beach,33.4
+Mumbai,Beach,32.3
+Darjeeling,Hill Station,31.6
+Hyderabad,Water Park,28.8
+Bangalore,Water Park,35.1
+Mumbai,Beach,37.2
+Chennai,Beach,33.0
+Hyderabad,Water Park,19.2
+Mumbai,Beach,11.4
+Darjeeling,Hill Station,31.7
+Puri,Beach,14.5
+Jaipur,Desert,22.6
+Kutch,Desert,38.6
+Shimla,Hill Station,32.2
+Kutch,Desert,31.6
+Jaisalmer,Desert,18.6
+Kutch,Desert,13.3
+Puri,Beach,38.9
+Goa,Beach,18.8
+Delhi,Water Park,23.8
+Hyderabad,Water Park,23.5
+Jaisalmer,Desert,20.4
+Bangalore,Water Park,38.3
+Delhi,Water Park,24.0
+Darjeeling,Hill Station,34.0
+Manali,Hill Station,13.7
+Kolkata,Water Park,39.2
+Jaisalmer,Desert,39.2
+Shimla,Hill Station,24.5
+Bangalore,Water Park,16.6
+Bangalore,Water Park,31.7
+Puri,Beach,31.3
+Ooty,Hill Station,28.5
+Bikaner,Desert,33.2
+Delhi,Water Park,23.6
+Ooty,Hill Station,24.5
+Shimla,Hill Station,22.8
+Kolkata,Water Park,27.4
+Ooty,Hill Station,10.8
+Kolkata,Water Park,18.6
+Ooty,Hill Station,20.9
+Manali,Hill Station,11.4
+Jaipur,Desert,11.7
+Puri,Beach,12.3
+Mumbai,Beach,25.4
+Bangalore,Water Park,32.9
+Jaisalmer,Desert,26.8
+Hyderabad,Water Park,30.3
+Delhi,Water Park,29.0
+Hyderabad,Water Park,35.5
+Chennai,Beach,39.1
+Delhi,Water Park,36.6
+Puri,Beach,16.6
+Darjeeling,Hill Station,20.2
+Jaipur,Desert,32.8
+Bikaner,Desert,38.0
+Goa,Beach,17.7
+Jaipur,Desert,18.5
+Shimla,Hill Station,27.7
+Darjeeling,Hill Station,28.9
+Delhi,Water Park,20.3
+Delhi,Water Park,18.8
+Shimla,Hill Station,28.0
+Shimla,Hill Station,14.8
+Chennai,Beach,27.8
+Bikaner,Desert,34.1
+Puri,Beach,34.5
+Hyderabad,Water Park,16.5
+Jaipur,Desert,15.6
+Jaipur,Desert,14.1
+Hyderabad,Water Park,32.7
+Jaisalmer,Desert,16.0
+Shimla,Hill Station,36.0
+Jaisalmer,Desert,29.9
+Puri,Beach,19.9
+Goa,Beach,21.1
+Kutch,Desert,16.4
+Hyderabad,Water Park,29.3
+Jaipur,Desert,30.9
+Kutch,Desert,23.5
+Hyderabad,Water Park,30.4
+Bikaner,Desert,12.3
+Bangalore,Water Park,35.6
+Manali,Hill Station,22.6
+Kutch,Desert,27.3
+Bikaner,Desert,24.4
+Darjeeling,Hill Station,11.4
+Hyderabad,Water Park,38.4
+Jaipur,Desert,27.7
+Jaisalmer,Desert,14.6
+Manali,Hill Station,25.6
+Ooty,Hill Station,35.0
+Kolkata,Water Park,37.6
+Bangalore,Water Park,39.7
+Delhi,Water Park,39.6
+Puri,Beach,21.3
+Darjeeling,Hill Station,21.5
+Shimla,Hill Station,34.5
+Goa,Beach,13.9
+Mumbai,Beach,17.1
+Hyderabad,Water Park,26.1
+Darjeeling,Hill Station,16.6
+Darjeeling,Hill Station,37.6
+Bangalore,Water Park,28.4
+Manali,Hill Station,19.4
+Manali,Hill Station,13.6
+Goa,Beach,18.2
+Darjeeling,Hill Station,10.5
+Bikaner,Desert,29.2
+Shimla,Hill Station,15.1
+Jaisalmer,Desert,19.2
+Mumbai,Beach,11.3
+Shimla,Hill Station,22.8
+Delhi,Water Park,31.3
+Jaipur,Desert,39.0
+Manali,Hill Station,28.9
+Bikaner,Desert,12.8
+Kutch,Desert,35.7
+Kolkata,Water Park,27.2
+Hyderabad,Water Park,13.9
+Delhi,Water Park,37.7
+Kolkata,Water Park,19.5
+Hyderabad,Water Park,22.3
+Manali,Hill Station,18.5
+Chennai,Beach,14.4
+Chennai,Beach,36.7
+Hyderabad,Water Park,16.8
+Delhi,Water Park,34.7
+Puri,Beach,16.2
+Kolkata,Water Park,12.5
+Ooty,Hill Station,13.7
+Shimla,Hill Station,13.3
+Jaipur,Desert,24.5
+Hyderabad,Water Park,11.2
+Jaisalmer,Desert,34.5
+Delhi,Water Park,19.0
+Mumbai,Beach,11.1
+Kutch,Desert,36.9
+Jaipur,Desert,19.4
+Kutch,Desert,23.3
+Goa,Beach,15.1
+Kolkata,Water Park,30.0
+Shimla,Hill Station,22.3
+Chennai,Beach,38.3
+Puri,Beach,21.0
+Darjeeling,Hill Station,14.6
+Jaisalmer,Desert,31.4
+Shimla,Hill Station,37.3
+Darjeeling,Hill Station,33.5
+Ooty,Hill Station,30.5
+Ooty,Hill Station,33.6
+Jaipur,Desert,14.7
+Jaipur,Desert,32.3
+Kutch,Desert,19.7
+Darjeeling,Hill Station,28.9
+Chennai,Beach,13.2
+Hyderabad,Water Park,30.2
+Darjeeling,Hill Station,11.9
+Darjeeling,Hill Station,15.9
+Delhi,Water Park,11.8
+Bangalore,Water Park,35.6
+Shimla,Hill Station,10.8
+Goa,Beach,10.8
+Bikaner,Desert,22.1
+Darjeeling,Hill Station,30.1
+Hyderabad,Water Park,22.6
+Shimla,Hill Station,17.4
+Kolkata,Water Park,34.7
+Puri,Beach,13.0
+Darjeeling,Hill Station,40.0
+Chennai,Beach,25.1
+Jaipur,Desert,17.2
+Darjeeling,Hill Station,22.6
+Goa,Beach,29.0
+Manali,Hill Station,13.7
+Jaisalmer,Desert,35.7
+Bangalore,Water Park,39.6
+Kolkata,Water Park,25.0
+Ooty,Hill Station,37.0
+Jaisalmer,Desert,29.2
+Chennai,Beach,30.6
+Manali,Hill Station,22.0
+Delhi,Water Park,10.5
+Delhi,Water Park,30.5
+Delhi,Water Park,26.2
+Manali,Hill Station,27.5
+Ooty,Hill Station,22.6
+Kutch,Desert,30.1
+Jaipur,Desert,16.0
+Puri,Beach,30.2
+Jaipur,Desert,31.9
+Goa,Beach,28.9
+Bangalore,Water Park,29.6
+Kolkata,Water Park,29.2
+Jaisalmer,Desert,29.2
+Shimla,Hill Station,18.9
+Jaisalmer,Desert,32.0
+Jaipur,Desert,22.0
+Chennai,Beach,22.6
+Jaipur,Desert,25.9
+Darjeeling,Hill Station,22.2
+Puri,Beach,30.0
+Shimla,Hill Station,20.8
+Bikaner,Desert,21.6
+Kutch,Desert,31.4
+Shimla,Hill Station,30.3
+Mumbai,Beach,24.9
+Shimla,Hill Station,15.6
+Goa,Beach,26.5
+Goa,Beach,28.7
+Hyderabad,Water Park,13.8
+Darjeeling,Hill Station,18.2
+Shimla,Hill Station,11.9
+Bangalore,Water Park,28.1
+Bikaner,Desert,15.8
+Ooty,Hill Station,25.8
+Darjeeling,Hill Station,10.0
+Chennai,Beach,17.6
+Bikaner,Desert,28.7
+Mumbai,Beach,21.1
+Bikaner,Desert,16.6
+Darjeeling,Hill Station,33.1
+Goa,Beach,37.7
+Kutch,Desert,19.7
+Chennai,Beach,13.0
+Bikaner,Desert,29.2
+Ooty,Hill Station,28.1
+Delhi,Water Park,29.0
+Chennai,Beach,28.3
+Puri,Beach,26.0
+Ooty,Hill Station,12.9
+Puri,Beach,19.5
+Goa,Beach,24.5
+Mumbai,Beach,38.4
+Delhi,Water Park,30.2
+Puri,Beach,23.4
+Ooty,Hill Station,34.8
+Darjeeling,Hill Station,32.2
+Kolkata,Water Park,17.8
+Kutch,Desert,21.5
+Jaipur,Desert,25.9
+Ooty,Hill Station,27.1
+Hyderabad,Water Park,30.6
+Jaisalmer,Desert,27.8
+Puri,Beach,26.3
+Kolkata,Water Park,13.5
+Kutch,Desert,37.7
+Mumbai,Beach,23.6
+Jaipur,Desert,31.4
+Hyderabad,Water Park,12.3
+Delhi,Water Park,33.3
+Darjeeling,Hill Station,32.5
+Bangalore,Water Park,23.7
+Ooty,Hill Station,12.4
+Jaisalmer,Desert,14.6
+Mumbai,Beach,22.5
+Jaisalmer,Desert,28.2
+Darjeeling,Hill Station,14.3
+Manali,Hill Station,29.6
+Mumbai,Beach,18.8
+Darjeeling,Hill Station,10.8
+Puri,Beach,30.3
+Jaipur,Desert,34.8
+Darjeeling,Hill Station,19.4
+Kutch,Desert,13.4
+Jaisalmer,Desert,32.2
+Delhi,Water Park,36.4
+Jaipur,Desert,31.7
+Jaisalmer,Desert,37.8
+Manali,Hill Station,13.3
+Jaipur,Desert,37.5
+Hyderabad,Water Park,33.7
+Puri,Beach,31.3
+Kutch,Desert,27.9
+Hyderabad,Water Park,38.2
+Shimla,Hill Station,17.8
+Puri,Beach,20.8
+Chennai,Beach,13.5
+Jaisalmer,Desert,32.1
+Darjeeling,Hill Station,33.0
+Chennai,Beach,11.8
+Puri,Beach,38.4
+Kolkata,Water Park,27.9
+Hyderabad,Water Park,37.3
+Shimla,Hill Station,29.5
+Chennai,Beach,27.1
+Jaipur,Desert,36.2
+Hyderabad,Water Park,32.2
+Hyderabad,Water Park,16.5
+Puri,Beach,36.8
+Jaisalmer,Desert,36.5
+Shimla,Hill Station,13.2
+Hyderabad,Water Park,11.7
+Shimla,Hill Station,15.9
+Jaipur,Desert,14.7
+Kolkata,Water Park,27.9
+Mumbai,Beach,25.4
+Ooty,Hill Station,15.5
+Bikaner,Desert,15.0
+Goa,Beach,19.3
+Ooty,Hill Station,19.9
+Darjeeling,Hill Station,11.0
+Darjeeling,Hill Station,21.1
+Jaisalmer,Desert,13.3
+Shimla,Hill Station,12.8
+Delhi,Water Park,21.8
+Chennai,Beach,36.0
+Bikaner,Desert,24.2
+Ooty,Hill Station,37.6
+Goa,Beach,39.3
+Jaisalmer,Desert,39.5
+Goa,Beach,31.6
+Mumbai,Beach,12.3
+Shimla,Hill Station,20.1
+Mumbai,Beach,29.9
+Puri,Beach,30.8
+Jaipur,Desert,27.9
+Shimla,Hill Station,21.9
+Puri,Beach,32.2
+Bikaner,Desert,35.6
+Bangalore,Water Park,34.9
+Hyderabad,Water Park,16.9
+Bikaner,Desert,19.3
+Manali,Hill Station,27.5
+Ooty,Hill Station,11.4
+Hyderabad,Water Park,39.1
+Chennai,Beach,28.6
+Jaipur,Desert,37.2
+Shimla,Hill Station,23.2
+Kutch,Desert,29.7
+Goa,Beach,10.7
+Ooty,Hill Station,19.6
+Delhi,Water Park,10.3
+Bangalore,Water Park,17.3
+Ooty,Hill Station,16.7
+Ooty,Hill Station,16.2
+Darjeeling,Hill Station,28.8
+Jaipur,Desert,35.7
+Kutch,Desert,28.6
+Mumbai,Beach,34.5
+Hyderabad,Water Park,18.5
+Darjeeling,Hill Station,30.7
+Kolkata,Water Park,32.6
+Jaisalmer,Desert,24.2
+Kutch,Desert,21.9
+Kutch,Desert,38.3
+Bangalore,Water Park,39.1
+Manali,Hill Station,39.7
+Kolkata,Water Park,27.6
+Kolkata,Water Park,25.2
+Ooty,Hill Station,24.7
+Darjeeling,Hill Station,20.4
+Puri,Beach,19.7
+Shimla,Hill Station,36.3
+Puri,Beach,24.9
+Darjeeling,Hill Station,20.5
+Jaisalmer,Desert,10.9
+Jaisalmer,Desert,26.2
+Mumbai,Beach,16.6
+Mumbai,Beach,16.5
+Hyderabad,Water Park,17.2
+Jaipur,Desert,31.5
+Mumbai,Beach,10.9
+Goa,Beach,16.9
+Bangalore,Water Park,12.6
+Goa,Beach,40.0
+Ooty,Hill Station,33.6
+Kolkata,Water Park,36.9
+Jaisalmer,Desert,33.9
+Jaipur,Desert,19.9
+Puri,Beach,38.8
+Darjeeling,Hill Station,24.1
+Bikaner,Desert,20.3
+Darjeeling,Hill Station,11.0
+Kutch,Desert,10.2
+Darjeeling,Hill Station,26.7
+Bikaner,Desert,38.8
+Shimla,Hill Station,35.4
+Shimla,Hill Station,24.9
+Jaisalmer,Desert,14.8
+Jaipur,Desert,38.8
+Jaisalmer,Desert,37.4
+Hyderabad,Water Park,15.6
+Kolkata,Water Park,22.8
+Delhi,Water Park,32.3
+Kolkata,Water Park,17.2
+Bikaner,Desert,12.0
+Delhi,Water Park,24.3
+Jaipur,Desert,31.0
+Delhi,Water Park,18.5
+Goa,Beach,21.4
+Chennai,Beach,20.8
+Jaipur,Desert,25.0
+Bangalore,Water Park,17.6
+Puri,Beach,27.8
+Ooty,Hill Station,20.8
+Jaisalmer,Desert,33.1
+Ooty,Hill Station,15.3
+Manali,Hill Station,11.9
+Chennai,Beach,33.4
+Bangalore,Water Park,13.1
+Mumbai,Beach,35.3
+Kolkata,Water Park,39.0
+Hyderabad,Water Park,30.3
+Goa,Beach,35.8
+Hyderabad,Water Park,14.6
+Shimla,Hill Station,36.1
+Mumbai,Beach,14.2
+Mumbai,Beach,23.6
+Mumbai,Beach,10.0
+Kolkata,Water Park,21.4
+Mumbai,Beach,19.3
+Bikaner,Desert,17.8
+Jaipur,Desert,32.4
+Darjeeling,Hill Station,34.5
+Manali,Hill Station,11.6
+Bangalore,Water Park,36.5
+Darjeeling,Hill Station,15.6
+Darjeeling,Hill Station,39.0
+Puri,Beach,38.3
+Mumbai,Beach,22.9
+Jaisalmer,Desert,14.1
+Kolkata,Water Park,19.7
+Kolkata,Water Park,38.3
+Manali,Hill Station,32.6
+Kutch,Desert,34.0
+Jaisalmer,Desert,32.5
+Delhi,Water Park,14.7
+Darjeeling,Hill Station,36.6
+Shimla,Hill Station,19.8
+Puri,Beach,23.3
+Darjeeling,Hill Station,21.8
+Mumbai,Beach,36.3
+Shimla,Hill Station,39.9
+Kolkata,Water Park,21.7
+Delhi,Water Park,23.9
+Chennai,Beach,18.8
+Hyderabad,Water Park,24.8
+Ooty,Hill Station,21.4
+Bikaner,Desert,17.3
+Kolkata,Water Park,24.6
+Jaisalmer,Desert,39.3
+Kutch,Desert,22.2
+Goa,Beach,33.9
+Ooty,Hill Station,17.3
+Delhi,Water Park,22.3
+Jaisalmer,Desert,33.1
+Jaisalmer,Desert,22.1
+Ooty,Hill Station,16.6
+Mumbai,Beach,24.0
+Kolkata,Water Park,12.5
+Jaisalmer,Desert,13.7
+Jaipur,Desert,22.3
+Kolkata,Water Park,19.3
+Mumbai,Beach,24.9
+Manali,Hill Station,22.4
+Mumbai,Beach,38.2
+Darjeeling,Hill Station,24.4
+Ooty,Hill Station,22.8
+Mumbai,Beach,19.5
+Chennai,Beach,16.9
+Delhi,Water Park,31.4
+Jaisalmer,Desert,12.1
+Chennai,Beach,10.6
+Puri,Beach,21.3
+Bangalore,Water Park,17.9
+Goa,Beach,10.2
+Bikaner,Desert,19.4
+Darjeeling,Hill Station,38.1
+Jaisalmer,Desert,14.0
+Delhi,Water Park,33.4
+Shimla,Hill Station,25.5
+Bikaner,Desert,36.1
+Kutch,Desert,24.5
+Hyderabad,Water Park,15.9
+Ooty,Hill Station,33.1
+Jaisalmer,Desert,33.5
+Puri,Beach,28.7
+Jaisalmer,Desert,31.4
+Mumbai,Beach,32.1
+Ooty,Hill Station,11.6
+Kolkata,Water Park,34.5
+Jaisalmer,Desert,20.3
+Jaipur,Desert,32.5
+Kutch,Desert,15.7
+Chennai,Beach,28.1
+Kutch,Desert,14.9
+Bangalore,Water Park,36.0
+Puri,Beach,29.4
+Mumbai,Beach,18.8
+Manali,Hill Station,10.1
+Mumbai,Beach,14.3
+Jaisalmer,Desert,17.6
+Jaisalmer,Desert,10.7
+Kutch,Desert,36.6
+Shimla,Hill Station,39.8
+Mumbai,Beach,17.1
+Goa,Beach,15.4
+Mumbai,Beach,31.4
+Bangalore,Water Park,18.7
+Mumbai,Beach,14.6
+Goa,Beach,39.9
+Jaisalmer,Desert,14.6
+Ooty,Hill Station,38.0
+Mumbai,Beach,12.5
+Darjeeling,Hill Station,26.0
+Goa,Beach,36.4
+Bikaner,Desert,28.0
+Ooty,Hill Station,13.0
+Bangalore,Water Park,28.5
+Bangalore,Water Park,29.5
+Manali,Hill Station,12.8
+Jaipur,Desert,15.5
+Kutch,Desert,12.6
+Chennai,Beach,13.4
+Hyderabad,Water Park,28.4
+Goa,Beach,32.0
+Ooty,Hill Station,22.1
+Delhi,Water Park,23.4
+Ooty,Hill Station,26.0
+Kutch,Desert,18.8
+Jaisalmer,Desert,31.5
+Kutch,Desert,19.6
+Bikaner,Desert,14.1
+Manali,Hill Station,30.0
+Delhi,Water Park,23.3
+Puri,Beach,28.2
+Goa,Beach,20.6
+Jaipur,Desert,38.8
+Bikaner,Desert,12.4
+Mumbai,Beach,15.5
+Delhi,Water Park,26.5
+Hyderabad,Water Park,34.4
+Puri,Beach,32.0
+Chennai,Beach,24.2
+Kutch,Desert,27.0
+Manali,Hill Station,16.6
+Manali,Hill Station,26.9
+Puri,Beach,23.4
+Jaisalmer,Desert,33.6
+Chennai,Beach,36.2
+Manali,Hill Station,19.0
+Jaipur,Desert,16.9
+Mumbai,Beach,39.8
+Puri,Beach,20.6
+Jaipur,Desert,35.8
+Kolkata,Water Park,29.2
+Jaipur,Desert,13.7
+Kutch,Desert,20.7
+Manali,Hill Station,34.9
+Goa,Beach,32.0
+Darjeeling,Hill Station,37.4
+Shimla,Hill Station,35.3
+Puri,Beach,23.5
+Hyderabad,Water Park,32.7
+Delhi,Water Park,16.6
+Kolkata,Water Park,17.7
+Chennai,Beach,20.8
+Kutch,Desert,12.4
+Hyderabad,Water Park,25.8
+Darjeeling,Hill Station,11.7
+Bangalore,Water Park,17.4
+Goa,Beach,26.5
+Chennai,Beach,34.5
+Puri,Beach,34.3
+Kolkata,Water Park,24.9
+Mumbai,Beach,20.4
+Manali,Hill Station,26.9
+Jaisalmer,Desert,21.2
+Puri,Beach,36.3
+Jaisalmer,Desert,13.1
+Kolkata,Water Park,33.1
+Jaipur,Desert,20.5
+Manali,Hill Station,11.2
+Kutch,Desert,21.4
+Jaipur,Desert,27.8
+Chennai,Beach,10.3
+Jaipur,Desert,13.8
+Hyderabad,Water Park,25.6
+Ooty,Hill Station,31.0
+Bikaner,Desert,16.1
+Kolkata,Water Park,33.7
+Delhi,Water Park,11.7
+Manali,Hill Station,24.8
+Bangalore,Water Park,21.1
+Kolkata,Water Park,15.2
+Delhi,Water Park,27.6
+Chennai,Beach,20.6
+Hyderabad,Water Park,21.0
+Jaipur,Desert,33.1
+Chennai,Beach,10.7
+Delhi,Water Park,19.4
+Hyderabad,Water Park,25.9
+Chennai,Beach,29.4
+Jaipur,Desert,14.2
+Chennai,Beach,20.8
+Jaisalmer,Desert,34.4
+Puri,Beach,15.1
+Ooty,Hill Station,23.7
+Darjeeling,Hill Station,26.5
+Hyderabad,Water Park,20.7
+Kolkata,Water Park,20.4
+Kolkata,Water Park,31.3
+Bangalore,Water Park,38.3
+Jaipur,Desert,28.8
+Kutch,Desert,27.7
+Kolkata,Water Park,18.9
+Hyderabad,Water Park,37.6
+Ooty,Hill Station,12.6
+Mumbai,Beach,16.8
+Goa,Beach,35.8
+Shimla,Hill Station,14.1
+Mumbai,Beach,15.8
+Ooty,Hill Station,29.9
+Ooty,Hill Station,18.1
+Kolkata,Water Park,10.6
+Mumbai,Beach,29.7
+Jaipur,Desert,35.2
+Jaipur,Desert,14.4
+Shimla,Hill Station,27.2
+Jaipur,Desert,39.7
+Kolkata,Water Park,12.7
+Shimla,Hill Station,18.3
+Kutch,Desert,19.6
+Shimla,Hill Station,25.7
+Bangalore,Water Park,26.5
+Bikaner,Desert,39.2
+Darjeeling,Hill Station,26.0
+Goa,Beach,34.5
+Bangalore,Water Park,31.0
+Kutch,Desert,11.4
+Bangalore,Water Park,17.3
+Delhi,Water Park,15.3
+Puri,Beach,29.4
+Darjeeling,Hill Station,32.0
+Puri,Beach,23.6
+Jaipur,Desert,21.7
+Shimla,Hill Station,35.3
+Bikaner,Desert,20.8
+Bangalore,Water Park,12.2
+Kolkata,Water Park,17.4
+Ooty,Hill Station,12.4
+Delhi,Water Park,28.8
+Manali,Hill Station,21.3
+Shimla,Hill Station,24.8
+Manali,Hill Station,21.2
+Bangalore,Water Park,11.4
+Puri,Beach,23.2
+Hyderabad,Water Park,12.9
+Darjeeling,Hill Station,18.5
+Bikaner,Desert,19.7
+Delhi,Water Park,37.1
+Delhi,Water Park,34.8
+Jaipur,Desert,29.1
+Manali,Hill Station,18.8
+Bangalore,Water Park,14.6
+Ooty,Hill Station,20.3
+Ooty,Hill Station,39.5
+Chennai,Beach,16.8
+Delhi,Water Park,18.2
+Ooty,Hill Station,28.5
+Jaipur,Desert,21.1
+Bikaner,Desert,10.4
+Kolkata,Water Park,19.9
+Delhi,Water Park,30.4
+Kutch,Desert,10.5
+Delhi,Water Park,24.3
+Bikaner,Desert,31.7
+Goa,Beach,36.1
+Bangalore,Water Park,23.2
+Puri,Beach,19.9
+Chennai,Beach,18.0
+Puri,Beach,28.1
+Ooty,Hill Station,17.1
+Manali,Hill Station,36.2
+Jaisalmer,Desert,29.4
+Kutch,Desert,26.7
+Manali,Hill Station,34.9
+Shimla,Hill Station,19.9
+Puri,Beach,18.6
+Goa,Beach,31.0
+Hyderabad,Water Park,31.7
+Delhi,Water Park,37.0
+Ooty,Hill Station,11.3
+Kolkata,Water Park,37.3
+Mumbai,Beach,38.0
+Jaipur,Desert,15.3
+Chennai,Beach,29.2
+Jaipur,Desert,14.0
+Puri,Beach,30.5
+Ooty,Hill Station,39.9
+Manali,Hill Station,39.8
+Bangalore,Water Park,22.2
+Bangalore,Water Park,14.2
+Manali,Hill Station,29.3
+Kolkata,Water Park,38.3
+Bikaner,Desert,19.7
+Kutch,Desert,12.3
+Jaipur,Desert,17.4
+Bikaner,Desert,32.2
+Mumbai,Beach,15.7
+Kutch,Desert,22.5
+Shimla,Hill Station,10.1
+Hyderabad,Water Park,32.4
+Manali,Hill Station,28.2
+Goa,Beach,25.8
+Bikaner,Desert,21.9
+Bangalore,Water Park,10.4
+Ooty,Hill Station,26.7
+Puri,Beach,16.4
+Chennai,Beach,10.5
+Ooty,Hill Station,24.7
+Bikaner,Desert,25.2
+Delhi,Water Park,24.2
+Kutch,Desert,15.8
+Ooty,Hill Station,18.5
+Jaisalmer,Desert,32.5
+Jaisalmer,Desert,22.9
+Goa,Beach,28.0
+Manali,Hill Station,33.3
+Puri,Beach,15.0
+Hyderabad,Water Park,31.7
+Bangalore,Water Park,29.3
+Ooty,Hill Station,22.3
+Goa,Beach,37.3
+Manali,Hill Station,10.1
+Jaipur,Desert,14.3
+Mumbai,Beach,28.2
+Darjeeling,Hill Station,25.8
+Puri,Beach,10.2
+Bangalore,Water Park,18.3
+Puri,Beach,10.7
+Jaisalmer,Desert,27.7
+Goa,Beach,29.6
+Bikaner,Desert,36.0
+Hyderabad,Water Park,36.1
+Bangalore,Water Park,36.9
+Ooty,Hill Station,30.6
+Shimla,Hill Station,24.1
+Puri,Beach,10.3
+Ooty,Hill Station,33.0
+Jaisalmer,Desert,38.9
+Bikaner,Desert,28.3
+Manali,Hill Station,25.0
+Shimla,Hill Station,29.4
+Jaisalmer,Desert,25.3
+Mumbai,Beach,36.7
+Manali,Hill Station,37.2
+Kutch,Desert,23.0
+Goa,Beach,36.3
+Manali,Hill Station,20.4
+Darjeeling,Hill Station,18.7
+Jaisalmer,Desert,25.8
+Darjeeling,Hill Station,13.9
+Manali,Hill Station,14.2
+Hyderabad,Water Park,30.8
+Kolkata,Water Park,11.6
+Goa,Beach,16.6
+Darjeeling,Hill Station,35.3
+Puri,Beach,26.0
+Mumbai,Beach,12.7
+Shimla,Hill Station,11.9
+Kolkata,Water Park,13.0
+Hyderabad,Water Park,33.1
+Delhi,Water Park,29.1
+Hyderabad,Water Park,33.9
+Goa,Beach,11.8
+Shimla,Hill Station,28.9
+Bikaner,Desert,20.5
+Manali,Hill Station,21.9
+Goa,Beach,31.6
+Mumbai,Beach,28.8
+Bikaner,Desert,34.2
+Delhi,Water Park,14.1
+Goa,Beach,31.5
+Puri,Beach,11.2
+Kutch,Desert,24.5
+Hyderabad,Water Park,39.5
+Shimla,Hill Station,35.6
+Manali,Hill Station,28.0
+Hyderabad,Water Park,21.7
+Shimla,Hill Station,20.6
+Darjeeling,Hill Station,37.5
+Chennai,Beach,21.5
+Bangalore,Water Park,19.4
+Shimla,Hill Station,23.8
+Puri,Beach,36.6
+Chennai,Beach,21.0
+Bangalore,Water Park,36.6
+Jaisalmer,Desert,31.3
+Chennai,Beach,12.8
+Bangalore,Water Park,13.5
+Mumbai,Beach,36.4
+Shimla,Hill Station,35.8
+Shimla,Hill Station,36.3
+Kutch,Desert,36.9
+Chennai,Beach,31.0
+Chennai,Beach,22.8
+Puri,Beach,35.4
+Puri,Beach,36.7
+Jaisalmer,Desert,39.0
+Bikaner,Desert,18.8
+Bikaner,Desert,38.9
+Manali,Hill Station,30.3
+Delhi,Water Park,36.2
+Jaipur,Desert,17.7
+Kutch,Desert,28.4
+Kutch,Desert,30.3
+Chennai,Beach,21.9
+Chennai,Beach,34.1
+Kutch,Desert,16.3
+Jaipur,Desert,34.6
+Darjeeling,Hill Station,39.4
+Kutch,Desert,16.5
+Jaipur,Desert,12.6
+Manali,Hill Station,21.9
+Puri,Beach,31.2
+Manali,Hill Station,19.3
+Manali,Hill Station,20.6
+Puri,Beach,18.9
+Manali,Hill Station,16.4
+Manali,Hill Station,22.3
+Jaipur,Desert,33.7
+Shimla,Hill Station,32.0
+Manali,Hill Station,10.3
+Kolkata,Water Park,17.5
+Darjeeling,Hill Station,20.3
+Mumbai,Beach,23.5
+Manali,Hill Station,13.1
+Hyderabad,Water Park,31.9
+Ooty,Hill Station,39.7
+Goa,Beach,28.0
+Jaisalmer,Desert,20.6
+Kolkata,Water Park,21.4
+Chennai,Beach,20.2
+Puri,Beach,39.2
+Manali,Hill Station,25.6
+Kutch,Desert,10.2
+Puri,Beach,14.3
+Puri,Beach,24.1
+Puri,Beach,29.3
+Bangalore,Water Park,17.3
+Mumbai,Beach,34.7
+Bangalore,Water Park,39.2
+Darjeeling,Hill Station,22.0
+Jaisalmer,Desert,29.8
+Chennai,Beach,36.6
+Kolkata,Water Park,39.1
+Bangalore,Water Park,18.4
+Kolkata,Water Park,38.7
+Darjeeling,Hill Station,13.4
+Mumbai,Beach,18.5
+Goa,Beach,12.1
+Kutch,Desert,16.9
+Darjeeling,Hill Station,17.7
+Bangalore,Water Park,16.4
+Kolkata,Water Park,18.8
+Kolkata,Water Park,21.0
+Ooty,Hill Station,33.0
+Bikaner,Desert,30.6
+Kolkata,Water Park,12.1
+Bangalore,Water Park,11.6
+Jaisalmer,Desert,18.2
+Puri,Beach,23.2
+Delhi,Water Park,28.1
+Ooty,Hill Station,27.0
+Chennai,Beach,38.3
+Shimla,Hill Station,33.6
+Chennai,Beach,35.3
+Puri,Beach,29.8
+Delhi,Water Park,15.8
+Hyderabad,Water Park,24.6
+Bangalore,Water Park,20.1
+Hyderabad,Water Park,15.5
+Mumbai,Beach,17.4
+Goa,Beach,35.8
+Kutch,Desert,12.3
+Kolkata,Water Park,27.2
+Kolkata,Water Park,23.6
+Kolkata,Water Park,32.8
+Jaisalmer,Desert,19.3
+Chennai,Beach,17.1
+Bikaner,Desert,13.9
+Shimla,Hill Station,17.4
+Bangalore,Water Park,15.8
+Jaipur,Desert,32.7
+Mumbai,Beach,16.4
+Jaipur,Desert,22.9
+Bikaner,Desert,34.5
+Manali,Hill Station,29.2
+Jaipur,Desert,33.9
+Ooty,Hill Station,18.2
+Manali,Hill Station,17.7
+Mumbai,Beach,34.8
+Darjeeling,Hill Station,18.4
+Puri,Beach,36.7
+Jaisalmer,Desert,33.1
+Kutch,Desert,35.5
+Puri,Beach,20.0
+Hyderabad,Water Park,25.9
+Delhi,Water Park,12.8
+Kolkata,Water Park,38.5
+Darjeeling,Hill Station,11.4
+Goa,Beach,17.2
+Chennai,Beach,12.5
+Mumbai,Beach,27.7
+Bikaner,Desert,34.4
+Manali,Hill Station,33.9
+Hyderabad,Water Park,11.0
+Kolkata,Water Park,10.3
+Chennai,Beach,25.2
+Mumbai,Beach,18.1
+Hyderabad,Water Park,34.1
+Chennai,Beach,19.5
+Jaipur,Desert,21.9
+Manali,Hill Station,25.2
+Chennai,Beach,27.7
+Ooty,Hill Station,36.7
+Puri,Beach,23.2
+Puri,Beach,36.0
+Goa,Beach,18.6
+Goa,Beach,39.8
+Ooty,Hill Station,14.9
+Bangalore,Water Park,26.2
+Manali,Hill Station,36.2
+Shimla,Hill Station,28.8
+Hyderabad,Water Park,16.0
+Hyderabad,Water Park,28.2
+Hyderabad,Water Park,11.6
+Jaisalmer,Desert,28.0
+Darjeeling,Hill Station,26.1
+Jaipur,Desert,35.4
+Chennai,Beach,10.4
+Ooty,Hill Station,15.7
+Ooty,Hill Station,36.0
+Mumbai,Beach,29.6
+Bikaner,Desert,18.7
+Kutch,Desert,33.7
+Mumbai,Beach,36.6
+Kolkata,Water Park,14.8
+Bangalore,Water Park,16.7
+Manali,Hill Station,36.7
+Puri,Beach,38.7
+Goa,Beach,25.7
+Bikaner,Desert,38.0
+Bangalore,Water Park,21.6
+Kolkata,Water Park,14.7
+Puri,Beach,26.0
+Goa,Beach,19.8
+Jaisalmer,Desert,37.8
+Hyderabad,Water Park,12.5
+Mumbai,Beach,17.8
+Kolkata,Water Park,12.4
+Goa,Beach,17.8
+Mumbai,Beach,11.0
+Bikaner,Desert,26.4
+Puri,Beach,33.6
+Goa,Beach,29.7
+Kolkata,Water Park,27.0
+Mumbai,Beach,19.5
+Mumbai,Beach,36.4
+Delhi,Water Park,31.8
+Hyderabad,Water Park,35.9
+Shimla,Hill Station,19.7
+Puri,Beach,35.8
+Manali,Hill Station,23.9
+Goa,Beach,36.7
+Bangalore,Water Park,24.5
+Ooty,Hill Station,11.4
+Ooty,Hill Station,26.8
+Jaipur,Desert,16.7
+Bikaner,Desert,22.5
+Bangalore,Water Park,29.4
+Darjeeling,Hill Station,36.7
+Hyderabad,Water Park,32.6
+Kutch,Desert,31.9
+Bikaner,Desert,30.3
+Shimla,Hill Station,17.5
+Chennai,Beach,21.8
+Ooty,Hill Station,33.5
+Hyderabad,Water Park,39.2
+Mumbai,Beach,11.1
+Shimla,Hill Station,21.0
+Bikaner,Desert,38.3
+Bangalore,Water Park,11.5
+Jaipur,Desert,17.5
+Goa,Beach,10.6
+Manali,Hill Station,26.4
+Mumbai,Beach,15.2
+Ooty,Hill Station,29.0
+Jaisalmer,Desert,20.3
+Chennai,Beach,31.1
+Goa,Beach,37.8
+Delhi,Water Park,14.0
+Delhi,Water Park,20.0
+Darjeeling,Hill Station,31.2
+Delhi,Water Park,19.0
+Chennai,Beach,36.6
+Chennai,Beach,18.4
+Darjeeling,Hill Station,16.7
+Bangalore,Water Park,14.5
+Ooty,Hill Station,37.4
+Puri,Beach,19.5
+Hyderabad,Water Park,21.0
+Mumbai,Beach,33.6
+Shimla,Hill Station,10.2
+Goa,Beach,11.7
+Jaipur,Desert,32.6
+Manali,Hill Station,11.1
+Delhi,Water Park,38.1
+Ooty,Hill Station,36.8
+Ooty,Hill Station,28.1
+Shimla,Hill Station,37.9
+Mumbai,Beach,17.8
+Bikaner,Desert,16.2
+Delhi,Water Park,17.5
+Goa,Beach,13.7
+Delhi,Water Park,31.0
+Bangalore,Water Park,39.7
+Kutch,Desert,22.5
+Ooty,Hill Station,19.8
+Goa,Beach,27.4
+Ooty,Hill Station,29.5
+Jaipur,Desert,16.9
+Darjeeling,Hill Station,17.7
+Ooty,Hill Station,10.7
+Kolkata,Water Park,20.9
+Delhi,Water Park,27.7
+Bangalore,Water Park,21.7
+Delhi,Water Park,20.8
+Shimla,Hill Station,24.1
+Bangalore,Water Park,26.7
+Chennai,Beach,37.1
+Ooty,Hill Station,13.1
+Delhi,Water Park,26.9
+Kolkata,Water Park,22.2
+Bikaner,Desert,20.6
+Kutch,Desert,28.8
+Bikaner,Desert,29.6
+Mumbai,Beach,37.9
+Ooty,Hill Station,22.7
+Darjeeling,Hill Station,18.4
+Hyderabad,Water Park,22.3
+Manali,Hill Station,30.1
+Kolkata,Water Park,33.1
+Goa,Beach,15.2
+Delhi,Water Park,38.8
+Kolkata,Water Park,23.1
+Mumbai,Beach,31.4
+Kutch,Desert,23.1
+Jaisalmer,Desert,37.7
+Manali,Hill Station,22.1
+Bangalore,Water Park,11.9
+Jaisalmer,Desert,15.2
+Manali,Hill Station,17.7
+Jaipur,Desert,31.4
+Chennai,Beach,35.9
+Bikaner,Desert,18.6
+Kutch,Desert,18.7
+Kolkata,Water Park,14.4
+Mumbai,Beach,39.5
+Hyderabad,Water Park,17.5
+Goa,Beach,36.1
+Mumbai,Beach,20.1
+Mumbai,Beach,29.6
+Shimla,Hill Station,18.2
+Shimla,Hill Station,15.5
+Jaipur,Desert,32.0
+Bangalore,Water Park,16.4
+Jaisalmer,Desert,15.5
+Darjeeling,Hill Station,36.4
+Kolkata,Water Park,12.2
+Kutch,Desert,17.2
+Jaisalmer,Desert,25.9
+Bikaner,Desert,39.0
+Delhi,Water Park,16.9
+Puri,Beach,30.8
+Mumbai,Beach,18.8
+Kutch,Desert,18.9
+Shimla,Hill Station,38.3
+Delhi,Water Park,12.3
+Bangalore,Water Park,10.2
+Jaipur,Desert,19.0
+Hyderabad,Water Park,12.7
+Delhi,Water Park,12.0
+Shimla,Hill Station,16.4
+Hyderabad,Water Park,28.0
+Darjeeling,Hill Station,18.3
+Chennai,Beach,24.0
+Jaisalmer,Desert,32.0
+Ooty,Hill Station,23.2
+Darjeeling,Hill Station,15.8
+Shimla,Hill Station,36.3
+Darjeeling,Hill Station,35.1
+Hyderabad,Water Park,39.7
+Darjeeling,Hill Station,30.4
+Jaipur,Desert,28.4
+Kolkata,Water Park,16.3
+Bangalore,Water Park,22.0
+Kutch,Desert,38.5
+Bikaner,Desert,14.0
+Mumbai,Beach,28.3
+Kutch,Desert,30.6
+Bangalore,Water Park,17.6
+Shimla,Hill Station,22.3
+Manali,Hill Station,28.0
+Delhi,Water Park,28.2
+Kutch,Desert,19.7
+Ooty,Hill Station,15.3
+Darjeeling,Hill Station,26.9
+Kolkata,Water Park,33.6
+Ooty,Hill Station,14.0
+Chennai,Beach,28.7
+Bangalore,Water Park,21.5
+Puri,Beach,13.7
+Kutch,Desert,39.4
+Hyderabad,Water Park,15.7
+Kolkata,Water Park,17.4
+Shimla,Hill Station,18.0
+Kolkata,Water Park,34.4
+Jaipur,Desert,13.2
+Kutch,Desert,21.1
+Kolkata,Water Park,31.4
+Jaisalmer,Desert,33.4
+Kutch,Desert,34.4
+Delhi,Water Park,31.6
+Jaipur,Desert,25.7
+Mumbai,Beach,31.2
+Ooty,Hill Station,10.9
+Bikaner,Desert,25.5
+Kutch,Desert,23.7
+Jaipur,Desert,37.3
+Delhi,Water Park,22.3
+Shimla,Hill Station,27.6
+Delhi,Water Park,18.9
+Hyderabad,Water Park,38.7
+Puri,Beach,35.1
+Kolkata,Water Park,14.9
+Goa,Beach,15.1
+Kolkata,Water Park,38.5
+Jaipur,Desert,18.7
+Kolkata,Water Park,37.2
+Darjeeling,Hill Station,28.1
+Jaisalmer,Desert,35.1
+Shimla,Hill Station,12.9
+Shimla,Hill Station,38.7
+Jaipur,Desert,28.0
+Kolkata,Water Park,12.5
+Jaipur,Desert,27.0
+Hyderabad,Water Park,33.6
+Bikaner,Desert,17.1
+Shimla,Hill Station,13.2
+Delhi,Water Park,22.4
+Hyderabad,Water Park,24.6
+Chennai,Beach,35.7
+Darjeeling,Hill Station,35.5
+Jaipur,Desert,17.1
+Jaipur,Desert,35.7
+Goa,Beach,38.0
+Bangalore,Water Park,31.2
+Darjeeling,Hill Station,21.3
+Manali,Hill Station,28.5
+Ooty,Hill Station,39.3
+Bangalore,Water Park,28.6
+Goa,Beach,36.6
+Kolkata,Water Park,12.3
+Hyderabad,Water Park,29.7
+Shimla,Hill Station,37.0
+Chennai,Beach,18.6
+Ooty,Hill Station,14.3
+Bikaner,Desert,32.8
+Manali,Hill Station,22.5
+Bangalore,Water Park,30.2
+Bikaner,Desert,38.1
+Puri,Beach,36.8
+Hyderabad,Water Park,13.8
+Mumbai,Beach,26.2
+Mumbai,Beach,39.8
+Goa,Beach,32.2
+Delhi,Water Park,18.7
+Bangalore,Water Park,20.7
+Hyderabad,Water Park,39.9
+Kolkata,Water Park,11.2
+Puri,Beach,13.3
+Manali,Hill Station,16.6
+Ooty,Hill Station,18.1
+Kutch,Desert,17.3
+Hyderabad,Water Park,23.4
+Delhi,Water Park,15.0
+Kolkata,Water Park,39.6
+Kolkata,Water Park,26.7
+Jaisalmer,Desert,25.4
+Bikaner,Desert,13.0
+Puri,Beach,24.6
+Manali,Hill Station,10.3
+Jaisalmer,Desert,15.3
+Jaipur,Desert,14.1
+Kutch,Desert,39.3
+Manali,Hill Station,16.2
+Mumbai,Beach,28.3
+Puri,Beach,24.6
+Goa,Beach,31.2
+Shimla,Hill Station,10.5
+Ooty,Hill Station,22.9
+Mumbai,Beach,39.2
+Ooty,Hill Station,28.7
+Manali,Hill Station,21.8
+Darjeeling,Hill Station,28.6
+Manali,Hill Station,14.7
+Bangalore,Water Park,10.3
+Puri,Beach,10.3
+Manali,Hill Station,10.4
+Jaisalmer,Desert,14.5
+Bangalore,Water Park,36.4
+Kolkata,Water Park,38.6
+Manali,Hill Station,18.9
+Puri,Beach,37.6
+Bikaner,Desert,19.5
+Shimla,Hill Station,14.5
+Manali,Hill Station,25.8
+Hyderabad,Water Park,27.1
+Manali,Hill Station,35.3
+Jaisalmer,Desert,12.8
+Jaipur,Desert,13.9
+Goa,Beach,18.3
+Puri,Beach,38.6
+Mumbai,Beach,37.8
+Bikaner,Desert,38.1
+Shimla,Hill Station,33.9
+Chennai,Beach,16.0
+Kolkata,Water Park,21.8
+Darjeeling,Hill Station,16.7
+Kolkata,Water Park,27.8
+Ooty,Hill Station,27.6
+Mumbai,Beach,25.1
+Chennai,Beach,33.3
+Bikaner,Desert,17.0
+Ooty,Hill Station,13.6
+Manali,Hill Station,13.8
+Hyderabad,Water Park,38.6
+Bangalore,Water Park,35.7
+Delhi,Water Park,36.2
+Darjeeling,Hill Station,14.7
+Chennai,Beach,32.4
+Bangalore,Water Park,10.1
+Chennai,Beach,37.2
+Jaipur,Desert,21.9
+Chennai,Beach,39.2
+Jaipur,Desert,29.2
+Goa,Beach,32.7
+Kutch,Desert,37.8
+Jaisalmer,Desert,21.6
+Ooty,Hill Station,10.3
+Hyderabad,Water Park,17.1
+Shimla,Hill Station,36.8
+Darjeeling,Hill Station,10.4
+Mumbai,Beach,38.6
+Hyderabad,Water Park,18.3
+Jaisalmer,Desert,37.5
+Puri,Beach,37.0
+Kolkata,Water Park,39.6
+Jaisalmer,Desert,30.5
+Jaisalmer,Desert,34.3
+Hyderabad,Water Park,32.0
+Shimla,Hill Station,13.1
+Darjeeling,Hill Station,16.9
+Darjeeling,Hill Station,33.6
+Hyderabad,Water Park,28.3
+Jaisalmer,Desert,11.6
+Bikaner,Desert,28.0
+Kolkata,Water Park,19.3
+Ooty,Hill Station,28.5
+Goa,Beach,19.3
+Jaisalmer,Desert,16.3
+Delhi,Water Park,15.4
+Delhi,Water Park,15.1
+Goa,Beach,25.0
+Bikaner,Desert,16.6
+Manali,Hill Station,20.1
+Manali,Hill Station,27.7
