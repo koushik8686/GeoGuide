@@ -119,14 +119,7 @@ function CurrentTripCard({ trip, onCancelTrip, onCompleteTrip }) {
           <p className="text-sm text-gray-600 mt-1">of ₹{trip.budget} budget</p>
         </div>
 
-        <div className="bg-purple-50 rounded-lg p-4">
-          <div className="flex items-center justify-between mb-2">
-            <Map className="w-6 h-6 text-purple-600" />
-            <span className="text-sm text-purple-600">Places Visited</span>
-          </div>
-          <p className="text-2xl font-bold text-gray-800">{trip.visitedPlaces?.length || 0}</p>
-          <p className="text-sm text-gray-600 mt-1">of {trip.plannedPlaces?.length || 0} planned</p>
-        </div>
+      
 
         <div className="bg-yellow-50 rounded-lg p-4">
           <div className="flex items-center justify-between mb-2">
