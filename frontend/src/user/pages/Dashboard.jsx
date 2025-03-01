@@ -177,7 +177,10 @@ export default function Dashboard() {
     setVoiceError("");
     try {
       const response = await fetch(
-        `${API_BASE_URL}/api/places/nearby?lat=${userLocation.lat}&lng=${userLocation.lng}&query=${encodeURIComponent(searchQuery)}&radius=${searchRadius * 1000}`
+        `${API_BASE_URL}/api/places/nearby?lat=${userLocation.lat}&lng=${userLocation.lng}&query=${encodeURIComponent(searchQuery)}&radius=${searchRadius * 1000}`,
+        {
+          credentials: 'include'
+        }
       );
       const data = await response.json();
       
