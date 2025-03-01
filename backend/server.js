@@ -16,6 +16,7 @@ import Transaction from "./models/Transaction.js";
 import Event from "./models/CalenderEvents.js";
 import placeRouter from './routes/places.js';
 import TripRouter from './routes/Trip.js'
+import exploreRouter from './routes/explore.js'
 
 dotenv.config();
 
@@ -36,6 +37,7 @@ app.use('/', TransactionRoutes);
 app.get("/" , function (req , res) { res.send("hello")})
 app.use('/api/places', placeRouter);
 app.use('/api/trips' , TripRouter)
+app.use('/api/explore' , exploreRouter)
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("✅ MongoDB Connected"))

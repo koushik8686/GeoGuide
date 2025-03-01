@@ -15,7 +15,10 @@ const UserSchema = new mongoose.Schema({
   followers:[String],
   verified: { type: Boolean, default: false },
   events:[],
-  history:[],
+  history:[{
+    tag:{type:String , required:true},
+    count:{type:Number , default:1},
+  }],
   trips:[{type:mongoose.Schema.Types.ObjectId, ref: 'Trips'}],
   friends:[],
   calenderEvents:[],
