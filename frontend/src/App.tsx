@@ -30,6 +30,7 @@ import Revenue from './admin/pages/Revenue.js';
 import Bookings from './admin/pages/Bookings.js';
 import AdminLogin from './user/pages/Login.js';
 import UserLocationARView from './Ar.jsx';
+import TripPlan from './user/components/TripPlan.jsx'
 function ManagerLayout({ children }) {  
   return (
     <div className="min-h-screen bg-gray-50">
@@ -61,6 +62,8 @@ function App() {
         <Route path='/user/hotels/:id' element={<Layout><HotelDetailPage/> </Layout>} />
         <Route path="/user/people/:userId" element={<Layout><UserProfilePage /></Layout>} />
         <Route path="/user/history" element={<Layout><UserHistory/> </Layout>} />
+
+        <Route path="/user/tripPlan" element={<Layout><TripPlan /></Layout>} />
 
         {/* manager */}
         <Route path="/manager" element={<ManagerLayout><ManagerDashboard /></ManagerLayout>} />

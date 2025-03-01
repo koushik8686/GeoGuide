@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #3b82f6;
+  --primary-dark: #2563eb;
+  --secondary: #f97316;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  @apply bg-gray-50;
+}
+
+.form-input {
+  @apply w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200;
+}
+
+.btn-primary {
+  @apply bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-lg transition duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50;
+}
+
+.interest-tag {
+  @apply px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer;
+}
+
+.interest-tag.active {
+  @apply bg-blue-500 text-white;
+}
+
+.interest-tag.inactive {
+  @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
+}
+
+.card {
+  @apply bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg;
+}
+
+.shimmer {
+  @apply relative overflow-hidden bg-gray-200;
+}
+
+.shimmer::after {
+  content: '';
+  @apply absolute top-0 left-0 w-full h-full;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.time-block {
+  @apply relative border-l-4 border-blue-500 pl-4 py-3 mb-4;
+}
+
+.time-block::before {
+  content: '';
+  @apply absolute w-4 h-4 rounded-full bg-blue-500 -left-[9px] top-4;
+}

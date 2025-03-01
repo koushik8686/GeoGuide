@@ -191,4 +191,86 @@ app.post('/auth/signout', (req, res) => {
   res.json({ message: 'Signed out successfully' });
 });
 
+
+
+// Itenary Planning
+
+const API_URL = "https://openrouter.ai/api/v1/chat/completions";
+const API_KEY = process.env.OPENROUTER_API_KEY;
+
+app.post("/api/deepseek", async (req, res) => {
+  try {
+    const { place, interests, startDate, endDate, startTime, endTime } = req.body;
+    console.log("📩 Request body:", req.body);
+
+    const totalPrompt = `Plan a detailed **${startDate} to ${endDate}-day itinerary** for **${place}**, considering:
+        - Timings (**${startTime}** to **${endTime}**)
+        - User interests (**${interests.join(", ")}**)
+        - Seamless travel between locations
+        - with food breaks with locations
+        - Weather-based activity suggestions
+
+        **Return ONLY valid JSON in this exact format (NO extra text, NO explanations, JUST JSON):**
+        [
+        {
+            "day": 1,
+            "date": "YYYY-MM-DD",
+            "activities": [
+            {
+                "time": "09:00",
+                "place": "Place 1",
+                "description": "Brief description of Place 1"
+            },
+            {
+                "time": "11:00",
+                "place": "Place 2",
+                "description": "Brief description of Place 2"
+            }
+            ]
+        }
+        ]`;
+
+    const response = await axios.post(
+      API_URL,
+      {
+        model: "deepseek/deepseek-r1-distill-llama-70b:free",
+        messages: [{ role: "user", content: totalPrompt }],
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${API_KEY}`,
+        },
+      }
+    );
+
+    // console.log("📩 Full API Response:", JSON.stringify(response.data, null, 2));
+
+    const itineraryTextRaw = response.data.choices[0].message?.content.trim();
+    // console.log("this this ------------------");
+    //   console.log("📩 Itinerary Text Raw:", itineraryTextRaw);
+    // Ensure API response is JSON
+    if (!itineraryTextRaw.startsWith("[") || !itineraryTextRaw.endsWith("]")) {
+    console.error("🚨 API returned unexpected format:", itineraryTextRaw);
+    return res.status(500).json({ error: "Invalid response from API", rawResponse: itineraryTextRaw });
+    }
+
+    let itineraryText;
+    try {
+    itineraryText = JSON.parse(itineraryTextRaw);
+    } catch (parseError) {
+    console.error("🚨 JSON Parsing Error:", parseError);
+    return res.status(500).json({ error: "API returned invalid JSON", rawResponse: itineraryTextRaw });
+    }
+
+    // Send correctly formatted response
+    res.json({ itinerary: itineraryText });
+
+
+  } catch (error) {
+    console.error("🚨 Error calling DeepSeek API:", error.message);
+    res.status(500).json({ error: "Internal Server Error", details: error.message });
+  }
+});
+
 app.listen(4000, () => console.log("✅ Server running on http://localhost:4000"));

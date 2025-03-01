@@ -85,6 +85,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     // { path: '/user/community', icon: Trophy, label: 'Community' },
     // { path: '/user/users', icon: MessageSquare, label: 'Messages' },
     // { path: '/user/people', icon: UsersIcon, label: 'People' }
+    { path: '/user/tripPlan', icon: PieChart, label: 'Trip Plan' },
   ];
 
 
