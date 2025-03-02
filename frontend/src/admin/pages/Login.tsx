@@ -15,16 +15,28 @@ const Login: React.FC = () => {
     setLoading(true);
     setError('');
 
-    // Simulate API call
-    setTimeout(() => {
-      // Simple validation
-      if (email === 'admin@globemate.com' && password === 'admin123') {
-        navigate('/');
+    try {
+      const response = await fetch('http://localhost:4000/admin/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        navigate('/admin/dashboard');
       } else {
-        setError('Invalid email or password');
+        setError(data.error || 'Invalid email or password');
       }
+    } catch (error) {
+      setError('Failed to connect to server');
+    } finally {
       setLoading(false);
-    }, 1500);
+    }
   };
 
   return (
@@ -150,7 +162,7 @@ const Login: React.FC = () => {
 
           <div className="px-8 py-4 bg-gray-50 border-t border-gray-200">
             <p className="text-xs text-gray-600 text-center">
-              © 2025 GlobeMate. All rights reserved.
+              2025 GlobeMate. All rights reserved.
             </p>
           </div>
         </div>

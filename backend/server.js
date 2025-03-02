@@ -118,7 +118,7 @@ app.get("/auth/callback", async (req, res) => {
         googleId: googleUser.id,
         email: googleUser.email,
         name: googleUser.name,
-        picture: googleUser.picture,
+        profilePicture: googleUser.picture,
         accessToken: tokens.access_token,
         refreshToken: tokens.refresh_token,
       });
@@ -571,6 +571,64 @@ async function fetchOpenRouter(prompt) {
   if (!response.ok) throw new Error(`OpenRouter Error: ${response.statusText}`);
   return response.json();
 }
+
+// Admin authentication
+const ADMIN_EMAIL = 'admin@globemate.com';
+const ADMIN_PASSWORD = 'admin123';
+
+app.post('/admin/login', async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    // Check admin credentials
+    if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
+      // Generate admin JWT token
+      const token = jwt.sign(
+        { isAdmin: true },
+        process.env.JWT_SECRET,
+        { expiresIn: '24h' }
+      );
+
+      // Set JWT in cookie
+      res.cookie('admin_token', token, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'lax',
+        maxAge: 24 * 60 * 60 * 1000 // 24 hours
+      });
+
+      res.json({ success: true });
+    } else {
+      res.status(401).json({ error: 'Invalid credentials' });
+    }
+  } catch (error) {
+    console.error('Admin login error:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Admin middleware
+const adminMiddleware = async (req, res, next) => {
+  try {
+    const token = req.cookies.admin_token;
+    if (!token) {
+      return res.status(401).json({ error: 'No admin token' });
+    }
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    if (!decoded.isAdmin) {
+      return res.status(403).json({ error: 'Not authorized' });
+    }
+
+    next();
+  } catch (error) {
+    res.status(401).json({ error: 'Invalid admin token' });
+  }
+};
+
+// Protect admin routes
+app.use('/admin/*', adminMiddleware);
+
 const verifyToken = (req, res, next) => {
   const authHeader = req.cookies.jwt_token;
   if (!authHeader) {
@@ -627,6 +685,17 @@ app.get('/users', async (req, res) => {
       res.json(users);
   } catch (error) {
       res.status(500).json({ error: 'Server error' });
+  }
+});
+app.delete('/user/:id', async (req, res) => {
+  try {
+      const userId = req.params.id;
+      const user = await User.findById(userId);
+      if (!user) return res.status(404).json({ error: "User not found" });
+      await user.remove();
+      res.json({ message: "User deleted successfully" });
+  } catch (error) {
+      res.status(500).json({ error: "Error deleting user" });
   }
 });
 

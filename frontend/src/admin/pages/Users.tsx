@@ -2,15 +2,22 @@ import React, { useEffect, useState } from 'react';
 import { User, Plus, Pencil, Trash2, Search, Filter } from 'lucide-react';
 import { api } from '../services/api';
 import type { User as UserType } from '../types';
+import { axiosInstance } from '../../constants/urls';
 
 const Users: React.FC = () => {
   const [users, setUsers] = useState<UserType[]>([]);
-
+  const fetchUsers = async () => {
+    const data = await axiosInstance.get('/users');
+    console.log(data);
+    setUsers(data.data);
+  };
+  const handledelete=async (id:string)=>{
+    await axiosInstance.delete(`/user/${id}`).then((res)=>{
+      setUsers(users.filter((user)=>user._id!==id))
+      fetchUsers()
+    })
+  }
   useEffect(() => {
-    const fetchUsers = async () => {
-      const data = await api.users.getAll();
-      setUsers(data);
-    };
     fetchUsers();
   }, []);
 
@@ -45,8 +52,7 @@ const Users: React.FC = () => {
             <tr className="border-b border-gray-200">
               <th className="text-left py-3 px-4 text-gray-600">Name</th>
               <th className="text-left py-3 px-4 text-gray-600">Email</th>
-              <th className="text-left py-3 px-4 text-gray-600">Joined</th>
-              <th className="text-left py-3 px-4 text-gray-600">Status</th>
+              <th className="text-left py-3 px-4 text-gray-600">Friends</th>
               <th className="text-right py-3 px-4 text-gray-600">Actions</th>
             </tr>
           </thead>
@@ -62,16 +68,7 @@ const Users: React.FC = () => {
                   </div>
                 </td>
                 <td className="py-3 px-4 text-gray-600">{user.email}</td>
-                <td className="py-3 px-4 text-gray-600">{user.joinedDate}</td>
-                <td className="py-3 px-4">
-                  <span className={`px-2 py-1 rounded-full text-xs ${
-                    user.status === 'Active' 
-                      ? 'bg-green-100 text-green-700' 
-                      : 'bg-gray-100 text-gray-700'
-                  }`}>
-                    {user.status}
-                  </span>
-                </td>
+                <td className="py-3 px-4 text-gray-600">{user.friends.length}</td>
                 <td className="py-3 px-4">
                   <div className="flex gap-2 justify-end">
                     <button className="p-1 hover:bg-gray-100 rounded">
