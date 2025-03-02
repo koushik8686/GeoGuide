@@ -153,40 +153,82 @@ app.get("/auth/callback", async (req, res) => {
 // Calendar events
 app.get("/calendar/events", authMiddleware, async (req, res) => {
   try {
-    oauth2Client.setCredentials({ access_token: req.user.accessToken });
-    const calendar = google.calendar({ version: "v3", auth: oauth2Client });
-
-    const eventsResponse = await calendar.events.list({
-      calendarId: "primary",
-      timeMin: new Date().toISOString(),
-      maxResults: 20,
-      singleEvents: true,
-      orderBy: "startTime",
-    });
-
-    const events = eventsResponse.data.items;
-    
-    // Store events in MongoDB
-    for (const event of events) {
-      await Event.findOneAndUpdate(
-        { eventId: event.id },
-        {
-          googleId: req.user.googleId,
-          eventId: event.id,
-          summary: event.summary || "No Title",
-          description: event.description || "No Description",
-          location: event.location || "No Location",
-          startTime: event.start.dateTime || event.start.date,
-          endTime: event.end.dateTime || event.end.date,
-        },
-        { upsert: true, new: true }
-      );
+    // Check if we have valid tokens
+    if (!req.user.accessToken) {
+      return res.status(401).json({ 
+        message: "No access token available",
+        needsReauth: true 
+      });
     }
 
-    res.json(events);
+    try {
+      // Set credentials and create calendar instance
+      oauth2Client.setCredentials({
+        access_token: req.user.accessToken,
+        refresh_token: req.user.refreshToken
+      });
+
+      const calendar = google.calendar({ version: "v3", auth: oauth2Client });
+
+      // Try to refresh token if needed
+      if (oauth2Client.isTokenExpiring()) {
+        const { credentials } = await oauth2Client.refreshAccessToken();
+        // Update user's tokens in database
+        await User.findByIdAndUpdate(req.user._id, {
+          accessToken: credentials.access_token,
+          refreshToken: credentials.refresh_token || req.user.refreshToken
+        });
+      }
+
+      const eventsResponse = await calendar.events.list({
+        calendarId: "primary",
+        timeMin: new Date().toISOString(),
+        maxResults: 20,
+        singleEvents: true,
+        orderBy: "startTime",
+      });
+
+      const events = eventsResponse.data.items;
+      
+      // Store events in MongoDB
+      for (const event of events) {
+        await Event.findOneAndUpdate(
+          { eventId: event.id },
+          {
+            googleId: req.user.googleId,
+            eventId: event.id,
+            summary: event.summary || "No Title",
+            description: event.description || "No Description",
+            location: event.location || "No Location",
+            startTime: event.start.dateTime || event.start.date,
+            endTime: event.end.dateTime || event.end.date,
+          },
+          { upsert: true, new: true }
+        );
+      }
+
+      res.json(events);
+    } catch (apiError) {
+      console.error("Calendar API Error:", apiError);
+      
+      // Check if it's an auth error
+      if (apiError.message.includes("invalid_grant") || 
+          apiError.message.includes("Invalid Credentials")) {
+        return res.status(401).json({ 
+          message: "Calendar authorization expired",
+          needsReauth: true
+        });
+      }
+      
+      throw apiError; // Re-throw for general error handling
+    }
   } catch (err) {
     console.error("❌ Error fetching events:", err);
-    res.status(500).json({ message: "Error fetching events", error: err.message });
+    res.status(500).json({ 
+      message: "Error fetching events", 
+      error: err.message,
+      needsReauth: err.message.includes("No access") || err.message.includes("invalid_grant")
+    });
   }
 });
 

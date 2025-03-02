@@ -1,116 +1,105 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar as CalendarIcon, Clock, MapPin, Users, AlertCircle, Star, Filter, Tag, Plane, Hotel, Car, Coffee } from 'lucide-react';
-import { format, addDays, isSameDay } from 'date-fns';
-
-// Dummy calendar events with more detailed data
-const events = [
-  {
-    id: 1,
-    title: "Business Meeting in NYC",
-    date: new Date(2024, 4, 15),
-    location: "New York, USA",
-    duration: "3 days",
-    type: "Business",
-    attendees: 4,
-    details: "Quarterly review meeting with stakeholders"
-  },
-  {
-    id: 2,
-    title: "Family Reunion",
-    date: new Date(2024, 6, 1),
-    location: "Chicago, USA",
-    duration: "5 days",
-    type: "Personal",
-    attendees: 12,
-    details: "Annual family gathering at Lake Michigan"
-  },
-  {
-    id: 3,
-    title: "Tech Conference",
-    date: new Date(2024, 5, 10),
-    location: "San Francisco, USA",
-    duration: "2 days",
-    type: "Business",
-    attendees: 1,
-    details: "Web Development Summit 2024"
-  },
-  {
-    id: 4,
-    title: "Wedding Anniversary",
-    date: new Date(2024, 7, 15),
-    location: "Hawaii, USA",
-    duration: "7 days",
-    type: "Personal",
-    attendees: 2,
-    details: "Celebrating 5th wedding anniversary"
-  },
-  {
-    id: 5,
-    title: "Product Launch",
-    date: new Date(2024, 8, 20),
-    location: "London, UK",
-    duration: "4 days",
-    type: "Business",
-    attendees: 6,
-    details: "New product line introduction"
-  }
-];
-
-// Enhanced travel suggestions with more details
-const travelSuggestions = [
-  {
-    id: 1,
-    title: "Weekend in Paris",
-    dates: "May 20 - May 23, 2024",
-    reason: "Gap between NYC meeting and regular schedule",
-    confidence: 85,
-    price: "$1,200",
-    weather: "Mild, 20°C",
-    activities: ["Eiffel Tower", "Louvre Museum", "Seine River Cruise"],
-    image: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?q=80&w=2070&auto=format&fit=crop"
-  },
-  {
-    id: 2,
-    title: "Beach Getaway to Maldives",
-    dates: "June 15 - June 22, 2024",
-    reason: "Perfect weather and no conflicts",
-    confidence: 92,
-    price: "$2,500",
-    weather: "Sunny, 28°C",
-    activities: ["Snorkeling", "Beach Relaxation", "Water Sports"],
-    image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=2565&auto=format&fit=crop"
-  },
-  {
-    id: 3,
-    title: "Swiss Alps Adventure",
-    dates: "July 5 - July 12, 2024",
-    reason: "Summer break period with great hiking conditions",
-    confidence: 78,
-    price: "$1,800",
-    weather: "Cool, 15°C",
-    activities: ["Hiking", "Cable Car Rides", "Mountain Biking"],
-    image: "https://images.unsplash.com/photo-1531366936337-7c912516ebab?q=80&w=2070&auto=format&fit=crop"
-  }
-];
-
-// Calendar preferences for better personalization
-const preferences = {
-  preferredTripLength: "4-7 days",
-  maxBudget: 3000,
-  preferredDestinations: ["Europe", "Asia", "Beach Destinations"],
-  travelStyle: ["Adventure", "Cultural", "Relaxation"],
-  excludedDates: ["2024-12-24", "2024-12-25", "2024-12-31"]
-};
+import { format, parseISO, isAfter, isBefore, addMinutes } from 'date-fns';
+import {axiosInstance , API_BASE_URL} from '../../constants/urls'; // Import axiosInstance
 
 export default function CalendarPage() {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [isConnected, setIsConnected] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState("all");
   const [showPreferences, setShowPreferences] = useState(false);
+  const [events, setEvents] = useState([]);
+  const [emptySlots, setEmptySlots] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
+  // Check if the user was redirected after successful OAuth
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const success = urlParams.get('success');
+
+    if (success === 'true') {
+      setIsConnected(true);
+      fetchEvents();
+    }
+  }, []);
+
+  // Function to connect to Google Calendar
   const connectCalendar = () => {
-    setIsConnected(true);
+    // Redirect to backend OAuth endpoint
+    window.location.href = API_BASE_URL+"/auth/google";
+  };
+
+  // Function to fetch events from the backend
+  const fetchEvents = async () => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await axiosInstance.get('/calendar/events', {
+        withCredentials: true, // Include cookies for authentication
+      });
+
+      if (response.data) {
+        setEvents(response.data);
+        calculateEmptySlots(response.data); // Calculate empty slots
+      }
+    } catch (error) {
+      console.error('Error fetching events:', error);
+      setError('Failed to fetch events. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Function to calculate empty time slots
+  const calculateEmptySlots = (events) => {
+    if (events.length === 0) {
+      setEmptySlots([{ start: new Date(), end: addMinutes(new Date(), 60) }]); // Default empty slot
+      return;
+    }
+
+    // Sort events by start time
+    const sortedEvents = events.sort((a, b) =>
+      parseISO(a.start.dateTime || a.start.date) - parseISO(b.start.dateTime || b.start.date)
+    );
+
+    const slots = [];
+    let previousEventEnd = parseISO(sortedEvents[0].start.dateTime || sortedEvents[0].start.date);
+
+    // Check for empty slots before the first event
+    const firstEventStart = parseISO(sortedEvents[0].start.dateTime || sortedEvents[0].start.date);
+    if (isAfter(firstEventStart, new Date())) {
+      slots.push({
+        start: new Date(),
+        end: firstEventStart,
+      });
+    }
+
+    // Check for empty slots between events
+    for (let i = 1; i < sortedEvents.length; i++) {
+      const currentEventStart = parseISO(sortedEvents[i].start.dateTime || sortedEvents[i].start.date);
+      const previousEventEnd = parseISO(sortedEvents[i - 1].end.dateTime || sortedEvents[i - 1].end.date);
+
+      if (isAfter(currentEventStart, previousEventEnd)) {
+        slots.push({
+          start: previousEventEnd,
+          end: currentEventStart,
+        });
+      }
+    }
+
+    // Check for empty slots after the last event
+    const lastEventEnd = parseISO(sortedEvents[sortedEvents.length - 1].end.dateTime || sortedEvents[sortedEvents.length - 1].end.date);
+    if (isBefore(lastEventEnd, new Date(new Date().setHours(23, 59, 59)))) {
+      slots.push({
+        start: lastEventEnd,
+        end: new Date(new Date().setHours(23, 59, 59)),
+      });
+    }
+
+    setEmptySlots(slots);
   };
 
   return (
@@ -235,122 +224,97 @@ export default function CalendarPage() {
           </div>
 
           {/* Calendar Events */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div className="lg:col-span-2">
-              <div className="bg-white rounded-xl shadow-lg p-6">
-                <h2 className="text-xl font-semibold mb-6">Upcoming Events</h2>
-                <div className="space-y-4">
-                  {events.map(event => (
-                    <motion.div
-                      key={event.id}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      className="flex items-start p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
-                    >
-                      <div className="bg-emerald-100 rounded-lg p-3 mr-4">
-                        <CalendarIcon className="w-6 h-6 text-emerald-600" />
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-start justify-between">
-                          <div>
-                            <h3 className="font-semibold text-gray-800">{event.title}</h3>
-                            <div className="text-sm text-gray-600 mt-1">
-                              <div className="flex items-center">
-                                <Clock className="w-4 h-4 mr-1" />
-                                {format(event.date, 'MMMM d, yyyy')} ({event.duration})
-                              </div>
-                              <div className="flex items-center mt-1">
-                                <MapPin className="w-4 h-4 mr-1" />
-                                {event.location}
-                              </div>
+          <div className="bg-white rounded-xl shadow-lg p-6">
+            <h2 className="text-xl font-semibold mb-6">Upcoming Events</h2>
+            {loading ? (
+              <div className="text-center py-8">
+                <p className="text-gray-600">Loading events...</p>
+              </div>
+            ) : error ? (
+              <div className="text-center py-8">
+                <p className="text-red-600">{error}</p>
+              </div>
+            ) : events.length === 0 ? (
+              <div className="text-center py-8">
+                <p className="text-gray-600">No events found.</p>
+              </div>
+            ) : (
+              <div className="space-y-4">
+                {events.map(event => (
+                  <motion.div
+                    key={event.id}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    className="flex items-start p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                  >
+                    <div className="bg-emerald-100 rounded-lg p-3 mr-4">
+                      <CalendarIcon className="w-6 h-6 text-emerald-600" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-start justify-between">
+                        <div>
+                          <h3 className="font-semibold text-gray-800">{event.summary}</h3>
+                          <div className="text-sm text-gray-600 mt-1">
+                            <div className="flex items-center">
+                              <Clock className="w-4 h-4 mr-1" />
+                              {format(parseISO(event.start.dateTime || event.start.date), 'MMMM d, yyyy h:mm a')}
+                            </div>
+                            <div className="flex items-center mt-1">
+                              <MapPin className="w-4 h-4 mr-1" />
+                              {event.location || 'No Location'}
                             </div>
                           </div>
-                          <span className={`px-2 py-1 rounded-full text-xs ${
-                            event.type === 'Business' 
-                              ? 'bg-blue-50 text-blue-600' 
-                              : 'bg-purple-50 text-purple-600'
-                          }`}>
-                            {event.type}
-                          </span>
                         </div>
-                        <div className="mt-2 flex items-center gap-4">
-                          <div className="flex items-center text-gray-500 text-sm">
-                            <Users className="w-4 h-4 mr-1" />
-                            {event.attendees} {event.attendees === 1 ? 'person' : 'people'}
-                          </div>
-                          <span className="text-sm text-gray-500">{event.details}</span>
-                        </div>
+                        <span className="px-2 py-1 rounded-full text-xs bg-blue-50 text-blue-600">
+                          Event
+                        </span>
                       </div>
-                    </motion.div>
-                  ))}
-                </div>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
-            </div>
+            )}
+          </div>
 
-            {/* Travel Suggestions */}
-            <div>
-              <div className="bg-white rounded-xl shadow-lg p-6">
-                <h2 className="text-xl font-semibold mb-6">AI Travel Suggestions</h2>
-                <div className="space-y-6">
-                  {travelSuggestions.map(suggestion => (
-                    <motion.div
-                      key={suggestion.id}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      className="bg-gray-50 rounded-lg overflow-hidden"
-                    >
-                      <img
-                        src={suggestion.image}
-                        alt={suggestion.title}
-                        className="w-full h-48 object-cover"
-                      />
-                      <div className="p-4">
-                        <div className="flex items-center justify-between mb-2">
-                          <h3 className="font-semibold text-gray-800">{suggestion.title}</h3>
-                          <span className="text-emerald-600 font-medium">{suggestion.price}</span>
-                        </div>
-                        <div className="flex items-center text-sm text-gray-600 mb-2">
-                          <CalendarIcon className="w-4 h-4 mr-1" />
-                          {suggestion.dates}
-                        </div>
-                        <div className="mt-2 p-3 bg-emerald-50 rounded-lg">
-                          <div className="flex items-start">
-                            <AlertCircle className="w-4 h-4 text-emerald-600 mr-2 mt-1 flex-shrink-0" />
-                            <p className="text-sm text-gray-600">{suggestion.reason}</p>
-                          </div>
-                        </div>
-                        <div className="mt-3">
-                          <div className="text-sm text-gray-600 mb-2">
-                            Weather: {suggestion.weather}
-                          </div>
-                          <div className="flex flex-wrap gap-2">
-                            {suggestion.activities.map((activity, index) => (
-                              <span
-                                key={index}
-                                className="px-2 py-1 bg-gray-100 text-gray-600 rounded-full text-xs"
-                              >
-                                {activity}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                        <div className="mt-4 flex items-center justify-between">
-                          <div className="flex items-center">
-                            <Star className="w-4 h-4 text-yellow-400 fill-current" />
-                            <span className="text-sm text-gray-600 ml-1">
-                              AI Confidence: {suggestion.confidence}%
-                            </span>
-                          </div>
-                          <button className="text-emerald-600 hover:text-emerald-700 font-medium text-sm">
-                            View Details
-                          </button>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
+          {/* Empty Time Slots */}
+          <div className="bg-white rounded-xl shadow-lg p-6">
+            <h2 className="text-xl font-semibold mb-6">Available Time Slots</h2>
+            {emptySlots.length === 0 ? (
+              <div className="text-center py-8">
+                <p className="text-gray-600">No available time slots found.</p>
               </div>
-            </div>
+            ) : (
+              <div className="space-y-4">
+                {emptySlots.map((slot, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    className="flex items-start p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                  >
+                    <div className="bg-emerald-100 rounded-lg p-3 mr-4">
+                      <Clock className="w-6 h-6 text-emerald-600" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-start justify-between">
+                        <div>
+                          <h3 className="font-semibold text-gray-800">Free Time</h3>
+                          <div className="text-sm text-gray-600 mt-1">
+                            <div className="flex items-center">
+                              <Clock className="w-4 h-4 mr-1" />
+                              {format(slot.start, 'MMMM d, yyyy h:mm a')} - {format(slot.end, 'h:mm a')}
+                            </div>
+                          </div>
+                        </div>
+                        <span className="px-2 py-1 rounded-full text-xs bg-green-50 text-green-600">
+                          Available
+                        </span>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       )}

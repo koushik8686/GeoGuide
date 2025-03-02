@@ -63,6 +63,7 @@ export default function Dashboard() {
   const [isSearching, setIsSearching] = useState(false);
   const [showNewTripForm, setShowNewTripForm] = useState(false);
   const [searchRadius, setSearchRadius] = useState(5);
+  const [transportMode, setTransportMode] = useState('driving');
   const [customLocation, setCustomLocation] = useState({
     placeName: '',
     lat: '',
@@ -176,7 +177,7 @@ export default function Dashboard() {
     setVoiceError("");
     try {
       const response = await fetch(
-        `${API_BASE_URL}/api/places/nearby?lat=${userLocation.lat}&lng=${userLocation.lng}&query=${encodeURIComponent(searchQuery)}&radius=${searchRadius * 1000}`,
+        `${API_BASE_URL}/api/places/nearby?lat=${userLocation.lat}&lng=${userLocation.lng}&query=${encodeURIComponent(searchQuery)}&radius=${searchRadius * 1000}&mode=${transportMode}`,
         {
           credentials: 'include'
         }
@@ -389,29 +390,55 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Distance Slider */}
-        <div className="mt-4">
-          <div className="flex items-center justify-between mb-2">
-            <label htmlFor="distance" className="text-sm font-medium text-gray-700">
-              Search Radius: {searchRadius} km
-            </label>
-            <span className="text-xs text-gray-500">
-              {searchRadius === 1 ? '1 kilometer' : `${searchRadius} kilometers`}
-            </span>
+        {/* Distance Slider and Transport Mode Selector */}
+        <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+          {/* Distance Slider */}
+          <div>
+            <div className="flex items-center justify-between mb-2">
+              <label htmlFor="distance" className="text-sm font-medium text-gray-700">
+                Search Radius: {searchRadius} km
+              </label>
+              <span className="text-xs text-gray-500">
+                {searchRadius === 1 ? '1 kilometer' : `${searchRadius} kilometers`}
+              </span>
+            </div>
+            <input
+              type="range"
+              id="distance"
+              min="1"
+              max="50"
+              value={searchRadius}
+              onChange={(e) => setSearchRadius(Number(e.target.value))}
+              className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-emerald-600"
+            />
+            <div className="flex justify-between text-xs text-gray-500 mt-1">
+              <span>1 km</span>
+              <span>25 km</span>
+              <span>50 km</span>
+            </div>
           </div>
-          <input
-            type="range"
-            id="distance"
-            min="1"
-            max="50"
-            value={searchRadius}
-            onChange={(e) => setSearchRadius(Number(e.target.value))}
-            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-emerald-600"
-          />
-          <div className="flex justify-between text-xs text-gray-500 mt-1">
-            <span>1 km</span>
-            <span>25 km</span>
-            <span>50 km</span>
+
+          {/* Transport Mode Selector */}
+          <div>
+            <div className="flex items-center justify-between mb-2">
+              <label htmlFor="transportMode" className="text-sm font-medium text-gray-700">
+                Transport Mode
+              </label>
+            </div>
+            <select
+              id="transportMode"
+              value={transportMode}
+              onChange={(e) => setTransportMode(e.target.value)}
+              className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            >
+              <option value="driving">Driving 🚗</option>
+              <option value="walking">Walking 🚶</option>
+              <option value="bicycling">Bicycling 🚲</option>
+              <option value="transit">Transit 🚌</option>
+            </select>
+            <p className="text-xs text-gray-500 mt-1">
+              Choose how you plan to travel to the destination
+            </p>
           </div>
         </div>
 

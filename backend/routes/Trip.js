@@ -113,9 +113,21 @@ router.get("/current", verifyToken, async (req, res) => {
     res.status(500).json({ message: "Failed to fetch current trip" });
   }
 });
+router.get("/user/", verifyToken, async (req, res) => {
+  try {
+    console.log(req.userId)
+    const user = await User.findById(req.userId);
+    const trips = await Trip.find({ user: user._id });
+    res.json(trips);
+  } catch (error) {
+    console.error("Error fetching user tours:", error);
+    res.status(500).json({ message: "Failed to fetch user tours" });
+  }
+});
 router.get('/:id' , verifyToken, async (req, res) => {
   const {id} = req.params;
   try {
+    console.log(id)
     const trip = await Trip.findById(id);
     console.log(trip)
     if (!trip) {
@@ -132,7 +144,7 @@ router.post("/complete/:tripId", verifyToken, async (req, res) => {
   try {
     const user = await User.findById(req.userId);
     const trip = await Trip.findById(req.params.tripId);
-
+console.log(user)
     console.log(trip);
 
     user.distance_travelled += trip.distance || 0;
@@ -166,16 +178,6 @@ router.post("/complete/:tripId", verifyToken, async (req, res) => {
   }
 });
 
-router.get("/user/", verifyToken, async (req, res) => {
-  try {
-    const user = await User.findById(req.userId);
-    const trips = await Trip.find({ user: user._id });
 
-    res.json(trips);
-  } catch (error) {
-    console.error("Error fetching user tours:", error);
-    res.status(500).json({ message: "Failed to fetch user tours" });
-  }
-});
 
 export default router;
