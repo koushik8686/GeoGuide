@@ -16,6 +16,8 @@ import {
   Share2
 } from 'lucide-react';
 import { api, User } from '../services/api';
+import axios from 'axios';
+import { axiosInstance } from '../../constants/urls';
 
 export default function PeoplePage() {
   const [users, setUsers] = useState<User[]>([]);
@@ -23,10 +25,29 @@ export default function PeoplePage() {
   const [selectedFilter, setSelectedFilter] = useState('all');
   const navigate = useNavigate();
 
+  const handleConnect = async (friendId) => {
+    console.log(friendId)
+    const response = await axiosInstance.post('user/connect', {friendId})
+    if (response) {
+        alert("Connected successfully!");
+    }
+};
+
   useEffect(() => {
     const fetchUsers = async () => {
-      const data = await api.getAllUsers();
-      setUsers(data);
+      // const data = await api.getAllUsers();
+      // console.log(data);
+      // setUsers(data);
+
+      try {
+        const response = await axiosInstance.get('/users');
+        setUsers(response.data);
+        // return response.data;
+        return;
+    } catch (error) {
+        console.error('Error fetching users:', error);
+        return [];
+    }
     };
     fetchUsers();
   }, []);
@@ -35,7 +56,6 @@ export default function PeoplePage() {
     user.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
     (selectedFilter === 'all' || user.level >= parseInt(selectedFilter))
   );
-
   return (
     <div className="space-y-8">
       {/* Header */}
@@ -74,18 +94,18 @@ export default function PeoplePage() {
 
       {/* Users Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {filteredUsers.map(user => (
+        {filteredUsers?.map(user => (
           <motion.div
-            key={user.id}
+            key={user?._id}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer"
-            onClick={() => navigate(`/people/${user.id}`)}
+            // onClick={() => navigate(`/people/${user?._id}`)}
           >
             <div className="relative">
               <img
-                src={user.coverPhoto}
-                alt={`${user.name}'s cover`}
+                // src={user.coverPhoto}
+                alt={`${user?.name}'s cover`}
                 className="w-full h-32 object-cover"
               />
               <div className="absolute -bottom-10 left-6">
@@ -102,16 +122,16 @@ export default function PeoplePage() {
                   <h3 className="font-semibold text-lg text-gray-800">{user.name}</h3>
                   <div className="flex items-center text-sm text-gray-600 mt-1">
                     <MapPin className="w-4 h-4 mr-1" />
-                    {user.location}
+                    {/* {user.location} */}
                   </div>
                 </div>
                 <div className="flex flex-col items-end">
                   <div className="flex items-center text-emerald-600">
                     <Trophy className="w-4 h-4 mr-1" />
-                    Level {user.level}
+                    {/* Level {user.level} */}
                   </div>
                   <div className="text-sm text-gray-600 mt-1">
-                    {user.points} XP
+                    {/* {user.points} XP */}
                   </div>
                 </div>
               </div>
@@ -119,11 +139,11 @@ export default function PeoplePage() {
               <div className="mt-4 flex items-center gap-4 text-sm text-gray-600">
                 <div className="flex items-center">
                   <Globe className="w-4 h-4 mr-1" />
-                  {user.countriesVisited} countries
+                  {/* {user.countriesVisited} countries */}
                 </div>
                 <div className="flex items-center">
                   <Flag className="w-4 h-4 mr-1" />
-                  {user.trips} trips
+                  {user.trips?.length} trips
                 </div>
                 <div className="flex items-center">
                   <Camera className="w-4 h-4 mr-1" />
@@ -133,7 +153,7 @@ export default function PeoplePage() {
 
               <div className="mt-4">
                 <div className="flex flex-wrap gap-2">
-                  {user.interests.map((interest, index) => (
+                  {user.interests?.map((interest, index) => (
                     <span
                       key={index}
                       className="px-3 py-1 bg-emerald-50 text-emerald-600 rounded-full text-sm"
@@ -146,7 +166,7 @@ export default function PeoplePage() {
 
               <div className="mt-6 pt-4 border-t flex justify-between items-center">
                 <div className="flex -space-x-2">
-                  {user.mutualFriends.map((friend, index) => (
+                  {user.mutualFriends?.map((friend, index) => (
                     <img
                       key={index}
                       src={friend.avatar}
@@ -154,13 +174,13 @@ export default function PeoplePage() {
                       className="w-8 h-8 rounded-full border-2 border-white"
                     />
                   ))}
-                  {user.mutualFriends.length > 0 && (
+                  {user.mutualFriends?.length > 0 && (
                     <span className="ml-4 text-sm text-gray-600">
                       {user.mutualFriends.length} mutual friends
                     </span>
                   )}
                 </div>
-                <button className="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors">
+                <button onClick={() => handleConnect(user?._id)} className="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors">
                   Connect
                 </button>
               </div>

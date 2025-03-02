@@ -82,6 +82,8 @@ app.get("/auth/user", authMiddleware, async (req, res) => {
   }
 });
 
+
+
 // Google OAuth routes
 app.get("/auth/google", (req, res) => {
   const authUrl = oauth2Client.generateAuthUrl({
