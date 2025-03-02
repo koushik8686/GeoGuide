@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
+import axios from 'axios';
 import { google } from "googleapis";
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
@@ -199,18 +200,40 @@ app.post('/auth/signout', (req, res) => {
 
 const API_URL = "https://openrouter.ai/api/v1/chat/completions";
 const API_KEY = process.env.OPENROUTER_API_KEY;
+const  GooglePlacesAPIKey = process.env.GOOGLE_PLACES_API_KEY;
 
 app.post("/api/deepseek", async (req, res) => {
   try {
     const { place, interests, startDate, endDate, startTime, endTime } = req.body;
+
+    // Validate request body
+    if (!place || !interests || !startDate || !endDate || !startTime || !endTime) {
+      console.error("🚨 Missing required fields in the request body.");
+      return res.status(400).json({ error: "Missing required fields in the request body." });
+    }
+
     console.log("📩 Request body:", req.body);
 
+    // Step 1: Fetch places from Google Places API based on interests
+    const placesList = await fetchPlacesFromGoogle(place, interests);
+
+    if (!placesList || placesList.length === 0) {
+      console.error("🚨 No places found for the given interests.");
+      return res.status(400).json({ error: "No places found for the given interests." });
+    }
+
+    console.log("✅ Fetched places from Google Places API:", placesList);
+
+    // Step 2: Generate itinerary using OpenRouter
     const totalPrompt = `Plan a detailed **${startDate} to ${endDate}-day itinerary** for **${place}**, considering:
         - Timings (**${startTime}** to **${endTime}**)
         - User interests (**${interests.join(", ")}**)
         - Seamless travel between locations
-        - with food breaks with locations
+        - Food breaks with locations
         - Weather-based activity suggestions
+
+        **Here are the places to consider:**
+        ${placesList.map(p => p.name).join(", ")}
 
         **Return ONLY valid JSON in this exact format (NO extra text, NO explanations, JUST JSON):**
         [
@@ -232,120 +255,204 @@ app.post("/api/deepseek", async (req, res) => {
         }
         ]`;
 
-    const response = await axios.post(
-      API_URL,
-      {
-        model: "deepseek/deepseek-r1-distill-llama-70b:free",
-        messages: [{ role: "user", content: totalPrompt }],
+    console.log("📝 Generated prompt for OpenRouter API:", totalPrompt);
+
+    // Ensure the OpenRouter API key is set
+    if (!process.env.OPENROUTER_API_KEY) {
+      console.error("🚨 OPENROUTER_API_KEY environment variable is not set.");
+      return res.status(500).json({ error: "Internal Server Error: OPENROUTER_API_KEY is not configured." });
+    }
+
+    // Make a request to OpenRouter
+    const openRouterResponse = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
+        "HTTP-Referer": process.env.SITE_URL || "https://globemate.com",
+        "X-Title": process.env.SITE_NAME || "GlobeMate",
+        "Content-Type": "application/json",
       },
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${API_KEY}`,
-        },
-      }
-    );
+      body: JSON.stringify({
+        model: "deepseek/deepseek-r1-distill-llama-70b:free",
+        messages: [
+          {
+            role: "user",
+            content: totalPrompt,
+          },
+        ],
+      }),
+    });
 
-    // console.log("📩 Full API Response:", JSON.stringify(response.data, null, 2));
+    const responseData = await openRouterResponse.json();
+    console.log("✅ Response from OpenRouter API:", responseData);
 
-    const itineraryTextRaw = response.data.choices[0].message?.content.trim();
-    // console.log("this this ------------------");
-    //   console.log("📩 Itinerary Text Raw:", itineraryTextRaw);
+    const itineraryTextRaw = responseData.choices[0].message?.content.trim();
+
+    // Extract JSON from the response if there's extra text
+    const jsonStartIndex = itineraryTextRaw.indexOf("[");
+    const jsonEndIndex = itineraryTextRaw.lastIndexOf("]") + 1;
+    const jsonString = itineraryTextRaw.slice(jsonStartIndex, jsonEndIndex);
+
     // Ensure API response is JSON
-    if (!itineraryTextRaw.startsWith("[") || !itineraryTextRaw.endsWith("]")) {
-    console.error("🚨 API returned unexpected format:", itineraryTextRaw);
-    return res.status(500).json({ error: "Invalid response from API", rawResponse: itineraryTextRaw });
+    if (jsonStartIndex === -1 || jsonEndIndex === -1) {
+      console.error("🚨 API returned unexpected format:", itineraryTextRaw);
+      return res.status(500).json({ error: "Invalid response from API", rawResponse: itineraryTextRaw });
     }
 
     let itineraryText;
     try {
-    itineraryText = JSON.parse(itineraryTextRaw);
+      itineraryText = JSON.parse(jsonString);
     } catch (parseError) {
-    console.error("🚨 JSON Parsing Error:", parseError);
-    return res.status(500).json({ error: "API returned invalid JSON", rawResponse: itineraryTextRaw });
+      console.error("🚨 JSON Parsing Error:", parseError);
+      return res.status(500).json({ error: "API returned invalid JSON", rawResponse: jsonString });
     }
+
+    console.log("✅ Parsed itinerary:", itineraryText);
 
     // Send correctly formatted response
     res.json({ itinerary: itineraryText });
 
-
   } catch (error) {
-    console.error("🚨 Error calling DeepSeek API:", error.message);
+    console.error("🚨 Error calling OpenRouter API:", error.message);
+    if (error.response) {
+      console.error("🚨 OpenRouter API response error:", error.response.data);
+    }
     res.status(500).json({ error: "Internal Server Error", details: error.message });
   }
 });
 
-const verifyToken = (req, res, next) => {
-  const authHeader = req.cookies.jwt_token;
-  if (!authHeader) {
-    return res.status(401).json({ error: 'No token provided' });
+// Extract the JSON portion from the response content
+const extractJSON = (responseContent) => {
+  try {
+    // Use regex to find the JSON block
+    const jsonMatch = responseContent.match(/\{[\s\S]*\}/);
+    if (jsonMatch) {
+      const jsonString = jsonMatch[0];
+      return JSON.parse(jsonString);
+    } else {
+      throw new Error("No valid JSON found in the response");
+    }
+  } catch (error) {
+    console.error("Error extracting JSON:", error);
+    return null;
   }
-  const decoded = jwt.verify(authHeader, process.env.JWT_SECRET);
-  if (!decoded) {
-    return res.status(401).json({ error: 'Invalid token' });
-  }
-  req.userId = decoded.id;
-  next();
 };
 
-
-app.post('/user/connect', verifyToken, async (req, res) => {
+// New endpoint to fetch travel options (trains, buses, and flights)
+app.post("/api/travel-options", async (req, res) => {
   try {
+    const { source, destination, date } = req.body;
 
-      console.log(req.body)
-      const { friendId } = req.body; // Extracting friend ID from request body
+    // Validate input
+    if (!source || !destination || !date) {
+      return res.status(400).json({ error: "Missing required fields: source, destination, date" });
+    }
 
-      if (!friendId) {
-          return res.status(400).json({ message: "Friend ID is required." });
-      }
+    // Define the prompt for OpenRouter
+    const prompt = `You are a travel assistant. Provide a list of trains, buses, and flights between ${source} and ${destination} on ${date}. 
+    Return the results in the following JSON format:
+    {
+      "trains": [
+        {
+          "name": "Train Name",
+          "departureTime": "HH:MM",
+          "arrivalTime": "HH:MM",
+          "duration": "Xh Ym"
+        }
+      ],
+      "buses": [
+        {
+          "name": "Bus Name",
+          "departureTime": "HH:MM",
+          "arrivalTime": "HH:MM",
+          "duration": "Xh Ym"
+        }
+      ],
+      "flights": [
+        {
+          "name": "Flight Name",
+          "departureTime": "HH:MM",
+          "arrivalTime": "HH:MM",
+          "duration": "Xh Ym",
+          "airline": "Airline Name"
+        }
+      ]
+    }`;
 
-      // Find the user
-      const user = await User.findById(req.userId);
-      if (!user) {
-          return res.status(404).json({ message: "User not found." });
-      }
+    // Call OpenRouter API
+    const openRouterResponse = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
+        "HTTP-Referer": process.env.SITE_URL || "https://globemate.com",
+        "X-Title": process.env.SITE_NAME || "GlobeMate",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        "model": "deepseek/deepseek-r1-distill-llama-70b:free",
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are a travel assistant. Provide a list of trains, buses, and flights between the given source and destination on the specified date."
+          },
+          {
+            "role": "user",
+            "content": prompt
+          }
+        ]
+      })
+    });
 
-      // Check if the friend is already in the list
-      if (user.friends.includes(friendId)) {
-          return res.status(400).json({ message: "Friend is already connected." });
-      }
+    const responseData = await openRouterResponse.json();
+    console.log('OpenRouter Response:', responseData);
 
-      // Add friend to the user's friends array
-      user.friends.push(friendId);
-      await user.save();
-      console.log("added")
-      res.status(200).json({ message: "Friend added successfully!", friends: user.friends });
+    // Handle OpenRouter API errors
+    if (responseData.error) {
+      console.error('OpenRouter API Error:', responseData.error);
+      return res.status(500).json({ error: "OpenRouter API error" });
+    }
+
+    // Extract the response content
+    const responseContent = responseData.choices?.[0]?.message?.content;
+    console.log('OpenRouter Response Content:', responseContent);
+
+    // Extract and parse the JSON portion
+    const travelOptions = extractJSON(responseContent);
+    if (!travelOptions) {
+      return res.status(500).json({ error: "Failed to extract valid JSON from the response" });
+    }
+
+    // Return the travel options
+    res.status(200).json({ travelOptions });
   } catch (error) {
-      console.error("Error adding friend:", error);
-      res.status(500).json({ message: "Internal server error." });
+    console.error('Error fetching travel options:', error);
+    res.status(500).json({ error: "Internal server error" });
   }
 });
 
+// Function to fetch places from Google Places API
+async function fetchPlacesFromGoogle(location, interests) {
+  const baseUrl = "https://maps.googleapis.com/maps/api/place/textsearch/json";
+  const query = interests.map(interest => `${interest} in ${location}`).join(" OR ");
 
-
-
-
-// Get all Users
-app.get('/users', async (req, res) => {
   try {
-      const users = await User.find(); // Fetch all users from MongoDB
-      res.json(users);
+    const response = await axios.get(baseUrl, {
+      params: {
+        query: query,
+        key: GooglePlacesAPIKey,
+      },
+    });
+
+    return response.data.results.map(place => ({
+      name: place.name,
+      address: place.formatted_address,
+      rating: place.rating,
+      types: place.types,
+    }));
   } catch (error) {
-      res.status(500).json({ error: 'Server error' });
+    console.error("🚨 Error fetching places from Google Places API:", error.message);
+    return null;
   }
-});
-
-app.get('/user/friends', verifyToken, async (req, res) => {
-  try {
-      const user = await User.findById(req.userId).populate('friends', 'name'); // Populate friends' names
-      if (!user) return res.status(404).json({ error: "User not found" });
-
-      const friendNames = user.friends.map(friend => friend.name);
-      res.json(friendNames);
-  } catch (error) {
-      res.status(500).json({ error: "Error fetching friends" });
-  }
-});
-
+}
 
 app.listen(4000, () => console.log("✅ Server running on http://localhost:4000"));

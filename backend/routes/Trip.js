@@ -23,8 +23,17 @@ console.log(decoded)
 // Create a new trip
 router.post("/create", verifyToken, async (req, res) => {
   try {
-    
-    const { tripName, tripStartTime, StartLocation, type, EndLocation, tripEndTime, budget } = req.body;
+    const { 
+      tripName, 
+      tripStartTime, 
+      tripEndTime,
+      StartLocation, 
+      EndLocation, 
+      budget,
+      distance,
+      interests,
+      coordinates
+    } = req.body;
     
     if (!tripName || !tripStartTime || !StartLocation || !EndLocation || !budget) {
       return res.status(400).json({ 
@@ -32,24 +41,26 @@ router.post("/create", verifyToken, async (req, res) => {
         received: { tripName, tripStartTime, StartLocation, EndLocation, budget }
       });
     }
-console.log(req.userId)
+
     // Create new trip
     const newTrip = new Trip({
       user: req.userId,
       tripName,
       tripStartTime,
+      tripEndTime,
       StartLocation,
       EndLocation,
       budget: Number(budget),
-      trip_type: type,
-      tripEndTime,
+      distance,
+      interests,
+      coordinates,
       transactions: []
     });
 
-    console.log("New trip object:", newTrip); // Debug log
+    console.log("New trip object:", newTrip);
 
     const savedTrip = await newTrip.save();
-    console.log("Saved trip:", savedTrip); // Debug log
+    console.log("Saved trip:", savedTrip);
 
     // Update user's trips array and current trip
     await User.findByIdAndUpdate(
@@ -62,12 +73,14 @@ console.log(req.userId)
     );
 
     res.status(201).json({
+      ok: true,
       message: "Trip created successfully",
       trip: savedTrip
     });
   } catch (error) {
     console.error("Error creating trip:", error);
     res.status(500).json({ 
+      ok: false,
       message: "Failed to create trip",
       error: error.message 
     });

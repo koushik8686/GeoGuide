@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import axios from 'axios';
 import { 
   MapPin, 
   Calendar, 
@@ -13,9 +14,11 @@ import {
   Send,
   Loader,
   ChevronDown,
-  ChevronUp
+  ChevronUp,
+  AlertCircle
 } from 'lucide-react';
-import './index.css'
+import { axiosInstance } from '../../constants/urls';
+import './index.css';
 
 const interests = [
   { id: 'parks', label: 'Parks', icon: <LandPlot size={18} /> },
@@ -39,6 +42,7 @@ function TripPlan() {
   const [loading, setLoading] = useState(false);
   const [itinerary, setItinerary] = useState(null);
   const [expandedDays, setExpandedDays] = useState({});
+  const [error, setError] = useState('');
 
   // Calculate days when dates change
   useEffect(() => {
@@ -87,82 +91,51 @@ function TripPlan() {
     e.preventDefault();
     
     if (!destination || selectedInterests.length === 0 || !startDate || !endDate) {
-      alert('Please fill in all required fields');
+      setError('Please fill in all required fields.');
       return;
     }
     
     setLoading(true);
+    setError('');
 
-    const response = await fetch("http://localhost:9000/api/deepseek", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
+    try {
+      // First, get coordinates for the destination
+      const geocodeResponse = await axios.get(
+        `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(
+          destination
+        )}&key=${import.meta.env.VITE_GOOGLE_PLACES_API_KEY}`
+      );
+
+      if (geocodeResponse.data.status !== 'OK' || !geocodeResponse.data.results[0]?.geometry?.location) {
+        throw new Error('Unable to fetch coordinates for the destination.');
+      }
+
+      const { lat, lng } = geocodeResponse.data.results[0].geometry.location;
+
+      // Now make the API call with coordinates
+      const response = await axiosInstance.post("/api/deepseek", {
         place: destination,
+        coordinates: { latitude: lat, longitude: lng },
         interests: selectedInterests,
         startDate,
         endDate,
         startTime,
         endTime,
-      }),
-    });
+      }, {
+        headers: { "Content-Type": "application/json" },
+      });
 
-    const data = await response.json();
-    console.log("Response from DeepSeek API:", data);
-    if (response.ok) {
-      setItinerary(data);
-    } else {
-      alert("Error generating itinerary. Please try again.");
-    } 
-    setLoading(false);
-    return;
-
-
-    // Simulate API call to DeepSeek
-    setTimeout(() => {
-      // Generate dates for the itinerary
-      const dates = [];
-      const currentDate = new Date(startDate);
-      const lastDate = new Date(endDate);
-      
-      while (currentDate <= lastDate) {
-        dates.push(new Date(currentDate));
-        currentDate.setDate(currentDate.getDate() + 1);
+      if (response.data) {
+        setItinerary(response.data);
+      } else {
+        throw new Error('No data received from the server.');
       }
-      
-      // Mock response data
-      const mockItinerary = dates.map((date, i) => ({
-        day: i + 1,
-        date: date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }),
-        activities: [
-          {
-            time: `${startTime} - 11:00`,
-            place: `${selectedInterests[0].charAt(0).toUpperCase() + selectedInterests[0].slice(1)} in ${destination}`,
-            description: `Explore the beautiful ${selectedInterests[0]} of ${destination} and enjoy the local atmosphere.`
-          },
-          {
-            time: '11:30 - 13:00',
-            place: 'Local Restaurant',
-            description: 'Enjoy authentic local cuisine for lunch.'
-          },
-          {
-            time: '13:30 - 16:00',
-            place: `${selectedInterests.length > 1 ? selectedInterests[1].charAt(0).toUpperCase() + selectedInterests[1].slice(1) : selectedInterests[0].charAt(0).toUpperCase() + selectedInterests[0].slice(1)} Tour`,
-            description: `Guided tour of the famous ${selectedInterests.length > 1 ? selectedInterests[1] : selectedInterests[0]} with a local expert.`
-          },
-          {
-            time: `16:30 - ${endTime}`,
-            place: 'Sunset Viewpoint',
-            description: 'Relax and enjoy the beautiful sunset views.'
-          }
-        ]
-      }));
-      
-      setItinerary(mockItinerary);
+    } catch (err) {
+      console.error('Error generating itinerary:', err);
+      setError(err.message || 'Failed to generate itinerary. Please try again.');
+    } finally {
       setLoading(false);
-      
-      // Auto-expand first day
-      setExpandedDays({ 0: true });
-    }, 3000);
+    }
   };
 
   return (
@@ -198,6 +171,18 @@ function TripPlan() {
                 <div className="p-8">
                   <h2 className="text-2xl font-semibold text-gray-800 mb-6">Plan Your Trip</h2>
                   
+                  {error && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      className="bg-red-50 p-3 rounded-lg mb-6 flex items-center"
+                    >
+                      <AlertCircle className="text-red-500 mr-2" size={18} />
+                      <p className="text-red-600 text-sm">{error}</p>
+                    </motion.div>
+                  )}
+
                   <form onSubmit={handleSubmit}>
                     <div className="space-y-6">
                       {/* Destination */}
@@ -228,8 +213,10 @@ function TripPlan() {
                         </label>
                         <div className="flex flex-wrap gap-2">
                           {interests.map((interest) => (
-                            <div
+                            <motion.div
                               key={interest.id}
+                              whileHover={{ scale: 1.05 }}
+                              whileTap={{ scale: 0.95 }}
                               onClick={() => toggleInterest(interest.id)}
                               className={`interest-tag ${
                                 selectedInterests.includes(interest.id) ? 'active' : 'inactive'
@@ -239,7 +226,7 @@ function TripPlan() {
                                 {interest.icon}
                                 <span className="ml-1">{interest.label}</span>
                               </div>
-                            </div>
+                            </motion.div>
                           ))}
                         </div>
                       </div>
