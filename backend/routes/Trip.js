@@ -70,7 +70,7 @@ router.post("/create", verifyToken, async (req, res) => {
     console.log("New trip object:", newTrip);
 
     const savedTrip = await newTrip.save();
-    console.log("Saved trip:", savedTrip);
+    // console.log("Saved trip:", savedTrip);
 
     // Update user's trips array and current trip
     await User.findByIdAndUpdate(

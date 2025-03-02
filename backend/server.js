@@ -121,6 +121,9 @@ app.get("/auth/callback", async (req, res) => {
         profilePicture: googleUser.picture,
         accessToken: tokens.access_token,
         refreshToken: tokens.refresh_token,
+        distance_travelled: 0,
+        experience: 0,
+        level: 1
       });
     } else {
       user.accessToken = tokens.access_token;
@@ -142,7 +145,7 @@ app.get("/auth/callback", async (req, res) => {
       maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
     });
 
-    console.log("OAuth Callback - JWT Token Generated:", jwtToken);
+    // console.log("OAuth Callback - JWT Token Generated:", jwtToken);
     res.redirect("http://localhost:5173/user");
   } catch (error) {
     console.error("❌ Error in Google OAuth callback:", error);
@@ -688,7 +691,7 @@ const verifyToken = (req, res, next) => {
 app.post('/user/connect', verifyToken, async (req, res) => {
   try {
 
-      console.log(req.body)
+      // console.log(req.body)
       const { friendId } = req.body; // Extracting friend ID from request body
 
       if (!friendId) {
