@@ -102,7 +102,7 @@ router.get("/current", verifyToken, async (req, res) => {
   try {
     const user = await User.findById(req.userId);
     const currentTrip = await Trip.findById(user.current_trip);
-
+    console.log(currentTrip)
     if (!currentTrip) {
       return res.status(404).json({ message: "No active trip found" });
     }
@@ -117,6 +117,7 @@ router.get('/:id' , verifyToken, async (req, res) => {
   const {id} = req.params;
   try {
     const trip = await Trip.findById(id);
+    console.log(trip)
     if (!trip) {
       return res.status(404).json({ message: "Trip not found" });
     }
@@ -131,6 +132,15 @@ router.post("/complete/:tripId", verifyToken, async (req, res) => {
   try {
     const user = await User.findById(req.userId);
     const trip = await Trip.findById(req.params.tripId);
+
+    console.log(trip);
+
+    user.distance_travelled += trip.distance || 0;
+    user.experience += Math.round(trip.distance/10);
+    await user.save();
+
+    console.log(user);
+    
 
     if (!trip) {
       return res.status(404).json({ message: "Trip not found" });
