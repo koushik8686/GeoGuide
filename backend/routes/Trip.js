@@ -28,17 +28,27 @@ router.post("/create", verifyToken, async (req, res) => {
       tripStartTime, 
       tripEndTime,
       StartLocation, 
+      interests, // Ensure this is an array of strings
       EndLocation, 
       budget,
       distance,
-      interests,
       coordinates
     } = req.body;
-    
+  console.log(req.body)
+  console.log(interests)
+    // Validate required fields
     if (!tripName || !tripStartTime || !StartLocation || !EndLocation || !budget) {
       return res.status(400).json({ 
         message: "Missing required fields",
         received: { tripName, tripStartTime, StartLocation, EndLocation, budget }
+      });
+    }
+
+    // Validate intrests (interests) is an array of strings
+    if (!Array.isArray(interests) || interests.some(item => typeof item !== "string")) {
+      return res.status(400).json({ 
+        message: "Invalid interests format. Expected an array of strings.",
+        received: interests
       });
     }
 
@@ -52,7 +62,7 @@ router.post("/create", verifyToken, async (req, res) => {
       EndLocation,
       budget: Number(budget),
       distance,
-      interests,
+      preferences: interests, // Ensure this matches the schema
       coordinates,
       transactions: []
     });
@@ -87,10 +97,6 @@ router.post("/create", verifyToken, async (req, res) => {
   }
 });
 
-router.get("/create", function (req, res) { 
-  res.send("hello");
-});
-
 // Get current trip
 router.get("/current", verifyToken, async (req, res) => {
   try {
@@ -107,7 +113,19 @@ router.get("/current", verifyToken, async (req, res) => {
     res.status(500).json({ message: "Failed to fetch current trip" });
   }
 });
-
+router.get('/:id' , verifyToken, async (req, res) => {
+  const {id} = req.params;
+  try {
+    const trip = await Trip.findById(id);
+    if (!trip) {
+      return res.status(404).json({ message: "Trip not found" });
+    }
+    res.json(trip);
+  } catch (error) {
+    console.error("Error fetching trip:", error);
+    res.status(500).json({ message: "Failed to fetch trip" });
+  }
+})
 // Complete current trip
 router.post("/complete/:tripId", verifyToken, async (req, res) => {
   try {

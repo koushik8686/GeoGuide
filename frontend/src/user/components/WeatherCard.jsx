@@ -3,7 +3,7 @@ import { Sun, CloudRain, Cloud, Wind } from 'lucide-react';
 
 function WeatherCard({ city, weather }) {
   if (!weather) return null;
-
+  console.log(city , weather)
   // Map weather conditions to icons
   const getWeatherIcon = (condition) => {
     switch (condition) {

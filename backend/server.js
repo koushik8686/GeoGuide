@@ -18,6 +18,7 @@ import Event from "./models/CalenderEvents.js";
 import placeRouter from './routes/places.js';
 import TripRouter from './routes/Trip.js'
 import exploreRouter from './routes/explore.js'
+import locationRouter from './routes/location.js'
 
 dotenv.config();
 
@@ -39,6 +40,7 @@ app.get("/" , function (req , res) { res.send("hello")})
 app.use('/api/places', placeRouter);
 app.use('/api/trips' , TripRouter)
 app.use('/api/explore' , exploreRouter)
+app.use('/api/location', locationRouter)
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("✅ MongoDB Connected"))
@@ -319,23 +321,6 @@ app.post("/api/deepseek", async (req, res) => {
   }
 });
 
-// Extract the JSON portion from the response content
-const extractJSON = (responseContent) => {
-  try {
-    // Use regex to find the JSON block
-    const jsonMatch = responseContent.match(/\{[\s\S]*\}/);
-    if (jsonMatch) {
-      const jsonString = jsonMatch[0];
-      return JSON.parse(jsonString);
-    } else {
-      throw new Error("No valid JSON found in the response");
-    }
-  } catch (error) {
-    console.error("Error extracting JSON:", error);
-    return null;
-  }
-};
-
 // New endpoint to fetch travel options (trains, buses, and flights)
 app.post("/api/travel-options", async (req, res) => {
   try {
@@ -451,6 +436,138 @@ async function fetchPlacesFromGoogle(location, interests) {
     console.error("🚨 Error fetching places from Google Places API:", error.message);
     return null;
   }
+}
+
+
+const extractJSON = (responseContent) => {
+  try {
+    const sanitized = responseContent.replace(/```json/g, '').replace(/```/g, '');
+    const jsonStart = sanitized.indexOf('{');
+    const jsonEnd = sanitized.lastIndexOf('}') + 1;
+    return JSON.parse(sanitized.slice(jsonStart, jsonEnd));
+  } catch (error) {
+    console.error("JSON Extraction Error:", error);
+    return null;
+  }
+};
+
+// Unified travel planning function
+async function getCompleteTravelPlan(params) {
+  const { source, destination, date, interests, startDate, endDate, startTime, endTime } = params;
+  
+  // 1. Get travel options between locations
+  const travelPrompt = `As a travel expert, provide REAL transportation options between ${source} and ${destination} on ${date}.
+  Include trains, buses, and flights with real operator names and realistic timings.
+  Return in this exact JSON format:
+  {
+    "transport": {
+      "trains": [{ "name": "Train Name", "departure": "HH:MM", "arrival": "HH:MM", "duration": "Xh Ym" }],
+      "buses": [{ "name": "Bus Name", "departure": "HH:MM", "arrival": "HH:MM", "duration": "Xh Ym" }],
+      "flights": [{ "name": "Airline", "departure": "HH:MM", "arrival": "HH:MM", "duration": "Xh Ym" }]
+    }
+  }`;
+
+  // 2. Generate detailed itinerary
+  const itineraryPrompt = `Create a detailed ${endDate - startDate + 1}-day itinerary for ${destination} 
+  from ${startDate} to ${endDate} with:
+  - Daily activities from ${startTime} to ${endTime}
+  - Interests: ${interests.join(', ')}
+  - Meal breaks
+  - Real attraction names
+  Format:
+  {
+    "itinerary": [{
+      "day": 1,
+      "date": "YYYY-MM-DD",
+      "activities": [
+        {"time": "HH:MM", "place": "Name", "description": "Detailed activity", "type": "sightseeing/meal/etc"}
+      ]
+    }]
+  }`;
+
+  try {
+    const [transportResponse, itineraryResponse] = await Promise.all([
+      fetchOpenRouter(travelPrompt),
+      fetchOpenRouter(itineraryPrompt)
+    ]);
+
+    return {
+      transport: extractJSON(transportResponse.choices[0].message.content),
+      itinerary: extractJSON(itineraryResponse.choices[0].message.content)
+    };
+  } catch (error) {
+    console.error("Travel Planning Error:", error);
+    throw new Error("Failed to generate travel plan");
+  }
+}
+
+// Unified endpoint
+app.post("/complete-plan", async (req, res) => {
+  try {
+    const requiredParams = [
+      'source', 'destination', 'date', 
+      'interests', 'startDate', 'endDate'
+    ];
+    
+    const missing = requiredParams.filter(p => !req.body[p]);
+    if (missing.length > 0) {
+      return res.status(400).json({
+        error: "Missing required parameters",
+        missing,
+        example: {
+          source: "Mumbai",
+          destination: "Goa",
+          date: "2023-12-25",
+          interests: ["beaches", "water sports"],
+          startDate: "2023-12-25",
+          endDate: "2023-12-28",
+          startTime: "09:00",
+          endTime: "20:00"
+        }
+      });
+    }
+
+    const plan = await getCompleteTravelPlan({
+      ...req.body,
+      startTime: req.body.startTime || '09:00',
+      endTime: req.body.endTime || '20:00'
+    });
+
+    res.json({
+      status: "success",
+      plan: {
+        source: req.body.source,
+        destination: req.body.destination,
+        ...plan
+      }
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      status: "error",
+      message: error.message,
+      details: "Please check your parameters and try again"
+    });
+  }
+});
+
+// Helper function for OpenRouter API calls
+async function fetchOpenRouter(prompt) {
+  const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      model: "deepseek/deepseek-r1-distill-llama-70b:free",
+      messages: [{ role: "user", content: prompt }],
+      temperature: 0.3 // For more consistent results
+    })
+  });
+
+  if (!response.ok) throw new Error(`OpenRouter Error: ${response.statusText}`);
+  return response.json();
 }
 
 app.listen(4000, () => console.log("✅ Server running on http://localhost:4000"));

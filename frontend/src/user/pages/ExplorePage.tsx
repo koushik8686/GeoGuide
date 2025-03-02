@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import {
+import { 
   MapPin,
   Star,
   Heart,
@@ -10,21 +10,21 @@ import {
   Clock,
   Sun,
   DollarSign,
-  Loader,
+  Loader
 } from 'lucide-react';
-import { axiosInstance } from '../../constants/urls';
+import {axiosInstance} from '../../constants/urls';
 
 export default function ExplorePage() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [showFilters, setShowFilters] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
 
   // State for recommendations and places
   const [recommendedTags, setRecommendedTags] = useState<string[]>([]);
   const [nearbyPlaces, setNearbyPlaces] = useState<Record<string, any[]>>({});
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [userLocation, setUserLocation] = useState<{ lat: number; lng: number } | null>(null);
+  const [error, setError] = useState(null);
+  const [userLocation, setUserLocation] = useState(null);
   const [locationLoading, setLocationLoading] = useState(true);
 
   // Get user's location
@@ -34,7 +34,7 @@ export default function ExplorePage() {
         (position) => {
           setUserLocation({
             lat: position.coords.latitude,
-            lng: position.coords.longitude,
+            lng: position.coords.longitude
           });
           setLocationLoading(false);
         },
@@ -63,12 +63,14 @@ export default function ExplorePage() {
 
         const { recommended_tags, nearby_places } = response.data;
         setRecommendedTags(recommended_tags);
+        recommended_tags.forEach((tag) => {
+          console.log(tag)
+          console.log(tag.tag)
+        });
         setNearbyPlaces(nearby_places);
-        console.log(recommended_tags, nearby_places)
-        // Ensure selectedCategory is a valid string
-        setSelectedCategory(recommended_tags[0] || 'all'); // Default to 'all' if no tags
+        setSelectedCategory(recommended_tags[0]); // Select first category by default
         setError(null);
-      } catch (err: any) {
+      } catch (err) {
         setError(err.message);
       } finally {
         setLoading(false);
@@ -81,26 +83,21 @@ export default function ExplorePage() {
   // Filter places based on search query
   const getFilteredPlaces = () => {
     if (!selectedCategory || !nearbyPlaces[selectedCategory]) return [];
-
-    return nearbyPlaces[selectedCategory].filter(
-      (place) =>
-        place.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        (place.vicinity && place.vicinity.toLowerCase().includes(searchQuery.toLowerCase()))
+    
+    return nearbyPlaces[selectedCategory].filter(place => 
+      place.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (place.vicinity && place.vicinity.toLowerCase().includes(searchQuery.toLowerCase()))
     );
   };
 
-  // Format place type (e.g., "restaurant_bar" -> "Restaurant Bar")
-  const formatPlaceType = (type: string | null) => {
-    if (!type) return ''; // Return empty string if type is null or undefined
-    return type
-      .split('_')
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+  const formatPlaceType = (type: string) => {
+    if (typeof type !== 'string') return '';
+
+    return type.split('_')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
       .join(' ');
   };
 
-  useEffect(() => {
-    console.log(recommendedTags)
-  }, [recommendedTags , nearbyPlaces])
   if (locationLoading) {
     return (
       <div className="flex items-center justify-center py-20">
@@ -159,17 +156,17 @@ export default function ExplorePage() {
         </div>
 
         <div className="flex items-center gap-4 overflow-x-auto pb-4">
-          { recommendedTags.length > 0 && recommendedTags.map((tag) => (
+          {recommendedTags.map(tag => (
             <button
-              key={tag}
-              onClick={() => setSelectedCategory(tag)}
+              key={tag.tag}
+              onClick={() => setSelectedCategory(tag.tag)}
               className={`px-4 py-2 rounded-full whitespace-nowrap transition-all ${
-                selectedCategory === tag
+                selectedCategory === tag.tag
                   ? 'bg-emerald-600 text-white'
                   : 'bg-white text-gray-600 hover:bg-emerald-50 hover:text-emerald-600'
               }`}
             >
-              {formatPlaceType(tag)}
+              {formatPlaceType(tag.tag)}
             </button>
           ))}
         </div>
@@ -177,7 +174,7 @@ export default function ExplorePage() {
 
       {/* Places Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {getFilteredPlaces().map((place) => (
+        {getFilteredPlaces().map(place => (
           <motion.div
             key={place.place_id}
             initial={{ opacity: 0, y: 20 }}
@@ -186,12 +183,10 @@ export default function ExplorePage() {
             className="bg-white rounded-xl shadow-lg overflow-hidden group"
           >
             <div className="relative">
-              <img
-                src={
-                  place.photos?.[0]?.photo_reference
-                    ? `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${place.photos[0].photo_reference}&key=${import.meta.env.VITE_GOOGLE_PLACES_API_KEY}`
-                    : 'https://via.placeholder.com/400'
-                }
+              <img 
+                src={place.photos?.[0]?.photo_reference 
+                  ? `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${place.photos[0].photo_reference}&key=${import.meta.env.VITE_GOOGLE_PLACES_API_KEY}`
+                  : "https://via.placeholder.com/400"} 
                 alt={place.name}
                 className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
               />
@@ -202,7 +197,7 @@ export default function ExplorePage() {
                 {formatPlaceType(selectedCategory || '')}
               </div>
             </div>
-
+            
             <div className="p-6">
               <h3 className="text-xl font-semibold text-gray-800 mb-2">{place.name}</h3>
               <div className="flex items-center text-gray-600 mb-4">
@@ -225,13 +220,11 @@ export default function ExplorePage() {
 
               {place.opening_hours && (
                 <div className="mb-4">
-                  <span
-                    className={`inline-block px-2 py-1 rounded-full text-sm ${
-                      place.opening_hours.open_now
-                        ? 'bg-green-100 text-green-800'
-                        : 'bg-red-100 text-red-800'
-                    }`}
-                  >
+                  <span className={`inline-block px-2 py-1 rounded-full text-sm ${
+                    place.opening_hours.open_now 
+                      ? 'bg-green-100 text-green-800'
+                      : 'bg-red-100 text-red-800'
+                  }`}>
                     {place.opening_hours.open_now ? 'Open Now' : 'Closed'}
                   </span>
                 </div>
@@ -243,7 +236,7 @@ export default function ExplorePage() {
                     <Share2 className="w-5 h-5" />
                   </button>
                 </div>
-                <button
+                <button 
                   className="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors"
                   onClick={() => {
                     if (place.geometry?.location) {
@@ -265,9 +258,9 @@ export default function ExplorePage() {
       {getFilteredPlaces().length === 0 && !loading && (
         <div className="text-center py-12">
           <p className="text-gray-600">No places found matching your criteria.</p>
-          <button
+          <button 
             onClick={() => {
-              setSearchQuery('');
+              setSearchQuery("");
               setShowFilters(false);
             }}
             className="mt-4 text-emerald-600 hover:text-emerald-700"

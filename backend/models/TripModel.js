@@ -9,8 +9,8 @@ const TripSchema = mongoose.Schema({
     tripEndTime: { type: Date },
     trip_type: { type: String },
     distance:Number,
-    duration: Number,
-    intrests:[{ type: String, required: true}],
+    intrests: Number,
+    preferences:[{ type: String, required: true}],
     budget: { type: Number, required: true },
     spentAmount: { type: Number, default: 0 },
     status: {

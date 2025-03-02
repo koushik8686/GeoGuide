@@ -68,6 +68,18 @@ export default function Dashboard() {
     lat: '',
     lng: ''
   });
+  const [placeName, setPlaceName] = useState('');
+
+  const getPlaceName = async (latitude, longitude) => {
+    try {
+      const response = await axiosInstance.get(`/api/location/reverse-geocode?lat=${latitude}&lng=${longitude}`);
+      if (response.data && response.data.placeName) {
+        setPlaceName(response.data.placeName);
+      }
+    } catch (error) {
+      console.error('Error getting place name:', error);
+    }
+  };
 
   useEffect(() => {
     const initializeLocation = async () => {
@@ -76,7 +88,7 @@ export default function Dashboard() {
           const position = await new Promise((resolve, reject) => {
             navigator.geolocation.getCurrentPosition(resolve, reject);
           });
-          
+          console.log(position);
           const { latitude, longitude } = position.coords;
           dispatch(setUserLocation({
             lat: latitude,
@@ -139,19 +151,6 @@ export default function Dashboard() {
       setVoiceError("Failed to find the specified location. Please try a different place name.");
     } finally {
       dispatch(setLoading(false));
-    }
-  };
-
-  const getPlaceName = async (lat, lng) => {
-    const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
-    const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${apiKey}`;
-  
-    try {
-      const response = await axios.get(url);
-      const placeName = response.data.results[5]?.formatted_address;
-      dispatch(setLocation(placeName));
-    } catch (error) {
-      console.error('Error fetching place name:', error);
     }
   };
 

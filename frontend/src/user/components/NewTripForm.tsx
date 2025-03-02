@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { API_BASE_URL } from '../constants/urls';
 
-const NewTripForm = ({ onClose, onTripCreated }) => {
+const NewTripForm = ({ onClose, onTripCreated, interests }) => {
   const [formData, setFormData] = useState({
     tripName: '',
     tripStartTime: '',
     tripEndTime: '',
     StartLocation: '',
     EndLocation: '',
-    budget: ''
+    budget: '',
+    selectedInterests: []
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -31,7 +32,10 @@ const NewTripForm = ({ onClose, onTripCreated }) => {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}` // Send JWT token in header
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({
+          ...formData,
+          selectedInterests: formData.selectedInterests.map(interest => interest.id)
+        })
       });
 
       if (!response.ok) {
@@ -55,6 +59,15 @@ const NewTripForm = ({ onClose, onTripCreated }) => {
     setFormData(prev => ({
       ...prev,
       [name]: value
+    }));
+  };
+
+  const handleInterestChange = (interest) => {
+    setFormData(prev => ({
+      ...prev,
+      selectedInterests: prev.selectedInterests.includes(interest)
+        ? prev.selectedInterests.filter(i => i !== interest)
+        : [...prev.selectedInterests, interest]
     }));
   };
 
@@ -153,6 +166,26 @@ const NewTripForm = ({ onClose, onTripCreated }) => {
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
               required
             />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Interests
+            </label>
+            <div className="grid grid-cols-2 gap-3">
+              {interests.map(interest => (
+                <div key={interest.id} className="flex items-center">
+                  <input
+                    type="checkbox"
+                    name="selectedInterests"
+                    value={interest.id}
+                    checked={formData.selectedInterests.includes(interest)}
+                    onChange={() => handleInterestChange(interest)}
+                    className="mr-3"
+                  />
+                  <span className="text-sm">{interest.label}</span>
+                </div>
+              ))}
+            </div>
           </div>
           <div className="flex justify-end gap-3 mt-6">
             <button
