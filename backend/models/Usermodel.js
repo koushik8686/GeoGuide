@@ -11,6 +11,10 @@ const UserSchema = new mongoose.Schema({
   lastLogin: Date,
   deviceToken: String, // For push notifications
   otp: { type: String },
+  distance_travelled: { type: Number, default: 0 },
+  experience: { type: Number, default: 0 },
+  level: { type: Number, default: 1 },
+  badges: { type: String, default: 0 },
   otpExpiry: { type: Date },
   followers:[String],
   verified: { type: Boolean, default: false },
