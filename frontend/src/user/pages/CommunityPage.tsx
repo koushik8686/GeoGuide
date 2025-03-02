@@ -19,6 +19,7 @@ import {
   Volume2
 } from 'lucide-react';
 import { api, User, TravelChallenge, GroupTrip } from '../services/api';
+import { axiosInstance } from '../../constants/urls';
 
 export default function CommunityPage() {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
@@ -28,8 +29,24 @@ export default function CommunityPage() {
   const [weatherData, setWeatherData] = useState<any>(null);
   const [activeTab, setActiveTab] = useState('achievements');
   const [isLoading, setIsLoading] = useState(true);
+  const [friends, setFriends] = useState([]);
+
+
+
 
   useEffect(() => {
+
+    const fetchFriends = async () => {
+      try {
+          const response = await axiosInstance.get('user/friends');
+          console.log("Friends:", response.data);
+          setFriends(response.data);  // Store in state
+      } catch (error) {
+          console.error("Error fetching friends:", error.response?.data || error.message);
+      }
+  };
+
+    fetchFriends();
     const fetchData = async () => {
       try {
         setIsLoading(true);
@@ -132,7 +149,7 @@ export default function CommunityPage() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Left Column - Achievements and Challenges */}
         <div className="space-y-6">
-          <motion.div
+          {/* <motion.div
             initial={{ x: -20, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             className="bg-white rounded-xl shadow-lg overflow-hidden"
@@ -170,9 +187,9 @@ export default function CommunityPage() {
                 ))}
               </div>
             </div>
-          </motion.div>
+          </motion.div> */}
 
-          <motion.div
+          {/* <motion.div
             initial={{ x: -20, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.1 }}
@@ -203,7 +220,7 @@ export default function CommunityPage() {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </motion.div> */}
         </div>
 
         {/* Middle Column - AR and Social Features */}
@@ -213,7 +230,7 @@ export default function CommunityPage() {
           transition={{ delay: 0.2 }}
           className="space-y-6"
         >
-          <div className="bg-white rounded-xl shadow-lg p-6">
+          {/* <div className="bg-white rounded-xl shadow-lg p-6">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-xl font-semibold text-gray-800">AR Navigation</h2>
               <button className="text-emerald-600 hover:text-emerald-700">
@@ -242,24 +259,24 @@ export default function CommunityPage() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <div className="bg-white rounded-xl shadow-lg p-6">
-            <h2 className="text-xl font-semibold text-gray-800 mb-4">Nearby Travelers</h2>
+            <h2 className="text-xl font-semibold text-gray-800 mb-4">Friends</h2>
             <div className="space-y-4">
-              {leaderboard.map(user => (
+              {friends?.map((user, index) => (
                 <div
-                  key={user.id}
+                  key={index}
                   className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
                 >
                   <div className="flex items-center gap-3">
                     <img
-                      src={user.avatar}
-                      alt={user.name}
+                      // src={user.avatar}
+                      // alt={user.name}
                       className="w-10 h-10 rounded-full object-cover"
                     />
                     <div>
-                      <h3 className="font-medium text-gray-800">{user.name}</h3>
+                      <h3 className="font-medium text-gray-800">{user}</h3>
                       <div className="flex items-center text-sm text-gray-600">
                         <MapPin className="w-4 h-4 mr-1" />
                         <span>0.5 km away</span>

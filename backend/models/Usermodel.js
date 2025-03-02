@@ -20,7 +20,8 @@ const UserSchema = new mongoose.Schema({
     count:{type:Number , default:1},
   }],
   trips:[{type:mongoose.Schema.Types.ObjectId, ref: 'Trips'}],
-  friends:[],
+  // friends:[],
+  friends: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
   calenderEvents:[],
   transactions:[{
     receiver:String,
